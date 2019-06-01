@@ -25,11 +25,12 @@
 		-->
 		<link rel="stylesheet" href="../app/highlightjs/default.min.css">
         <script src="../app/highlightjs/highlight.min.js"></script>
-	<link href=".././css/style.bundle.css" rel="stylesheet"><script type="text/javascript" src="../js/crossman.bundle.js"></script><script type="text/javascript" src="../js/boxman.bundle.js"></script><script type="text/javascript" src="../js/help.bundle.js"></script></head>
+	<link href=".././css/style.bundle.css" rel="stylesheet"><script type="text/javascript" src="../js/crossman.bundle.js"></script><script type="text/javascript" src="../js/boxman.bundle.js"></script><script type="text/javascript" src="../js/popman.bundle.js"></script><script type="text/javascript" src="../js/help.bundle.js"></script></head>
 
 
                               
 	<body class="boxman-1">
+
 
 		<!-- TEST -->
 		<!--
@@ -39,6 +40,7 @@
 		<div data-obj>test obj</div>
 		-->
 
+
         <!-- /////////////////////////
              Header
         ///////////////////////// -->
@@ -47,6 +49,7 @@
             </ul>
         </div>
 
+
         <!-- /////////////////////////
             Context
         ///////////////////////// -->
@@ -54,8 +57,10 @@
 
 			<!-- Menu -->
 			<div id="help-menu" class="help-menu">
-			    <ul id="help-menu-menulist" class="menu-type-b test" >
-			    </ul>
+			    <div id="help-menu-context" style="width:100%; height:100%; background:#ffffff;">
+                    <ul id="help-menu-menulist" class="menu-type-b test" >
+                    </ul>
+			    </div>
 			</div>
 
 			<!-- View -->
@@ -157,11 +162,28 @@
       &lt;div data-box id=&quot;box&quot;&gt;BOX A&lt;/div&gt;
       &lt;div data-box&gt;BOX B&lt;/div&gt;
       &lt;div data-box&gt;
-          BOX B
+          BOX C
           &lt;div data-obj&gt;OBJ A&lt;/div&gt;
       &lt;/div&gt;
   &lt;/body&gt;
 </div>
+<p>  <div class="lang-html">  &lt;script&gt;
+      boxman.setup({modeOnlyBoxToBox: false, defaultBox: document.body, modeDefaultAbsolute:true}).detect();     
+  &lt;/script&gt;
+
+  &lt;body&gt;
+      &lt;div data-box id=&quot;box&quot;&gt;BOX A&lt;/div&gt;
+      &lt;div data-box&gt;BOX B&lt;/div&gt;
+      &lt;div data-box&gt;
+          BOX C
+          &lt;div data-obj&gt;OBJ A&lt;/div&gt;
+      &lt;/div&gt;
+  &lt;/body&gt;
+</div>
+<ul>
+<li><code>defaultBox</code>: modeOnlyBoxToBox가 false일 때, 이 옵션값에 따라 원하는 Element로 설정할 수 있다. (Default: <code>document.body</code>)</li>
+<li><code>modeDefaultAbsolute</code>: Style속성인 position의 값을 absolute로 할 것인지를 설정한다.  (Default: <code>true</code>)</li>
+</ul>
 </li>
 </ul>
 <h2 id="moderemoveoutofbox">modeRemoveOutOfBox</h2>
@@ -186,6 +208,15 @@
 
 		</div>
 
+
+        <!-- /////////////////////////
+            MINI-MENU
+        ///////////////////////// -->
+        <div id="mini-menu-button" style="position:fixed; top:50px; left:3px;">
+            <button style="width:40px; height:40px; opacity:0.85; font-weight:bold;">...</button>
+        </div>
+
+
         <!-- /////////////////////////
             Footer
         ///////////////////////// -->
@@ -193,5 +224,7 @@
         </div>
 
 	</body>
-	
+
+
+
 </HTML>
