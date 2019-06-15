@@ -200,27 +200,28 @@ PopMan.prototype.add = function(element){
         element.setAttribute('data-pop', '');
 
     //ElEMENT 속성만 있고 값은 명시안할 경우 자동 명시
-        if (element.getAttribute('data-closebyclickin') != null && element.getAttribute('data-closebyclickin') != undefined && element.getAttribute('data-closebyclickin') == '')
+    if (element.getAttribute('data-closebyclickin') != null && element.getAttribute('data-closebyclickin') != undefined && element.getAttribute('data-closebyclickin') == '')
         element.setAttribute('data-closebyclickin', 'true');
     if (element.getAttribute('data-closebyclickout') != null && element.getAttribute('data-closebyclickout') != undefined && element.getAttribute('data-closebyclickout') == '')
         element.setAttribute('data-closebyclickout', 'true');
-    if (element.getAttribute('data-escclose') != null && element.getAttribute('data-escclose') != undefined && element.getAttribute('data-escclose') == '')
-        element.setAttribute('data-escclose', 'true');
+    if (element.getAttribute('data-closebyesc') != null && element.getAttribute('data-closebyesc') != undefined && element.getAttribute('data-closebyesc') == '')
+        element.setAttribute('data-closebyesc', 'true');
     if (element.getAttribute('data-enterok') != null && element.getAttribute('data-enterok') != undefined && element.getAttribute('data-enterok') == '')
         element.setAttribute('data-enterok', 'true');
+
     this.set(element, {
-        element:    element,
-        expx:       element.getAttribute('data-expx'),
-        expy:       element.getAttribute('data-expy'),
-        okbyenter:     getData(element.getAttribute('data-enterok')).parse(),
-        closebyesc:     getData(element.getAttribute('data-escclose')).parse(),
-        closebyclickout: getData(element.getAttribute('data-closebyclickout')).parse(),
-        closebyclickin: getData(element.getAttribute('data-closebyclickin')).parse(),
-        add: element.getAttribute('data-add'),
-        pop: element.getAttribute('data-pop'),
-        afterpop: element.getAttribute('data-afterpop'),
-        close: element.getAttribute('data-close'),
-        afterclose: element.getAttribute('data-afterclose'),
+        element:            element,
+        expx:               element.getAttribute('data-expx'),
+        expy:               element.getAttribute('data-expy'),
+        okbyenter:          getData(element.getAttribute('data-enterok')).parse(),
+        closebyesc:         getData(element.getAttribute('data-closebyesc')).parse(),
+        closebyclickout:    getData(element.getAttribute('data-closebyclickout')).parse(),
+        closebyclickin:     getData(element.getAttribute('data-closebyclickin')).parse(),
+        add:                element.getAttribute('data-add'),
+        pop:                element.getAttribute('data-pop'),
+        afterpop:           element.getAttribute('data-afterpop'),
+        close:              element.getAttribute('data-close'),
+        afterclose:         element.getAttribute('data-afterclose'),
     });
 };
 PopMan.prototype.new = function(infoObj){

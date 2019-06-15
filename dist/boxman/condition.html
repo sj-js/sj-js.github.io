@@ -25,7 +25,21 @@
 		-->
 		<link rel="stylesheet" href="../app/highlightjs/default.min.css">
         <script src="../app/highlightjs/highlight.min.js"></script>
-	<link href=".././css/style.bundle.css" rel="stylesheet"><script type="text/javascript" src="../js/crossman.bundle.js"></script><script type="text/javascript" src="../js/boxman.bundle.js"></script><script type="text/javascript" src="../js/popman.bundle.js"></script><script type="text/javascript" src="../js/help.bundle.js"></script></head>
+
+
+        <!-- //////////////////////////////////////////////////
+            ADSENSE 광고
+        //////////////////////////////////////////////////-->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({
+                  google_ad_client: "ca-pub-7259113564022979",
+                  enable_page_level_ads: true
+             });
+        </script>
+
+
+	<link href=".././css/style.bundle.css" rel="stylesheet"><script type="text/javascript" src="../js/help.bundle.js"></script></head>
 
 
                               
@@ -80,66 +94,103 @@
 </ul>
 <h2 id="addconditionwithbox-frombox-tobox-options-">addConditionWithBox(fromBox, toBox, options)</h2>
 <ul>
-<li><p>특정BOX에 특정<code>BOX</code>간의 조건을 설정할 수 있습니다.
+<li><p>특정 BOX에 특정<code>BOX</code>간의 조건을 설정할 수 있습니다.
   <div class="lang-html">  &lt;script&gt;
       var boxman = new BoxMan().detect(function(boxman){
-          boxman.addConditionWithBox(&#39;boxToHome&#39;, [&#39;result-dev-search-all&#39;, &#39;boxToShortcut*&#39;], {appendType:BoxMan.APPEND_TYPE_OVERWRITE});
-          boxman.addConditionWithBox(&#39;boxToShortcut*&#39;, [&#39;result-dev-search-all&#39;, &#39;boxToHome&#39;], {appendType:BoxMan.APPEND_TYPE_OVERWRITE});
-          boxman.addConditionWithBox(&#39;boxToShortcut*&#39;, &#39;boxToShortcut*&#39;, {appendType:BoxMan.APPEND_TYPE_SWAP});
-          boxman.addConditionWithBox(&#39;div-quiz-answer&#39;, &#39;div-quiz-selector&#39;, {appendType:BoxMan.APPEND_TYPE_OVERWRITE});
-      });     
+          boxman.addConditionWithBox(&#39;item-bag&#39;, [&#39;item-opt-*&#39;, &#39;item-bag&#39;], {appendType:BoxMan.APPEND_TYPE_LAST});
+          boxman.addConditionWithBox(&#39;item-opt-*&#39;, &#39;*&#39;, {appendType:BoxMan.APPEND_TYPE_SWAP});          
+          boxman.addConditionWithBox(&#39;clone-machine&#39;, &#39;*&#39;, {modeCopy:true});
+          boxman.addConditionWithBox(&#39;trash-bin&#39;, &#39;*&#39;, {appendType:BoxMan.APPEND_TYPE_INVISIBLE});
+          boxman.addEventListener(&#39;trash-bin&#39;, &#39;beforeboxin&#39;, function(event){
+              if (confirm(&#39;Do you want to delete?&#39;)){
+                  boxman.delObj(event.obj);
+                  return true;
+              }else{
+                  return false; 
+              }
+          });              
+      }); 
   &lt;/script&gt;
 
+  &lt;style&gt;
+      div[data-box] { width:50px; height:50px; display:inline-block; vertical-align:top; }
+      div[data-obj] { width:40px; height:40px; display:inline-block; vertical-align:top; }
+  &lt;/style&gt;
+
   &lt;body&gt;
-      &lt;div data-box data-limit=&quot;1&quot;&gt;Box A&lt;/div&gt;
-      &lt;div data-box data-limit=&quot;2&quot;&gt;Box B&lt;/div&gt;
-      &lt;div data-box&gt;Box C&lt;/div&gt;
-      &lt;div data-obj style=&quot;width:50px; height:30px;&quot;&gt;Obj A&lt;/div&gt;
-      &lt;div data-obj style=&quot;width:50px; height:30px;&quot;&gt;Obj B&lt;/div&gt;
-      &lt;div data-obj style=&quot;width:50px; height:30px;&quot;&gt;Obj C&lt;/div&gt;
+      &lt;div id=&quot;item-opt-1&quot; data-box data-limit=&quot;1&quot;&gt;&lt;/div&gt;
+      &lt;div id=&quot;item-opt-2&quot; data-box&gt;&lt;/div&gt;
+      &lt;div id=&quot;item-opt-3&quot; data-box&gt;&lt;/div&gt;
+      &lt;div id=&quot;item-opt-4&quot; data-box&gt;&lt;/div&gt;
+      &lt;div id=&quot;item-opt-5&quot; data-box&gt;&lt;/div&gt;
+      &lt;div id=&quot;clone-machine&quot; data-box data-limit=&quot;1&quot; style=&quot;background:#99ffaa;&quot;&gt;&lt;/div&gt;
+      &lt;div id=&quot;trash-bin&quot; data-box style=&quot;background:#ff99aa;&quot;&gt;&lt;/div&gt;
+      &lt;br/&gt;
+
+      &lt;div id=&quot;item-bag&quot; data-box style=&quot;width:300px; min-height:100px;&quot;&gt;
+          &lt;div data-obj&gt;A&lt;/div&gt;
+          &lt;div data-obj&gt;B&lt;/div&gt;
+          &lt;div data-obj&gt;C&lt;/div&gt;
+          &lt;div data-obj&gt;D&lt;/div&gt;
+          &lt;div data-obj&gt;E&lt;/div&gt;
+          &lt;div data-obj&gt;F&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;button onclick=&quot;boxman.newObj({parent:&#39;item-bag&#39;})&quot;&gt;NEW&lt;/button&gt;
   &lt;/body&gt;
 </div>
 </li>
 </ul>
 <h2 id="addconditionwithobj-frombox-tobox-options-">addConditionWithObj(fromBox, toBox, options)</h2>
 <ul>
-<li><p>특정BOX에 특정<code>OBJ</code>와의 조건을 설정할 수 있습니다.
-  <div class="lang-html">  &lt;script&gt;
-      var boxman = new BoxMan().detect(function(boxman){
-          boxman.addConditionWithBox(&#39;boxToHome&#39;, [&#39;result-dev-search-all&#39;, &#39;boxToShortcut*&#39;], {appendType:BoxMan.APPEND_TYPE_OVERWRITE});
-          boxman.addConditionWithBox(&#39;boxToShortcut*&#39;, [&#39;result-dev-search-all&#39;, &#39;boxToHome&#39;], {appendType:BoxMan.APPEND_TYPE_OVERWRITE});
-          boxman.addConditionWithBox(&#39;boxToShortcut*&#39;, &#39;boxToShortcut*&#39;, {appendType:BoxMan.APPEND_TYPE_SWAP});
-          boxman.addConditionWithBox(&#39;div-quiz-answer&#39;, &#39;div-quiz-selector&#39;, {appendType:BoxMan.APPEND_TYPE_OVERWRITE});
-      });     
-  &lt;/script&gt;
+<li><p>특정 BOX에 특정<code>OBJ</code>와의 조건을 설정할 수 있습니다.
+  <div class="lang-html">&lt;script&gt;
+    var boxman = new BoxMan().detect(function(boxman){              
+        boxman.addConditionWithObj(&#39;*ox*&#39;, &#39;item-b&#39;, {appendType:BoxMan.APPEND_TYPE_SWAP});            
+        boxman.addConditionWithObj(&#39;b*&#39;, &#39;item-c&#39;, {modeCopy:true});
+        boxman.addConditionWithObj(&#39;bo*&#39;, &#39;item-d&#39;, {appendType:BoxMan.APPEND_TYPE_OVERWRITE});
+    });     
+&lt;/script&gt;
 
-  &lt;body&gt;
-      &lt;div data-box data-limit=&quot;1&quot;&gt;Box A&lt;/div&gt;
-      &lt;div data-box data-limit=&quot;2&quot;&gt;Box B&lt;/div&gt;
-      &lt;div data-box&gt;Box C&lt;/div&gt;
-      &lt;div data-obj style=&quot;width:50px; height:30px;&quot;&gt;Obj A&lt;/div&gt;
-      &lt;div data-obj style=&quot;width:50px; height:30px;&quot;&gt;Obj B&lt;/div&gt;
-      &lt;div data-obj style=&quot;width:50px; height:30px;&quot;&gt;Obj C&lt;/div&gt;
-  &lt;/body&gt;
+&lt;style&gt;
+  div[data-box] { display:inline-block; vertical-align:top; min-height:150px; } 
+&lt;/style&gt;
+
+&lt;body&gt;
+    &lt;div id=&quot;box-a&quot; data-box data-limit=&quot;1&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;box-b&quot; data-box data-limit=&quot;2&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;box-c&quot; data-box&gt;
+        &lt;div id=&quot;item-a&quot; data-obj&gt;NORMAL&lt;/div&gt;
+        &lt;div id=&quot;item-b&quot; data-obj&gt;SWAPER&lt;/div&gt;
+        &lt;div id=&quot;item-c&quot; data-obj&gt;COPIER&lt;/div&gt;  
+        &lt;div id=&quot;item-d&quot; data-obj&gt;OVERWRITER&lt;/div&gt;            
+    &lt;/div&gt;        
+    &lt;button onclick=&quot;boxman.newObj({parent:&#39;box-c&#39;})&quot;&gt;NEW&lt;/button&gt;
+&lt;/body&gt;
 </div>
 </li>
 </ul>
 <h2 id="setboxmode-box-mode-">setBoxMode(box, mode)</h2>
 <ul>
-<li><p>특정BOX에 특정<code>OBJ</code>와의 조건을 설정할 수 있습니다.
+<li><p>특정 BOX에게만 <code>특정설정</code>을 할 수 있습니다. 
   <div class="lang-html">  &lt;script&gt;
       var boxman = new BoxMan().detect(function(boxman){
-          boxman.setBoxMode(&#39;result-dev-search-*&#39;, {modeRemoveOutOfBox:false, modeCopy:true});
+          boxman.setBoxMode(&#39;box-a&#39;, {modeCopy: true});
+          boxman.setBoxMode(&#39;box-b&#39;, {modeRemoveOutOfBox: true});
+          boxman.setBoxMode(&#39;box-c&#39;, {appendType: BoxMan.APPEND_TYPE_BETWEEN});
       });     
   &lt;/script&gt;
 
   &lt;body&gt;
-      &lt;div data-box data-limit=&quot;1&quot;&gt;Box A&lt;/div&gt;
-      &lt;div data-box data-limit=&quot;2&quot;&gt;Box B&lt;/div&gt;
-      &lt;div data-box&gt;Box C&lt;/div&gt;
-      &lt;div data-obj style=&quot;width:50px; height:30px;&quot;&gt;Obj A&lt;/div&gt;
-      &lt;div data-obj style=&quot;width:50px; height:30px;&quot;&gt;Obj B&lt;/div&gt;
-      &lt;div data-obj style=&quot;width:50px; height:30px;&quot;&gt;Obj C&lt;/div&gt;
+      &lt;div id=&quot;box-a&quot; data-box&gt;&lt;/div&gt;
+      &lt;div id=&quot;box-b&quot; data-box&gt;&lt;/div&gt;
+      &lt;div id=&quot;box-c&quot; data-box&gt;
+          &lt;div id=&quot;item-a&quot; data-obj&gt;A&lt;/div&gt;
+          &lt;div id=&quot;item-b&quot; data-obj&gt;B&lt;/div&gt;
+          &lt;div id=&quot;item-c&quot; data-obj&gt;C&lt;/div&gt;  
+          &lt;div id=&quot;item-d&quot; data-obj&gt;D&lt;/div&gt;            
+      &lt;/div&gt;        
+      &lt;button onclick=&quot;boxman.newObj({parent:&#39;box-c&#39;})&quot;&gt;NEW&lt;/button&gt;
   &lt;/body&gt;
 </div>
 </li>

@@ -76,7 +76,9 @@ window.getEl = function(id){
     else
         el = document;
 
-    // var el = (typeof id == 'object') ? id : querySelectorAll(id);    
+    // var el = (typeof id == 'object') ? id : querySelectorAll(id);
+    if (!this) //TODO: 오잉? this가 없을때가 있네? 근데 window.getEl()로 호출 다시 해주니까 되네??
+        return window.getEl(id);
     this.obj = el;
 
 
@@ -111,6 +113,10 @@ window.getEl = function(id){
             return this;
         }
         return el.value;
+    };
+    this.check = function(flag){
+        el.checked = flag;
+        return this;
     };
     this.clear = function(){
         el.innerHTML = '';
@@ -259,6 +265,10 @@ window.getEl = function(id){
             });
         /* IE8 */
         }else{
+            if (!el.attachEvent){
+                //No attachEvent
+                return this;
+            }
             try{
                 el.attachEvent('on'+eventNm, function(event){
                     if (!event.target && event.srcElement) event.target = event.srcElement;
@@ -295,14 +305,16 @@ window.getEl = function(id){
                 // Mozilla, Opera, Webkit
                 if (document.addEventListener){
                     document.addEventListener("DOMContentLoaded", function(){
-                        document.removeEventListener("DOMContentLoaded", arguments.callee, false);
+                        //TODO: 이게 왜 언제 어떻게 어째서??? 이것떔시 resize 이벤트가 안되고 막 그랬던듯??
+                        // document.removeEventListener("DOMContentLoaded", arguments.callee, false);
                         afterLoadFunc();
                     }, false);
                     // Internet Explorer
                 }else if (document.attachEvent){
                     document.attachEvent("onreadystatechange", function(){
                         if (document.readyState === "complete"){
-                            document.detachEvent("onreadystatechange", arguments.callee);
+                            //TODO: 이게 왜 언제 어떻게 어째서??? 이것떔시 resize 이벤트가 안되고 막 그랬던듯??
+                            // document.detachEvent("onreadystatechange", arguments.callee);
                             afterLoadFunc();
                         }
                     });
@@ -746,7 +758,7 @@ window.getData = function(obj){
                 }else if (startStr == '[' && endStr == ']'){
                     return JSON.parse(obj);
 
-                }else if (obj.indexOf(',') != -1 || obj.trim().indexOf(' ')){
+                }else if (obj.indexOf(',') != -1 || obj.trim().indexOf(' ') != -1){
                     var list = obj.split(/[\s,]+/);
                     for (var i = 0; i < list.length; i++) {
                         list[i] = list[i].trim();
@@ -834,7 +846,6 @@ SjEvent.prototype.addEventListener = function(element, eventName, eventFunc){
         }else if (typeof element == 'string' && element != ''){
             elementId = element
         }
-        console.log('EVENT ADDITION: ', elementId, eventName);
         //Add Object Event
         if (hasEventName && hasEventFunc){
             if (!this.objectEventMap[elementId])
@@ -1065,7 +1076,6 @@ SjEvent.prototype.removeEventFunc = function(eventMap, eventFunc){
  *
  *************************/
 SjEvent.prototype.execEventListener = function(element, eventName, event){
-    console.log('///// Execute Event', element.id, eventName);
     var resultForGlobal;
     var resultForObject;
     //Exec Global Event

@@ -25,7 +25,21 @@
 		-->
 		<link rel="stylesheet" href="../app/highlightjs/default.min.css">
         <script src="../app/highlightjs/highlight.min.js"></script>
-	<link href=".././css/style.bundle.css" rel="stylesheet"><script type="text/javascript" src="../js/crossman.bundle.js"></script><script type="text/javascript" src="../js/boxman.bundle.js"></script><script type="text/javascript" src="../js/popman.bundle.js"></script><script type="text/javascript" src="../js/help.bundle.js"></script></head>
+
+
+        <!-- //////////////////////////////////////////////////
+            ADSENSE 광고
+        //////////////////////////////////////////////////-->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({
+                  google_ad_client: "ca-pub-7259113564022979",
+                  enable_page_level_ads: true
+             });
+        </script>
+
+
+	<link href=".././css/style.bundle.css" rel="stylesheet"><script type="text/javascript" src="../js/help.bundle.js"></script></head>
 
 
                               
@@ -113,16 +127,35 @@
 <ul>
 <li><p>박스에 들어갈 수 있는 객체의 수를 제한 할 수 있습니다.
   <div class="lang-html">  &lt;script&gt;
+      var boxman = new BoxMan().detect(function(boxman){
+          boxman.newBox({id:&#39;boxA&#39;, content:&#39;Box A&#39;, limit:1});
+          boxman.newBox({id:&#39;boxB&#39;, content:&#39;Box B&#39;, limit:2});
+          boxman.newBox({id:&#39;boxC&#39;, content:&#39;Box C&#39;});
+          boxman.newBox({id:&#39;boxD&#39;, content:&#39;Box D&#39;});
+
+          boxman.newObj({id:&#39;objA&#39;, content:&#39;A&#39;});
+          boxman.newObj({id:&#39;objB&#39;, content:&#39;B&#39;});
+          boxman.newObj({id:&#39;objC&#39;, content:&#39;C&#39;});
+          boxman.newObj({id:&#39;objD&#39;, content:&#39;D&#39;});
+
+      });
+  &lt;/script&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+</div>
+<p>  <div class="lang-html">  &lt;script&gt;
       var boxman = new BoxMan().detect();     
   &lt;/script&gt;
   &lt;body&gt;
       &lt;div data-box data-limit=&quot;1&quot;&gt;Box A&lt;/div&gt;
       &lt;div data-box data-limit=&quot;2&quot;&gt;Box B&lt;/div&gt;
       &lt;div data-box&gt;Box C&lt;/div&gt;
+      &lt;div data-box&gt;Box D&lt;/div&gt;
 
-      &lt;div data-obj&gt;Obj A&lt;/div&gt;
-      &lt;div data-obj&gt;Obj B&lt;/div&gt;
-      &lt;div data-obj&gt;Obj C&lt;/div&gt;
+      &lt;div data-obj&gt;A&lt;/div&gt;
+      &lt;div data-obj&gt;B&lt;/div&gt;
+      &lt;div data-obj&gt;C&lt;/div&gt;
+      &lt;div data-obj&gt;D&lt;/div&gt;
   &lt;/body&gt;
 </div>
 </li>
@@ -131,17 +164,38 @@
 <ul>
 <li><p>특정 BOX로부터의 OBJ만 받아들입니다.
   <div class="lang-html">  &lt;script&gt;
+      var boxman = new BoxMan().detect(function(boxman){
+          boxman.newBox({id:&#39;boxA&#39;, content:&#39;Box A&#39;});
+          boxman.newBox({id:&#39;boxB&#39;, content:&#39;Box B&#39;});
+          boxman.newBox({id:&#39;boxC&#39;, content:&#39;Box C&#39;});
+          boxman.newBox({id:&#39;boxD&#39;, content:&#39;Box D&#39;});
+
+          boxman.newObj({id:&#39;objA&#39;, content:&#39;A&#39;});
+          boxman.newObj({id:&#39;objB&#39;, content:&#39;B&#39;});
+          boxman.newObj({id:&#39;objC&#39;, content:&#39;C&#39;});
+          boxman.newObj({id:&#39;objD&#39;, content:&#39;D&#39;});
+
+          boxman.addAcceptBox(&#39;boxA&#39;, [&#39;boxB&#39;, &#39;boxC&#39;]);
+          boxman.addAcceptBox(&#39;boxB&#39;, &#39;boxC&#39;);
+          boxman.addAcceptBox(&#39;boxC&#39;, &#39;boxD&#39;);
+      });
+  &lt;/script&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+</div>
+<p>  <div class="lang-html">  &lt;script&gt;
       var boxman = new BoxMan().detect();     
   &lt;/script&gt;
   &lt;body&gt;
-      &lt;div data-box id=&quot;boxA&quot; data-accept-box=&quot;boxB boxC&quot;&gt;Box A&lt;/div&gt;
-      &lt;div data-box id=&quot;boxB&quot; data-accept-box=&quot;boxC&quot;&gt;Box B&lt;/div&gt;
-      &lt;div data-box id=&quot;boxC&quot; data-accept-box=&quot;boxD&quot;&gt;Box C&lt;/div&gt;
-      &lt;div data-box id=&quot;boxD&quot; &gt;Box D&lt;/div&gt;
+      &lt;div id=&quot;boxA&quot; data-box data-accept-box=&quot;boxB boxC&quot;&gt;Box A&lt;/div&gt;
+      &lt;div id=&quot;boxB&quot; data-box data-accept-box=&quot;boxC&quot;&gt;Box B&lt;/div&gt;
+      &lt;div id=&quot;boxC&quot; data-box data-accept-box=&quot;boxD&quot;&gt;Box C&lt;/div&gt;
+      &lt;div id=&quot;boxD&quot; data-box &gt;Box D&lt;/div&gt;
 
-      &lt;div data-obj&gt;Obj A&lt;/div&gt;
-      &lt;div data-obj&gt;Obj B&lt;/div&gt;
-      &lt;div data-obj&gt;Obj C&lt;/div&gt;
+      &lt;div id=&quot;objA&quot; data-obj&gt;A&lt;/div&gt;
+      &lt;div id=&quot;objB&quot; data-obj&gt;B&lt;/div&gt;
+      &lt;div id=&quot;objC&quot; data-obj&gt;C&lt;/div&gt;
+      &lt;div id=&quot;objD&quot; data-obj&gt;D&lt;/div&gt;
   &lt;/body&gt;
 </div>
 </li>
@@ -150,18 +204,38 @@
 <ul>
 <li><p>특정 OBJ만 받아들입니다.
   <div class="lang-html">  &lt;script&gt;
+      var boxman = new BoxMan().detect(function(boxman){
+          boxman.newBox({id:&#39;boxA&#39;, content:&#39;Box A&#39;});
+          boxman.newBox({id:&#39;boxB&#39;, content:&#39;Box B&#39;});
+          boxman.newBox({id:&#39;boxC&#39;, content:&#39;Box C&#39;});
+          boxman.newBox({id:&#39;boxD&#39;, content:&#39;Box D&#39;});
+
+          boxman.newObj({id:&#39;objA&#39;, content:&#39;A&#39;});
+          boxman.newObj({id:&#39;objB&#39;, content:&#39;B&#39;});
+          boxman.newObj({id:&#39;objC&#39;, content:&#39;C&#39;});
+          boxman.newObj({id:&#39;objD&#39;, content:&#39;D&#39;});
+
+          boxman.addAcceptObj(&#39;boxA&#39;, [&#39;objA&#39;, &#39;objB&#39;]);
+          boxman.addAcceptObj(&#39;boxB&#39;, &#39;objC&#39;);
+          boxman.addAcceptObj(&#39;boxC&#39;, &#39;objD&#39;);
+      });
+  &lt;/script&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+</div>
+<p>  <div class="lang-html">  &lt;script&gt;
       var boxman = new BoxMan().detect();     
   &lt;/script&gt;
   &lt;body&gt;
-      &lt;div data-box id=&quot;boxA&quot; data-accept-obj=&quot;objA objB&quot;&gt;Box A&lt;/div&gt;
-      &lt;div data-box id=&quot;boxB&quot; data-accept-obj=&quot;objC&quot;&gt;Box B&lt;/div&gt;
-      &lt;div data-box id=&quot;boxC&quot; data-accept-obj=&quot;objD&quot;&gt;Box C&lt;/div&gt;
-      &lt;div data-box id=&quot;boxD&quot; &gt;Box D&lt;/div&gt;
+      &lt;div id=&quot;boxA&quot; data-box data-accept-obj=&quot;objA objB&quot;&gt;Box A&lt;/div&gt;
+      &lt;div id=&quot;boxB&quot; data-box data-accept-obj=&quot;objC&quot;&gt;Box B&lt;/div&gt;
+      &lt;div id=&quot;boxC&quot; data-box data-accept-obj=&quot;objD&quot;&gt;Box C&lt;/div&gt;
+      &lt;div id=&quot;boxD&quot; data-box&gt;Box D&lt;/div&gt;
 
-      &lt;div data-obj id=&quot;objA&quot;&gt;Obj A&lt;/div&gt;
-      &lt;div data-obj id=&quot;objB&quot;&gt;Obj B&lt;/div&gt;
-      &lt;div data-obj id=&quot;objC&quot;&gt;Obj C&lt;/div&gt;
-      &lt;div data-obj id=&quot;objD&quot;&gt;Obj D&lt;/div&gt;
+      &lt;div id=&quot;objA&quot; data-obj&gt;A&lt;/div&gt;
+      &lt;div id=&quot;objB&quot; data-obj&gt;B&lt;/div&gt;
+      &lt;div id=&quot;objC&quot; data-obj&gt;C&lt;/div&gt;
+      &lt;div id=&quot;objD&quot; data-obj&gt;D&lt;/div&gt;
   &lt;/body&gt;
 </div>
 </li>
@@ -170,17 +244,38 @@
 <ul>
 <li><p>특정 BOX로부터 들어오려는 OBJ를 거부합니다.
   <div class="lang-html">  &lt;script&gt;
+      var boxman = new BoxMan().detect(function(boxman){
+          boxman.newBox({id:&#39;boxA&#39;, content:&#39;Box A&#39;});
+          boxman.newBox({id:&#39;boxB&#39;, content:&#39;Box B&#39;});
+          boxman.newBox({id:&#39;boxC&#39;, content:&#39;Box C&#39;});
+          boxman.newBox({id:&#39;boxD&#39;, content:&#39;Box D&#39;});
+
+          boxman.newObj({id:&#39;objA&#39;, content:&#39;A&#39;});
+          boxman.newObj({id:&#39;objB&#39;, content:&#39;B&#39;});
+          boxman.newObj({id:&#39;objC&#39;, content:&#39;C&#39;});
+          boxman.newObj({id:&#39;objD&#39;, content:&#39;D&#39;});
+
+          boxman.addRejectBox(&#39;boxA&#39;, [&#39;boxB&#39;, &#39;boxC&#39;]);
+          boxman.addRejectBox(&#39;boxB&#39;, &#39;boxC&#39;);
+          boxman.addRejectBox(&#39;boxC&#39;, &#39;boxD&#39;);
+      });
+  &lt;/script&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+</div>
+<p>  <div class="lang-html">  &lt;script&gt;
       var boxman = new BoxMan().detect();     
   &lt;/script&gt;
   &lt;body&gt;
       &lt;div data-box id=&quot;boxA&quot; data-reject-box=&quot;boxB boxC&quot;&gt;Box A&lt;/div&gt;
       &lt;div data-box id=&quot;boxB&quot; data-reject-box=&quot;boxC&quot;&gt;Box B&lt;/div&gt;
       &lt;div data-box id=&quot;boxC&quot; data-reject-box=&quot;boxD&quot;&gt;Box C&lt;/div&gt;
-      &lt;div data-box id=&quot;boxD&quot; &gt;Box D&lt;/div&gt;
+      &lt;div data-box id=&quot;boxD&quot;&gt;Box D&lt;/div&gt;
 
-      &lt;div data-obj&gt;Obj A&lt;/div&gt;
-      &lt;div data-obj&gt;Obj B&lt;/div&gt;
-      &lt;div data-obj&gt;Obj C&lt;/div&gt;
+      &lt;div id=&quot;objA&quot; data-obj&gt;A&lt;/div&gt;
+      &lt;div id=&quot;objB&quot; data-obj&gt;B&lt;/div&gt;
+      &lt;div id=&quot;objC&quot; data-obj&gt;C&lt;/div&gt;
+      &lt;div id=&quot;objD&quot; data-obj&gt;D&lt;/div&gt;
   &lt;/body&gt;
 </div>
 </li>
@@ -189,18 +284,38 @@
 <ul>
 <li><p>특정 OBJ를 거부합니다.
   <div class="lang-html">  &lt;script&gt;
+      var boxman = new BoxMan().detect(function(boxman){
+          boxman.newBox({id:&#39;boxA&#39;, content:&#39;Box A&#39;});
+          boxman.newBox({id:&#39;boxB&#39;, content:&#39;Box B&#39;});
+          boxman.newBox({id:&#39;boxC&#39;, content:&#39;Box C&#39;});
+          boxman.newBox({id:&#39;boxD&#39;, content:&#39;Box D&#39;});
+
+          boxman.newObj({id:&#39;objA&#39;, content:&#39;A&#39;});
+          boxman.newObj({id:&#39;objB&#39;, content:&#39;B&#39;});
+          boxman.newObj({id:&#39;objC&#39;, content:&#39;C&#39;});
+          boxman.newObj({id:&#39;objD&#39;, content:&#39;D&#39;});
+
+          boxman.addRejectObj(&#39;boxA&#39;, [&#39;objA&#39;, &#39;objB&#39;]);
+          boxman.addRejectObj(&#39;boxB&#39;, &#39;objC&#39;);
+          boxman.addRejectObj(&#39;boxC&#39;, &#39;objD&#39;);
+      });
+  &lt;/script&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+</div>
+<p>  <div class="lang-html">  &lt;script&gt;
       var boxman = new BoxMan().detect();     
   &lt;/script&gt;
   &lt;body&gt;
       &lt;div data-box id=&quot;boxA&quot; data-reject-obj=&quot;objA objB&quot;&gt;Box A&lt;/div&gt;
       &lt;div data-box id=&quot;boxB&quot; data-reject-obj=&quot;objC&quot;&gt;Box B&lt;/div&gt;
       &lt;div data-box id=&quot;boxC&quot; data-reject-obj=&quot;objD&quot;&gt;Box C&lt;/div&gt;
-      &lt;div data-box id=&quot;boxD&quot; &gt;Box D&lt;/div&gt;
+      &lt;div data-box id=&quot;boxD&quot;&gt;Box D&lt;/div&gt;
 
-      &lt;div data-obj id=&quot;objA&quot;&gt;Obj A&lt;/div&gt;
-      &lt;div data-obj id=&quot;objB&quot;&gt;Obj B&lt;/div&gt;
-      &lt;div data-obj id=&quot;objC&quot;&gt;Obj C&lt;/div&gt;
-      &lt;div data-obj id=&quot;objD&quot;&gt;Obj D&lt;/div&gt;
+      &lt;div id=&quot;objA&quot; data-obj&gt;A&lt;/div&gt;
+      &lt;div id=&quot;objB&quot; data-obj&gt;B&lt;/div&gt;
+      &lt;div id=&quot;objC&quot; data-obj&gt;C&lt;/div&gt;
+      &lt;div id=&quot;objD&quot; data-obj&gt;D&lt;/div&gt;
   &lt;/body&gt;
 </div>
 </li>
