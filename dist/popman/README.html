@@ -104,8 +104,8 @@
 <h3 id="1-1-load-script">1-1. Load Script</h3>
 <ol>
 <li><p>스크립트 불러오기</p>
-<pre><code class="lang-html"> &lt;script src=&quot;https://rawgit.com/sj-js/crossman/master/dist/js/crossman.js&quot;&gt;&lt;/script&gt;
- &lt;script src=&quot;https://rawgit.com/sj-js/popman/master/dist/js/popman.js&quot;&gt;&lt;/script&gt;
+<pre><code class="lang-html"> &lt;script src=&quot;https://cdn.jsdelivr.net/gh/sj-js/crossman/dist/js/crossman.js&quot;&gt;&lt;/script&gt;
+ &lt;script src=&quot;https://cdn.jsdelivr.net/gh/sj-js/popman/dist/js/popman.js&quot;&gt;&lt;/script&gt;
  &lt;script&gt;
       var popman = new PopMan();
  &lt;/script&gt;
@@ -126,7 +126,7 @@
          name:&#39;dev1&#39;,
          expx:&#39;50%&#39;,
          expy:&#39;90%&#39;, 
-         easyclose:true,
+         closebyesc:true,
          content: &#39;This is contents. &lt;br/&gt;&lt;br/&gt;&#39;, 
          add:function(data){               
              document.getElementById(&#39;tester&#39;).innerHTML = &#39;When add&#39;;
