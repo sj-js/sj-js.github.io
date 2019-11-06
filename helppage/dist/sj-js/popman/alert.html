@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<HTML> 
+	<meta charset="utf-8" />	
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<meta name=apple-mobile-web-app-capable content=yes>
+	<meta name=mobile-web-app-capable content=yes>
+	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
+	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1">	
+
+    <meta name="libraryName" content="popman" />
+    <meta name="mdFileName" content="alert" />
+    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"variableman":{}}' />
+    <meta name="menuJson" content='{"PopMan":{"path":"popman/README.html","h2TextList":["0. Index","1. Getting Started"],"h2PathList":["popman/README.html#0-index","popman/README.html#1-getting-started"]},"new() and pop()":{"path":"popman/new_and_pop.html","h2TextList":["id / name","expx / expy","closeby..."],"h2PathList":["popman/new_and_pop.html#id-name","popman/new_and_pop.html#expx-expy","popman/new_and_pop.html#closeby-"]},"Event":{"path":"popman/event.html","h2TextList":["add","pop","close","afterPop","afterClose","beforefirstpop / afterlastpop","afterdetect"],"h2PathList":["popman/event.html#add","popman/event.html#pop","popman/event.html#close","popman/event.html#afterpop","popman/event.html#afterclose","popman/event.html#beforefirstpop-afterlastpop","popman/event.html#afterdetect"]},"alert()":{"path":"popman/alert.html","h2TextList":[],"h2PathList":[]},"confirm()":{"path":"popman/confirm.html","h2TextList":[],"h2PathList":[]},"loading()":{"path":"popman/loading.html","h2TextList":[],"h2PathList":[]},"Functions":{"path":"popman/functions.html","h2TextList":["isOn(ID or Name)","focusOn()"],"h2PathList":["popman/functions.html#ison-id-or-name-","popman/functions.html#focuson-"]},"Theme":{"path":"popman/theme.html","h2TextList":[],"h2PathList":[]},"Example":{"path":"popman/example.html","h2TextList":[],"h2PathList":[]}}' />
+    <meta name="menuOrderListJson" content='["PopMan","new() and pop()","Event","alert()","confirm()","loading()","Functions","Theme","Example"]' />
+    <meta name="saveJson" content='{"prefix":"<script src=\"../crossman/crossman.js\"></script>\n<script src=\"../popman/popman.js\"></script>\n<script>\n    var popman = new PopMan();\n</script>\n"}' />
+
+
+
+	<head>
+		<title>alert</title>
+		<!-- ★highlight.js -->
+		<!--
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+		-->
+		<link rel="stylesheet" href="../app/highlightjs/default.min.css">
+        <script src="../app/highlightjs/highlight.min.js"></script>
+
+
+        <!-- //////////////////////////////////////////////////
+            ADSENSE 광고
+        //////////////////////////////////////////////////-->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({
+                  google_ad_client: "ca-pub-7259113564022979",
+                  enable_page_level_ads: true
+             });
+        </script>
+
+
+	<link href=".././css/style.bundle.css" rel="stylesheet"><script type="text/javascript" src="../js/help.bundle.js"></script></head>
+
+
+                              
+	<body class="boxman-1">
+
+
+		<!-- TEST -->
+		<!--
+		<div data-box>test box</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		-->
+
+
+        <!-- /////////////////////////
+             Header
+        ///////////////////////// -->
+        <div id="help-header" class="help-header test">
+            <ul id="help-header-menulist" class="menu-type-a test">
+            </ul>
+        </div>
+
+
+        <!-- /////////////////////////
+            Context
+        ///////////////////////// -->
+		<div id="help-context" class="help-context">
+
+			<!-- Menu -->
+			<div id="help-menu" class="help-menu">
+			    <div id="help-menu-context" style="width:100%; height:100%; background:#ffffff;">
+                    <ul id="help-menu-menulist" class="menu-type-b test" >
+                    </ul>
+			    </div>
+			</div>
+
+			<!-- View -->
+			<div id="help-view" class="help-view markdown github">
+			    <h1 id="alert-">alert()</h1>
+<p>사용자에게 정보를 알립니다.</p>
+<p>
+<h3 id="alert-content-callback-">alert(content, callback)</h3>
+<ul>
+<li><p>알림내용과 alert후에 발생할 callback을 넣습니다. </p>
+<p>  <div class="lang-html">  &lt;body&gt;
+      Hello Popman&lt;br/&gt;
+      &lt;button onclick=&quot;alertSomething1();&quot;&gt;ALERT callback return true&lt;/button&gt;&lt;br/&gt;
+      &lt;button onclick=&quot;alertSomething2();&quot;&gt;ALERT callback return false&lt;/button&gt;&lt;br/&gt;        
+      &lt;button onclick=&quot;alertSomething3();&quot;&gt;ALERT non callback&lt;/button&gt;&lt;br/&gt;
+  &lt;/body&gt;
+
+  &lt;script&gt;
+      popman.setup({modeTest:true, alertExpx:&#39;300&#39;, alertExpy:&#39;150&#39;}); 
+
+      function alertSomething1(){
+          var promise = popman.alert(&#39;Hello. Have a nice time! &lt;br/&gt; callback return true&#39;, function(){ 
+              console.log(&#39; :) &#39;);
+              return true;
+          });         
+      }
+
+      function alertSomething2(){
+          var promise = popman.alert(&#39;Hello. Have a nice time! &lt;br/&gt; callback return false&#39;, function(){ 
+              console.log(&#39; :) &#39;);
+              return false;
+          });         
+      }
+
+      function alertSomething3(){
+          var promise = popman.alert(&#39;Hello. Have a nice time! &lt;br/&gt; non callback&#39;);         
+      }
+
+      alertSomething1();
+  &lt;/script&gt;
+</div>
+</li>
+</ul>
+
+			</div>
+
+		</div>
+
+
+        <!-- /////////////////////////
+            MINI-MENU
+        ///////////////////////// -->
+        <div id="mini-menu-button" style="position:fixed; top:50px; left:3px;">
+            <button style="width:40px; height:40px; opacity:0.85; font-weight:bold;">...</button>
+        </div>
+
+
+        <!-- /////////////////////////
+            Footer
+        ///////////////////////// -->
+        <div id="help-footer" class="help-footer">
+        </div>
+
+	</body>
+
+
+
+</HTML>

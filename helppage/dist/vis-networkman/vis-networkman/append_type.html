@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<HTML> 
+	<meta charset="utf-8" />	
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<meta name=apple-mobile-web-app-capable content=yes>
+	<meta name=mobile-web-app-capable content=yes>
+	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
+	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1">	
+
+    <meta name="libraryName" content="vis-networkman" />
+    <meta name="mdFileName" content="append_type" />
+    <meta name="headerMenuJson" content='{"vis-networkman":{}}' />
+    <meta name="menuJson" content='{"VIS Network Man":{"path":"vis-networkman/README.html","h2TextList":["0. Index","1. Getting Started"],"h2PathList":["vis-networkman/README.html#0-index","vis-networkman/README.html#1-getting-started"]},"Mode":{"path":"vis-networkman/mode.html","h2TextList":["modeTest","modeCopy","modeOnlyBoxToBox","modeRemoveOutOfBox"],"h2PathList":["vis-networkman/mode.html#modetest","vis-networkman/mode.html#modecopy","vis-networkman/mode.html#modeonlyboxtobox","vis-networkman/mode.html#moderemoveoutofbox"]},"Append Type":{"path":"vis-networkman/append_type.html","h2TextList":["BoxMan.APPEND_TYPE_LAST","BoxMan.APPEND_TYPE_FIRST","BoxMan.APPEND_TYPE_BETWEEN","BoxMan.APPEND_TYPE_OVERWRITE","BoxMan.APPEND_TYPE_SWAP","BoxMan.APPEND_TYPE_INVISIBLE"],"h2PathList":["vis-networkman/append_type.html#boxman-append_type_last","vis-networkman/append_type.html#boxman-append_type_first","vis-networkman/append_type.html#boxman-append_type_between","vis-networkman/append_type.html#boxman-append_type_overwrite","vis-networkman/append_type.html#boxman-append_type_swap","vis-networkman/append_type.html#boxman-append_type_invisible"]},"Limit, Accept, Reject":{"path":"vis-networkman/limit_accept_reject.html","h2TextList":["limit","acceptbox","acceptobj","rejectbox","rejectobj"],"h2PathList":["vis-networkman/limit_accept_reject.html#limit","vis-networkman/limit_accept_reject.html#acceptbox","vis-networkman/limit_accept_reject.html#acceptobj","vis-networkman/limit_accept_reject.html#rejectbox","vis-networkman/limit_accept_reject.html#rejectobj"]},"Condition":{"path":"vis-networkman/condition.html","h2TextList":["addConditionWithBox(fromBox, toBox, options)","addConditionWithObj(fromBox, toBox, options)","setBoxMode(box, mode)"],"h2PathList":["vis-networkman/condition.html#addconditionwithbox-frombox-tobox-options-","vis-networkman/condition.html#addconditionwithobj-frombox-tobox-options-","vis-networkman/condition.html#setboxmode-box-mode-"]},"Event":{"path":"vis-networkman/event.html","h2TextList":["start","boxin","boxout","boxinout","beforeboxin","mustdo","external","afterdetect","swappedin","swappedout"],"h2PathList":["vis-networkman/event.html#start","vis-networkman/event.html#boxin","vis-networkman/event.html#boxout","vis-networkman/event.html#boxinout","vis-networkman/event.html#beforeboxin","vis-networkman/event.html#mustdo","vis-networkman/event.html#external","vis-networkman/event.html#afterdetect","vis-networkman/event.html#swappedin","vis-networkman/event.html#swappedout"]},"Functions":{"path":"vis-networkman/functions.html","h2TextList":["clearBox(box)","ready","delObj(obj)","delBox(box)","getBox(box)","getObj(obj)","getExBox(exbox)","getObjListByBox(box)","getObjsByBox(box)"],"h2PathList":["vis-networkman/functions.html#clearbox-box-","vis-networkman/functions.html#ready","vis-networkman/functions.html#delobj-obj-","vis-networkman/functions.html#delbox-box-","vis-networkman/functions.html#getbox-box-","vis-networkman/functions.html#getobj-obj-","vis-networkman/functions.html#getexbox-exbox-","vis-networkman/functions.html#getobjlistbybox-box-","vis-networkman/functions.html#getobjsbybox-box-"]},"Theme":{"path":"vis-networkman/theme.html","h2TextList":[],"h2PathList":[]},"Example":{"path":"vis-networkman/example.html","h2TextList":[],"h2PathList":[]}}' />
+    <meta name="menuOrderListJson" content='["VIS Network Man","Mode","Append Type","Limit, Accept, Reject","Condition","Event","Functions","Theme","Example"]' />
+    <meta name="saveJson" content='{"prefix":"  <link rel=\"stylesheet\" href=\"../boxman/boxman.css\">\n  <script src=\"../crossman/crossman.js\"></script>\n  <script src=\"../boxman/boxman.js\"></script>\n  <script>\n      var boxman = new BoxMan();\n  </script>\n\n  <style>\n      div[data-box] {width:200px; min-height:30px;}\n      div[data-obj] {width:50px; height:30px;}\n  </style>\n"}' />
+
+
+
+	<head>
+		<title>append_type</title>
+		<!-- ★highlight.js -->
+		<!--
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+		-->
+		<link rel="stylesheet" href="../app/highlightjs/default.min.css">
+        <script src="../app/highlightjs/highlight.min.js"></script>
+
+
+        <!-- //////////////////////////////////////////////////
+            ADSENSE 광고
+        //////////////////////////////////////////////////-->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({
+                  google_ad_client: "ca-pub-7259113564022979",
+                  enable_page_level_ads: true
+             });
+        </script>
+
+
+	<link href=".././css/style.bundle.css" rel="stylesheet"><script type="text/javascript" src="../js/help.bundle.js"></script></head>
+
+
+                              
+	<body class="boxman-1">
+
+
+		<!-- TEST -->
+		<!--
+		<div data-box>test box</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		-->
+
+
+        <!-- /////////////////////////
+             Header
+        ///////////////////////// -->
+        <div id="help-header" class="help-header test">
+            <ul id="help-header-menulist" class="menu-type-a test">
+            </ul>
+        </div>
+
+
+        <!-- /////////////////////////
+            Context
+        ///////////////////////// -->
+		<div id="help-context" class="help-context">
+
+			<!-- Menu -->
+			<div id="help-menu" class="help-menu">
+			    <div id="help-menu-context" style="width:100%; height:100%; background:#ffffff;">
+                    <ul id="help-menu-menulist" class="menu-type-b test" >
+                    </ul>
+			    </div>
+			</div>
+
+			<!-- View -->
+			<div id="help-view" class="help-view markdown github">
+			    <h1 id="append-type">Append Type</h1>
+<p>OBJ의 <code>이동방식</code>을 설정합니다.</p>
+<h4 id="-">※ 표</h4>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>특징 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BoxMan.APPEND_TYPE_LAST</strong></td>
+<td>(기본 설정) 가장 마지막 노드로 위치합니다. </td>
+</tr>
+<tr>
+<td>BoxMan.APPEND_TYPE_FIRST</td>
+<td>가장 첫번째 노드로 위치합니다.</td>
+</tr>
+<tr>
+<td>BoxMan.APPEND_TYPE_BETWEEN</td>
+<td>노드와 노드 사이에 위차합니다. </td>
+</tr>
+<tr>
+<td>BoxMan.APPEND_TYPE_OVERWRITE</td>
+<td>박스안에 있는 기존의 노드들을 전부 제거하고</td>
+</tr>
+<tr>
+<td>BoxMan.APPEND_TYPE_SWAP</td>
+<td>이전 박스와 노드를 교환합니다.</td>
+</tr>
+<tr>
+<td>BoxMan.APPEND_TYPE_INVISIBLE</td>
+<td>옴겨지지 않고 노드를 바로 제거합니다.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">※ 자동적용</h4>
+<ul>
+<li><p>편의를 위해서 예제에서는 다음 코드가 생략되어 있습니다.</p>
+<pre><code class="lang-html">  &lt;style&gt;
+      div[data-box] {width:200px; min-height:30px;}
+      div[data-obj] {width:50px; height:30px;}
+  &lt;/style&gt;
+</code></pre>
+<p>  
+</li>
+</ul>
+<h2 id="boxman-append_type_last">BoxMan.APPEND_TYPE_LAST</h2>
+<ul>
+<li><p>BOX안 OBJ중 가장 뒤쪽에 이동시킵니다.
+  <div class="lang-html">  &lt;script&gt;
+    var boxman = new BoxMan({appendType:BoxMan.APPEND_TYPE_LAST}).detect();     
+  &lt;/script&gt;
+
+  &lt;body&gt;
+  &lt;div data-box&gt;Box A&lt;/div&gt;
+  &lt;div data-box&gt;Box B&lt;/div&gt;
+  &lt;div data-box&gt;Box C&lt;/div&gt;
+
+  &lt;div data-obj style=&quot;width:50px; height:30px;&quot;&gt;Obj A&lt;/div&gt;
+  &lt;div data-obj style=&quot;width:50px; height:30px;&quot;&gt;Obj B&lt;/div&gt;
+  &lt;div data-obj style=&quot;width:50px; height:30px;&quot;&gt;Obj C&lt;/div&gt;
+  &lt;/body&gt;
+</div>
+</li>
+</ul>
+<h2 id="boxman-append_type_first">BoxMan.APPEND_TYPE_FIRST</h2>
+<ul>
+<li><p>BOX안 OBJ중 가장 앞으로 이동시킵니다.
+  <div class="lang-html">  &lt;script&gt;
+    var boxman = new BoxMan({appendType:BoxMan.APPEND_TYPE_FIRST}).detect();     
+  &lt;/script&gt;
+
+  &lt;body&gt;
+  &lt;div data-box&gt;Box A&lt;/div&gt;
+  &lt;div data-box&gt;Box B&lt;/div&gt;
+  &lt;div data-box&gt;Box C&lt;/div&gt;
+
+  &lt;div data-obj&gt;Obj A&lt;/div&gt;
+  &lt;div data-obj&gt;Obj B&lt;/div&gt;
+  &lt;div data-obj&gt;Obj C&lt;/div&gt;
+  &lt;/body&gt;
+</div>
+</li>
+</ul>
+<h2 id="boxman-append_type_between">BoxMan.APPEND_TYPE_BETWEEN</h2>
+<ul>
+<li><p>현재 마우스포인터가 위치한 OBJ의 위치에 끼어듭니다.
+  <div class="lang-html">  &lt;script&gt;
+    var boxman = new BoxMan({appendType:BoxMan.APPEND_TYPE_BETWEEN}).detect();     
+  &lt;/script&gt;
+
+  &lt;body&gt;
+  &lt;div data-box&gt;Box A&lt;/div&gt;
+  &lt;div data-box&gt;Box B&lt;/div&gt;
+  &lt;div data-box&gt;Box C&lt;/div&gt;
+
+  &lt;div data-obj&gt;Obj A&lt;/div&gt;
+  &lt;div data-obj&gt;Obj B&lt;/div&gt;
+  &lt;div data-obj&gt;Obj C&lt;/div&gt;
+  &lt;/body&gt;
+</div>
+</li>
+</ul>
+<h2 id="boxman-append_type_overwrite">BoxMan.APPEND_TYPE_OVERWRITE</h2>
+<ul>
+<li><p>BOX안 기존 OBJ를 지우고 이동시킵니다.
+  <div class="lang-html">  &lt;script&gt;
+    var boxman = new BoxMan({appendType:BoxMan.APPEND_TYPE_OVERWRITE}).detect();     
+  &lt;/script&gt;
+
+  &lt;body&gt;
+  &lt;div data-box&gt;Box A&lt;/div&gt;
+  &lt;div data-box&gt;Box B&lt;/div&gt;
+  &lt;div data-box&gt;Box C&lt;/div&gt;
+
+  &lt;div data-obj&gt;Obj A&lt;/div&gt;
+  &lt;div data-obj&gt;Obj B&lt;/div&gt;
+  &lt;div data-obj&gt;Obj C&lt;/div&gt;
+  &lt;/body&gt;
+</div>
+</li>
+</ul>
+<h2 id="boxman-append_type_swap">BoxMan.APPEND_TYPE_SWAP</h2>
+<ul>
+<li><p>현재 OBJ가 들어가있는 BOX와 이동할 BOX의 OBJ를 맞바꿉니다. 
+  <div class="lang-html">  &lt;script&gt;
+    var boxman = new BoxMan({appendType:BoxMan.APPEND_TYPE_SWAP}).detect();     
+  &lt;/script&gt;
+
+  &lt;body&gt;
+  &lt;div data-box&gt;Box A&lt;/div&gt;
+  &lt;div data-box&gt;Box B&lt;/div&gt;
+  &lt;div data-box&gt;Box C&lt;/div&gt;
+
+  &lt;div data-obj&gt;Obj A&lt;/div&gt;
+  &lt;div data-obj&gt;Obj B&lt;/div&gt;
+  &lt;div data-obj&gt;Obj C&lt;/div&gt;
+  &lt;/body&gt;
+</div>
+</li>
+</ul>
+<h2 id="boxman-append_type_invisible">BoxMan.APPEND_TYPE_INVISIBLE</h2>
+<ul>
+<li><p>OBJ이동시 미리보기를 하지 않습니다.
+  <div class="lang-html">  &lt;script&gt;
+    var boxman = new BoxMan({appendType:BoxMan.APPEND_TYPE_INVISIBLE}).detect();     
+  &lt;/script&gt;
+
+  &lt;body&gt;
+  &lt;div data-box&gt;Box A&lt;/div&gt;
+  &lt;div data-box&gt;Box B&lt;/div&gt;
+  &lt;div data-box&gt;Box C&lt;/div&gt;
+
+  &lt;div data-obj&gt;Obj A&lt;/div&gt;
+  &lt;div data-obj&gt;Obj B&lt;/div&gt;
+  &lt;div data-obj&gt;Obj C&lt;/div&gt;
+  &lt;/body&gt;
+</div>
+</li>
+</ul>
+
+			</div>
+
+		</div>
+
+
+        <!-- /////////////////////////
+            MINI-MENU
+        ///////////////////////// -->
+        <div id="mini-menu-button" style="position:fixed; top:50px; left:3px;">
+            <button style="width:40px; height:40px; opacity:0.85; font-weight:bold;">...</button>
+        </div>
+
+
+        <!-- /////////////////////////
+            Footer
+        ///////////////////////// -->
+        <div id="help-footer" class="help-footer">
+        </div>
+
+	</body>
+
+
+
+</HTML>

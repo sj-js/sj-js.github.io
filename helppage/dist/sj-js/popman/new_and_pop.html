@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<HTML> 
+	<meta charset="utf-8" />	
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<meta name=apple-mobile-web-app-capable content=yes>
+	<meta name=mobile-web-app-capable content=yes>
+	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
+	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1">	
+
+    <meta name="libraryName" content="popman" />
+    <meta name="mdFileName" content="new_and_pop" />
+    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"variableman":{}}' />
+    <meta name="menuJson" content='{"PopMan":{"path":"popman/README.html","h2TextList":["0. Index","1. Getting Started"],"h2PathList":["popman/README.html#0-index","popman/README.html#1-getting-started"]},"new() and pop()":{"path":"popman/new_and_pop.html","h2TextList":["id / name","expx / expy","closeby..."],"h2PathList":["popman/new_and_pop.html#id-name","popman/new_and_pop.html#expx-expy","popman/new_and_pop.html#closeby-"]},"Event":{"path":"popman/event.html","h2TextList":["add","pop","close","afterPop","afterClose","beforefirstpop / afterlastpop","afterdetect"],"h2PathList":["popman/event.html#add","popman/event.html#pop","popman/event.html#close","popman/event.html#afterpop","popman/event.html#afterclose","popman/event.html#beforefirstpop-afterlastpop","popman/event.html#afterdetect"]},"alert()":{"path":"popman/alert.html","h2TextList":[],"h2PathList":[]},"confirm()":{"path":"popman/confirm.html","h2TextList":[],"h2PathList":[]},"loading()":{"path":"popman/loading.html","h2TextList":[],"h2PathList":[]},"Functions":{"path":"popman/functions.html","h2TextList":["isOn(ID or Name)","focusOn()"],"h2PathList":["popman/functions.html#ison-id-or-name-","popman/functions.html#focuson-"]},"Theme":{"path":"popman/theme.html","h2TextList":[],"h2PathList":[]},"Example":{"path":"popman/example.html","h2TextList":[],"h2PathList":[]}}' />
+    <meta name="menuOrderListJson" content='["PopMan","new() and pop()","Event","alert()","confirm()","loading()","Functions","Theme","Example"]' />
+    <meta name="saveJson" content='{"prefix":"<script src=\"../crossman/crossman.js\"></script>\n<script src=\"../popman/popman.js\"></script>\n<script>\n    var popman = new PopMan();\n</script>\n"}' />
+
+
+
+	<head>
+		<title>new_and_pop</title>
+		<!-- ★highlight.js -->
+		<!--
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+		-->
+		<link rel="stylesheet" href="../app/highlightjs/default.min.css">
+        <script src="../app/highlightjs/highlight.min.js"></script>
+
+
+        <!-- //////////////////////////////////////////////////
+            ADSENSE 광고
+        //////////////////////////////////////////////////-->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({
+                  google_ad_client: "ca-pub-7259113564022979",
+                  enable_page_level_ads: true
+             });
+        </script>
+
+
+	<link href=".././css/style.bundle.css" rel="stylesheet"><script type="text/javascript" src="../js/help.bundle.js"></script></head>
+
+
+                              
+	<body class="boxman-1">
+
+
+		<!-- TEST -->
+		<!--
+		<div data-box>test box</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		-->
+
+
+        <!-- /////////////////////////
+             Header
+        ///////////////////////// -->
+        <div id="help-header" class="help-header test">
+            <ul id="help-header-menulist" class="menu-type-a test">
+            </ul>
+        </div>
+
+
+        <!-- /////////////////////////
+            Context
+        ///////////////////////// -->
+		<div id="help-context" class="help-context">
+
+			<!-- Menu -->
+			<div id="help-menu" class="help-menu">
+			    <div id="help-menu-context" style="width:100%; height:100%; background:#ffffff;">
+                    <ul id="help-menu-menulist" class="menu-type-b test" >
+                    </ul>
+			    </div>
+			</div>
+
+			<!-- View -->
+			<div id="help-view" class="help-view markdown github">
+			    <h1 id="new-and-pop-">new() and pop()</h1>
+<p>등록된 노드를 화면에 표시합니다.</p>
+<p>
+<ul>
+<li><p>new(Options)</p>
+<p>  미리 노드를 정의하여 등록합니다.</p>
+</li>
+</ul>
+<ul>
+<li><p>pop(ID or Element)</p>
+<p>  등록된 노드를 화면에 표시합니다.</p>
+</li>
+<li><p><code>new()</code>로 반환된 Element를 <code>pop()</code>에 인자로 넣으면, popup됩니다. 
+  <div class="lang-html">  &lt;body&gt;POPMAN TEST&lt;/body&gt;
+  &lt;script&gt;
+      popman.setup({modeTest:true});
+      //New
+      var newPopNode = popman.new({content: &#39;NOTICE&lt;br/&gt; Hello popman&#39;});
+      //Pop
+      popman.pop(newPopNode);
+  &lt;/script&gt;
+</div>
+</li>
+</ul>
+<h2 id="id-name">id / name</h2>
+<ul>
+<li><code>id</code> 또는 <code>name</code>을 지정하면 new로부터 반환받지 않아도 언제든 popup할 수 있습니다.<br>  <div class="lang-html">  &lt;body&gt;
+      POPMAN TEST&lt;br/&gt;
+      &lt;button onclick=&quot;popman.pop(&#39;poptest-id&#39;);&quot;&gt;POP-by-id&lt;/button&gt;&lt;br/&gt;
+      &lt;button onclick=&quot;popman.pop({name:&#39;poptest-name&#39;});&quot;&gt;POP-by-name&lt;/button&gt;
+  &lt;/body&gt;
+  &lt;script&gt;
+      popman.setup({modeTest:true});
+      var newPopNode = popman.new({
+          id: &#39;poptest-id&#39;,
+          name: &#39;poptest-name&#39;,
+          content: &#39;NOTICE&lt;br/&gt; Hello popman&#39;
+      });
+  &lt;/script&gt;
+</div>
+</li>
+</ul>
+<h2 id="expx-expy">expx / expy</h2>
+<ul>
+<li><p><code>expx</code>/<code>expy</code>: 노드의 크기와 위치를 특정표현식으로 정의합니다.
+  <div class="lang-html">  &lt;body&gt;
+      POPMAN TEST&lt;br/&gt;
+      &lt;button onclick=&quot;popman.pop(&#39;poptest&#39;);&quot;&gt;POP&lt;/button&gt;
+  &lt;/body&gt;
+  &lt;script&gt;
+      popman.setup({modeTest:true});
+      //Pop1
+      var newPopNode = popman.new({
+          id: &#39;poptest&#39;,
+          expx: 200, //100px
+          expy: 100, //100px
+          content: &#39;NOTICE&lt;br/&gt; Hello popman&#39;
+      });
+
+      //Pop2
+      var newPopNode2 = popman.new({
+          id: &#39;poptest2&#39;,
+          expx: 100,
+          expy: &#39;40%&#39;,
+          content: &#39;Hello again ~&#39;
+      });
+
+      var buttonToPop2 = document.createElement(&#39;button&#39;);
+      buttonToPop2.innerHTML = &#39;POP2&#39;;
+      buttonToPop2.onclick = function(){ popman.pop(&#39;poptest2&#39;); };
+      newPopNode.appendChild(buttonToPop2);  
+
+      popman.pop(&#39;poptest&#39;);
+  &lt;/script&gt;
+</div>
+<p>  <div class="lang-html">  &lt;body&gt;
+      POPMAN TEST&lt;br/&gt;
+      &lt;button onclick=&quot;popman.pop(&#39;poptest&#39;);&quot;&gt;POP&lt;/button&gt;
+  &lt;/body&gt;
+  &lt;script&gt;
+      popman.setup({modeTest:true});
+      var newPopNode = popman.new({
+          id: &#39;poptest&#39;,
+          expx: &#39;10(200)&#39;, //왼쪽 10px 띄고, 200px의 크기로 설정
+          expy: &#39;*(50%)10&#39;, //오른쪽 10px 띄고, 50%의 크기로 설정
+          content: &#39;NOTICE&lt;br/&gt; Hello popman&#39;
+      });
+      popman.pop(&#39;poptest&#39;);
+  &lt;/script&gt;
+</div>
+</li>
+</ul>
+<h2 id="closeby-">closeby...</h2>
+<ul>
+<li><p>쉽게 노드를 닫을 수 있도록 옵션을 설정할 수 있습니다.
+  <div class="lang-html">  &lt;body&gt;
+      POPMAN TEST&lt;br/&gt;
+      &lt;button onclick=&quot;popman.pop(&#39;poptest&#39;);&quot;&gt;POP&lt;/button&gt;
+  &lt;/body&gt;
+  &lt;script&gt;
+      popman.setup({modeTest:true});
+      var newPopNode = popman.new({
+          id: &#39;poptest&#39;,
+          expx: &#39;50%&#39;,
+          expy: &#39;50%&#39;,
+          closebyclickin: false,
+          closebyclickout: true,
+          closebyesc: true,
+          content: &#39;NOTICE&lt;br/&gt; Hello popman&#39;
+      });        
+      popman.pop(&#39;poptest&#39;);
+  &lt;/script&gt;
+</div>
+<ul>
+<li><code>closebyclickin</code>: 노드 안을 클릭하면 종료. true or false</li>
+<li><code>closebyclickout</code>: 노드 밖을 클릭하면 종료. true or false</li>
+<li><code>closebyesc</code>: <code>[ESC]</code>키를 누르면 종료. true or false</li>
+</ul>
+</li>
+</ul>
+
+			</div>
+
+		</div>
+
+
+        <!-- /////////////////////////
+            MINI-MENU
+        ///////////////////////// -->
+        <div id="mini-menu-button" style="position:fixed; top:50px; left:3px;">
+            <button style="width:40px; height:40px; opacity:0.85; font-weight:bold;">...</button>
+        </div>
+
+
+        <!-- /////////////////////////
+            Footer
+        ///////////////////////// -->
+        <div id="help-footer" class="help-footer">
+        </div>
+
+	</body>
+
+
+
+</HTML>
