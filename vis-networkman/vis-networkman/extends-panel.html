@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<HTML> 
+	<meta charset="utf-8" />	
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<meta name=apple-mobile-web-app-capable content=yes>
+	<meta name=mobile-web-app-capable content=yes>
+	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
+	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1">	
+
+    <meta name="libraryName" content="vis-networkman" />
+    <meta name="mdFileName" content="extends-panel" />
+    <meta name="headerMenuJson" content='{"vis-networkman":{}}' />
+    <meta name="menuJson" content='{"VIS Network Man":{"path":"vis-networkman/README.html","h2TextList":["0. Index","1. Getting Started","2. Functions","3. Extends Options"],"h2PathList":["vis-networkman/README.html#0-index","vis-networkman/README.html#1-getting-started","vis-networkman/README.html#2-functions","vis-networkman/README.html#3-extends-options"]},"Unification":{"path":"vis-networkman/unification.html","h2TextList":["modeCloneNodeWhenDuplicateLink","modeUniqueDataInSameGroup","modeUniqueData","modeOrderByGroup","orderList","modePruneNodeWithoutEdge","modePruneNodeNotToRootGroup"],"h2PathList":["vis-networkman/unification.html#modeclonenodewhenduplicatelink","vis-networkman/unification.html#modeuniquedatainsamegroup","vis-networkman/unification.html#modeuniquedata","vis-networkman/unification.html#modeorderbygroup","vis-networkman/unification.html#orderlist","vis-networkman/unification.html#modeprunenodewithoutedge","vis-networkman/unification.html#modeprunenodenottorootgroup"]},"Effect":{"path":"vis-networkman/effect.html","h2TextList":["modePointAllSubLink","modeSelectAllSubLink","nodeWhenStart","edgeWhenStart","nodeWhenPoint","edgeWhenPoint","nodeWhenSelect","edgeWhenSelect"],"h2PathList":["vis-networkman/effect.html#modepointallsublink","vis-networkman/effect.html#modeselectallsublink","vis-networkman/effect.html#nodewhenstart","vis-networkman/effect.html#edgewhenstart","vis-networkman/effect.html#nodewhenpoint","vis-networkman/effect.html#edgewhenpoint","vis-networkman/effect.html#nodewhenselect","vis-networkman/effect.html#edgewhenselect"]},"Extends Panel":{"path":"vis-networkman/extends-panel.html","h2TextList":["modeExtendsPanel","modeExtendsPanelAutoHide","modeExtendsPanelSaveToLocalStorage","extendsPanelToggleDefaultIndexMap","extendsPanelShowItemList","extendsPanelHideItemList"],"h2PathList":["vis-networkman/extends-panel.html#modeextendspanel","vis-networkman/extends-panel.html#modeextendspanelautohide","vis-networkman/extends-panel.html#modeextendspanelsavetolocalstorage","vis-networkman/extends-panel.html#extendspaneltoggledefaultindexmap","vis-networkman/extends-panel.html#extendspanelshowitemlist","vis-networkman/extends-panel.html#extendspanelhideitemlist"]},"ETC":{"path":"vis-networkman/etc.html","h2TextList":["container","maxDistanceWhenDragNode","maxChildNodeCount"],"h2PathList":["vis-networkman/etc.html#container","vis-networkman/etc.html#maxdistancewhendragnode","vis-networkman/etc.html#maxchildnodecount"]},"Event":{"path":"vis-networkman/event.html","h2TextList":["funcEventSetupNode","funcEventSetupEdge","funcEventAfterRender","funcEventClickNode","funcEventDoubleClickNode","funcEventDragNodeOverDistance","funcForCustomExtendsPanel"],"h2PathList":["vis-networkman/event.html#funceventsetupnode","vis-networkman/event.html#funceventsetupedge","vis-networkman/event.html#funceventafterrender","vis-networkman/event.html#funceventclicknode","vis-networkman/event.html#funceventdoubleclicknode","vis-networkman/event.html#funceventdragnodeoverdistance","vis-networkman/event.html#funcforcustomextendspanel"]},"Example":{"path":"vis-networkman/example.html","h2TextList":["편의상 생략된 코드","Simple","Pointing and Selecting","Event","Extends Panel"],"h2PathList":["vis-networkman/example.html#-","vis-networkman/example.html#simple","vis-networkman/example.html#pointing-and-selecting","vis-networkman/example.html#event","vis-networkman/example.html#extends-panel"]}}' />
+    <meta name="menuOrderListJson" content='["VIS Network Man","Unification","Effect","Extends Panel","ETC","Event","Example"]' />
+    <meta name="saveJson" content='{"prefix":"  <link rel=\"stylesheet\" href=\"../boxman/boxman.css\">\n  <script src=\"../crossman/crossman.js\"></script>\n  <script src=\"../boxman/boxman.js\"></script>\n  <script>\n      var boxman = new BoxMan();\n  </script>\n\n  <style>\n      div[data-box] {width:200px; min-height:30px;}\n      div[data-obj] {width:50px; height:30px;}\n  </style>\n"}' />
+
+
+
+	<head>
+		<title>extends-panel</title>
+
+		<!-- ★highlight.js -->
+		<!--
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+		-->
+        <!--
+		    <script src="../lib/highlightjs/highlight.min.js"></script>
+		-->
+		<link rel="stylesheet" href="../lib/highlightjs/default.min.css">
+
+
+
+
+        <!-- Template CSS -->
+        <!--
+            <link rel="stylesheet" href="../css/style.min.css">
+        -->
+        <link rel="stylesheet" href="../css/github.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/markdown.css">
+	<script type="text/javascript" src="../../vis-networkman/js/vis-networkman.bundle.js"></script></head>
+
+
+                              
+	<body class="boxman-1">
+
+
+		<!-- TEST -->
+		<!--
+		<div data-box>test box</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		-->
+
+
+        <!-- /////////////////////////
+             Header
+        ///////////////////////// -->
+        <div id="help-header" class="help-header test">
+            <ul id="help-header-menulist" class="menu-type-a test">
+            </ul>
+        </div>
+
+
+        <!-- /////////////////////////
+            Context
+        ///////////////////////// -->
+		<div id="help-context" class="help-context">
+
+			<!-- Menu -->
+			<div id="help-menu" class="help-menu">
+			    <div id="help-menu-context" style="width:100%; height:100%; background:#ffffff;">
+                    <ul id="help-menu-menulist" class="menu-type-b test" >
+                    </ul>
+			    </div>
+			</div>
+
+			<!-- View -->
+			<div id="help-view" class="help-view markdown github">
+			    <h1 id="extends-panel">Extends Panel</h1>
+<p>Mode 속성으로 <code>특정효과</code>를 설정할 수 있습니다.</p>
+<h4 id="-">※ 표</h4>
+<table>
+<thead>
+<tr>
+<th>옵션명</th>
+<th>형식</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>modeExtendsPanel</td>
+<td>Boolean</td>
+<td>false</td>
+<td>ExtendsPanel의 사용여부</td>
+</tr>
+<tr>
+<td>modeExtendsPanelAutoHide</td>
+<td>Boolean</td>
+<td>false</td>
+<td>ExtendsPanel을 자동으로 숨기고 마우스커서를 올리면 보입니다.</td>
+</tr>
+<tr>
+<td>modeExtendsPanelSaveToLocalStorage</td>
+<td>Boolean</td>
+<td>false</td>
+<td>ExtendsPanel의 Toggle정보를 저장할지 여부</td>
+</tr>
+<tr>
+<td>saveKey</td>
+<td>String</td>
+<td>...</td>
+<td>ExtendsPanel의 Toggle 정보를 저장할 LocalStorage의 Key를 지정합니다. 기본값: <code>/toggleman/visnetworkman/</code></td>
+</tr>
+<tr>
+<td>extendsPanelToggleDefaultIndexMap</td>
+<td>Object</td>
+<td>...</td>
+<td>ExtendsPanel을 사용시 ToggleButton의 기본값을 설정합니다. 기본값: <code>{&quot;direction&quot;:0,&quot;directionMethod&quot;:0,&quot;duplication&quot;:0,&quot;unification&quot;:0,&quot;edgeLimit&quot;:4}</code> </td>
+</tr>
+<tr>
+<td>extendsPanelShowItemList</td>
+<td>Array</td>
+<td>null</td>
+<td>ExampleForAll) null   //- ExampleForNothing) []   //- ExampleForSelective) [&#39;direction&#39;, &#39;edgeLimit&#39;]</td>
+</tr>
+<tr>
+<td>extendsPanelHideItemList</td>
+<td>Array</td>
+<td>null</td>
+<td>ExampleForNothing) null or []   //- ExampleForSelective) [&#39;direction&#39;, &#39;edgeLimit&#39;]</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">※ 자동적용</h4>
+<ul>
+<li><p>편의를 위해서 예제에서는 다음 코드가 생략되어 있습니다.</p>
+<pre><code class="lang-html">  &lt;style&gt;
+      div[data-box] {width:200px; min-height:30px;}
+      div[data-obj] {width:50px; height:30px;}
+  &lt;/style&gt;
+</code></pre>
+<p>  
+</li>
+</ul>
+<h2 id="modeextendspanel">modeExtendsPanel</h2>
+<ul>
+<li><p>테스트시, 눈에 띄는 스타일로 표시할 수 있습니다. 
+  <div class="lang-html">  &lt;script&gt;
+      boxman.setup({modeTest: true}).detect();     
+  &lt;/script&gt;
+
+  &lt;body&gt;
+      &lt;div data-box&gt;BOX A&lt;/div&gt;
+      &lt;div data-box&gt;
+          BOX B
+          &lt;div data-obj&gt;OBJ A&lt;/div&gt;
+      &lt;/div&gt;
+  &lt;/body&gt;
+</div>
+<p>추가 속성 </p>
+</li>
+<li>testBoxClass: 테스트모드시, Box에 부여할 class</li>
+<li>testBoxBorderWidth: 테스트모드시, Box의 테두리 크기</li>
+<li>testBoxBorderColor: 테스트모드시, Box의 테두리 색</li>
+<li>testObjClass: 테스트모드시, Obj에 부여할class</li>
+<li>testObjBorderWidth: 테스트모드시, Obj의 테두리 크기</li>
+<li>testObjBorderColor: 테스트모드시, Obj의 테두리 색</li>
+</ul>
+<h2 id="modeextendspanelautohide">modeExtendsPanelAutoHide</h2>
+<ul>
+<li><p>OBJ를 다른 BOX로 옴길 때마다 복사됩니다.
+  <div class="lang-html">  &lt;script&gt;
+      boxman.setup({modeCopy: true}).detect();     
+  &lt;/script&gt;
+
+  &lt;body&gt;
+      &lt;div data-box id=&quot;box&quot;&gt;BOX A&lt;/div&gt;
+      &lt;div data-box&gt;
+          BOX B
+          &lt;div data-obj&gt;OBJ A&lt;/div&gt;
+      &lt;/div&gt;
+  &lt;/body&gt;
+</div>
+</li>
+</ul>
+<h2 id="modeextendspanelsavetolocalstorage">modeExtendsPanelSaveToLocalStorage</h2>
+<ul>
+<li><p>OBJ는 BOX 이외에는 이동할 수 없도록 합니다.
+  <div class="lang-html">  &lt;script&gt;
+      boxman.setup({modeOnlyBoxToBox: true}).detect();     
+  &lt;/script&gt;
+
+  &lt;body&gt;
+      &lt;div data-box id=&quot;box&quot;&gt;BOX A&lt;/div&gt;
+      &lt;div data-box&gt;BOX B&lt;/div&gt;
+      &lt;div data-box&gt;
+          BOX C
+          &lt;div data-obj&gt;OBJ A&lt;/div&gt;
+      &lt;/div&gt;
+  &lt;/body&gt;
+</div>
+<p>  <div class="lang-html">  &lt;script&gt;
+      boxman.setup({modeOnlyBoxToBox: false, defaultBox: document.body, modeDefaultAbsolute:true}).detect();     
+  &lt;/script&gt;
+
+  &lt;body&gt;
+      &lt;div data-box id=&quot;box&quot;&gt;BOX A&lt;/div&gt;
+      &lt;div data-box&gt;BOX B&lt;/div&gt;
+      &lt;div data-box&gt;
+          BOX C
+          &lt;div data-obj&gt;OBJ A&lt;/div&gt;
+      &lt;/div&gt;
+  &lt;/body&gt;
+</div>
+<ul>
+<li><code>defaultBox</code>: modeOnlyBoxToBox가 false일 때, 이 옵션값에 따라 원하는 Element로 설정할 수 있다. (Default: <code>document.body</code>)</li>
+<li><code>modeDefaultAbsolute</code>: Style속성인 position의 값을 absolute로 할 것인지를 설정한다.  (Default: <code>true</code>)</li>
+</ul>
+</li>
+</ul>
+<h2 id="extendspaneltoggledefaultindexmap">extendsPanelToggleDefaultIndexMap</h2>
+<ul>
+<li><p>OBJ를 박스 밖으로 보내면 삭제됩니다.
+  <div class="lang-html">  &lt;script&gt;
+      boxman.setup({modeRemoveOutOfBox: true}).detect();     
+  &lt;/script&gt;
+
+  &lt;body&gt;
+      &lt;div data-box id=&quot;box&quot;&gt;BOX A&lt;/div&gt;
+      &lt;div data-box&gt;
+          BOX B
+          &lt;div data-obj&gt;OBJ A&lt;/div&gt;
+      &lt;/div&gt;    
+  &lt;/body&gt;
+</div>
+</li>
+</ul>
+<h2 id="extendspanelshowitemlist">extendsPanelShowItemList</h2>
+<h2 id="extendspanelhideitemlist">extendsPanelHideItemList</h2>
+
+			</div>
+
+		</div>
+
+
+        <!-- /////////////////////////
+            MINI-MENU
+        ///////////////////////// -->
+        <div id="mini-menu-button" style="position:fixed; top:50px; left:3px;">
+            <button style="width:40px; height:40px; opacity:0.85; font-weight:bold;">...</button>
+        </div>
+
+
+        <!-- /////////////////////////
+            Footer
+        ///////////////////////// -->
+        <div id="help-footer" class="help-footer">
+        </div>
+
+	</body>
+
+
+
+</HTML>
