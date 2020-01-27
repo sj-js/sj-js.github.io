@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<HTML> 
+	<meta charset="utf-8" />	
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<meta name=apple-mobile-web-app-capable content=yes />
+	<meta name=mobile-web-app-capable content=yes />
+	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
+	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1" />
+
+    <meta name="libraryName" content="slideman" />
+    <meta name="mdFileName" content="index" />
+    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
+    <meta name="menuJson" content='{"SlideMan":{"path":"slideman/index.html","fileName":"index","h2TextList":["👆","Index","1. Getting Started"],"h2PathList":["slideman/index.html#-","slideman/index.html#index","slideman/index.html#1-getting-started"]},"Example":{"path":"slideman/example.html","fileName":"example","h2TextList":[],"h2PathList":[]}}' />
+    <meta name="menuOrderListJson" content='["SlideMan","Example"]' />
+    <meta name="saveJson" content='{"prefix":"  <link rel=\"stylesheet\" href=\"../slideman/slideman.css\">\n  <script src=\"../crossman/crossman.js\"></script>\n  <script src=\"../slideman/slideman.js\"></script>\n  <script>\n      var slideman = new SlideMan();\n  </script>\n"}' />
+
+
+
+	<head>
+		<title>slideman - index</title>
+
+		<!-- ★highlight.js -->
+		<!--
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+		-->
+        <!--
+		    <script src="../lib/highlightjs/highlight.min.js"></script>
+		-->
+		<link rel="stylesheet" href="../lib/highlightjs/default.min.css">
+
+
+
+
+        <!-- Template CSS -->
+        <!--
+            <link rel="stylesheet" href="../css/style.min.css">
+        -->
+        <link rel="stylesheet" href="../css/github.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/markdown.css">
+	<script type="text/javascript" src="../../sj-js/js/sj-js.bundle.js"></script></head>
+
+
+                              
+	<body class="boxman-1">
+
+
+		<!-- TEST -->
+		<!--
+		<div data-box>test box</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		-->
+
+
+        <!-- /////////////////////////
+             Header
+        ///////////////////////// -->
+        <div id="help-header" class="help-header test">
+            <ul id="help-header-menulist" class="menu-type-a test">
+            </ul>
+        </div>
+
+
+        <!-- /////////////////////////
+            Context
+        ///////////////////////// -->
+		<div id="help-context" class="help-context">
+
+			<!-- Menu -->
+			<div id="help-menu" class="help-menu">
+			    <div id="help-menu-context" style="width:100%; height:100%; background:#ffffff; overflow:auto;">
+                    <ul id="help-menu-menulist" class="menu-type-b test" >
+                    </ul>
+			    </div>
+			</div>
+
+			<!-- View -->
+			<div id="help-view" class="help-view markdown github">
+			    <h1 id="slideman">SlideMan</h1>
+<h2 id="-">👆</h2>
+<p><a href="https://travis-ci.org/sj-js/slideman"><img src="https://travis-ci.org/sj-js/slideman.svg?branch=master" alt="Build Status"></a>
+<a href="https://github.com/sj-js/slideman/releases"><img src="https://img.shields.io/github/downloads/sj-js/slideman/total.svg" alt="All Download"></a>
+<a href="https://github.com/sj-js/slideman/releases"><img src="https://img.shields.io/github/release/sj-js/slideman.svg" alt="Release"></a>
+<a href="https://github.com/sj-js/slideman/releases"><img src="https://img.shields.io/github/license/sj-js/slideman.svg" alt="License"></a></p>
+<ul>
+<li>Slider를 구성합니다.</li>
+<li>✨ Source: <a href="https://github.com/sj-js/slideman">https://github.com/sj-js/slideman</a></li>
+<li>✨ Document: <a href="https://sj-js.github.io/sj-js/slideman">https://sj-js.github.io/sj-js/slideman</a></li>
+</ul>
+<h2 id="index">Index</h2>
+<p><ul>
+<li><a href="../slideman/index.html">SlideMan</a></li>
+<li><a href="../slideman/example.html">Example</a></li>
+</ul><h2 id="1-getting-started">1. Getting Started</h2>
+<h3 id="1-1-how-to-load-">1-1. How to load?</h3>
+<ul>
+<li>Browser<pre><code class="lang-html">  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@sj-js/slideman/dist/css/slideman.min.css&quot;&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/crossman/dist/js/crossman.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/slideman/dist/js/slideman.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+       var slideman = new SlideMan();
+  &lt;/script&gt;
+</code></pre>
+  
+</li>
+<li>ES6+<pre><code class="lang-bash">  npm install @sj-js/slideman
+</code></pre>
+<pre><code class="lang-js">  require(&#39;@sj-js/slideman/dist/css/slideman.css&#39;);
+  const SlideMan = require(&#39;@sj-js/slideman&#39;);
+  const slideman = new SlideMan();
+</code></pre>
+</li>
+</ul>
+<h3 id="1-2-simple-example">1-2. Simple Example</h3>
+<p>For convenience, 1-1 code, which loads and creates a Library in the example, is omitted.</p>
+<h5 id="example-index">Example - index</h5>
+<ol>
+<li><p>Set <code>data-type</code>, <code>data-viewer</code>, <code>data-slide</code> to element</p>
+<ul>
+<li>Refer below   </li>
+</ul>
+</li>
+<li><p>Run <code>detect()</code> then, When Page is Loaded, detect and apply elements with a <code>data-...</code> attribute    </p>
+<pre><code class="lang-js">slideman.detect();
+</code></pre>
+</li>
+<li><p>👨‍💻
+ <div class="lang-html"> &lt;body&gt;
+     &lt;div data-type=&quot;slideview&quot; data-viewer=&quot;jmeetsz&quot;&gt;
+         &lt;div data-type=&quot;index&quot;&gt;&lt;/div&gt;
+         &lt;div data-type=&quot;storage&quot;&gt;
+             &lt;div data-slide&gt;
+                 &lt;div data-type=&quot;title&quot;&gt;안녕하세요&lt;/div&gt;
+                 &lt;div&gt;
+                     안녕하니까 123
+                 &lt;/div&gt;
+             &lt;/div&gt;
+             &lt;div data-slide&gt;
+                 &lt;div data-type=&quot;title&quot;&gt;수고하세요&lt;/div&gt;
+                 &lt;div&gt;
+                     안녕하니까 456
+                 &lt;/div&gt;
+             &lt;/div&gt;
+             &lt;div data-slide&gt;
+                 &lt;div data-type=&quot;title&quot;&gt;어서오세요&lt;/div&gt;
+                 &lt;div&gt;
+                     안녕하니까 789
+                 &lt;/div&gt;
+             &lt;/div&gt;      
+         &lt;/div&gt;
+     &lt;/div&gt;
+ &lt;/body&gt;
+</div>
+</li>
+</ol>
+<h5 id="example-tap">Example - tap</h5>
+<ol>
+<li><p>Set <code>data-type</code>, <code>data-viewer</code>, <code>data-slide</code> to element</p>
+<ul>
+<li>Refer below</li>
+</ul>
+</li>
+<li><p>Run <code>detect()</code> then, When Page is Loaded, detect and apply elements with a <code>data-...</code> attribute    </p>
+<pre><code class="lang-js">slideman.detect();
+</code></pre>
+</li>
+<li><p>👨‍💻
+ <div class="lang-html"> &lt;body&gt;
+     &lt;div data-type=&quot;slideview&quot; data-viewer=&quot;jmeetsz&quot;&gt;
+         &lt;div data-type=&quot;tap&quot;&gt;&lt;/div&gt;
+         &lt;div data-type=&quot;storage&quot;&gt;
+             &lt;div data-slide&gt;
+                 &lt;div data-type=&quot;title&quot;&gt;안녕하세요&lt;/div&gt;
+                 &lt;div&gt;
+                     안녕하니까 123
+                 &lt;/div&gt;
+             &lt;/div&gt;
+             &lt;div data-slide&gt;
+                 &lt;div data-type=&quot;title&quot;&gt;수고하세요&lt;/div&gt;
+                 &lt;div&gt;
+                     안녕하니까 456
+                 &lt;/div&gt;
+             &lt;/div&gt;
+             &lt;div data-slide&gt;
+                 &lt;div data-type=&quot;title&quot;&gt;어서오세요&lt;/div&gt;
+                 &lt;div&gt;
+                     안녕하니까 789
+                 &lt;/div&gt;
+             &lt;/div&gt;      
+         &lt;/div&gt;
+     &lt;/div&gt;
+ &lt;/body&gt;
+</div>
+</li>
+</ol>
+
+			</div>
+
+		</div>
+
+
+        <!-- /////////////////////////
+            MINI-MENU
+        ///////////////////////// -->
+        <div id="mini-menu-button" style="position:fixed; top:50px; left:3px;">
+            <button style="width:40px; height:40px; opacity:0.85; font-weight:bold;">...</button>
+        </div>
+
+
+        <!-- /////////////////////////
+            Footer
+        ///////////////////////// -->
+        <div id="help-footer" class="help-footer">
+        </div>
+
+	</body>
+
+
+
+</HTML>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<HTML> 
+	<meta charset="utf-8" />	
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<meta name=apple-mobile-web-app-capable content=yes />
+	<meta name=mobile-web-app-capable content=yes />
+	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
+	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1" />
+
+    <meta name="libraryName" content="partman" />
+    <meta name="mdFileName" content="index" />
+    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
+    <meta name="menuJson" content='{"PartMan":{"path":"partman/index.html","fileName":"index","h2TextList":["🎞️","Index","1. Getting Started"],"h2PathList":["partman/index.html#-","partman/index.html#index","partman/index.html#1-getting-started"]},"Example":{"path":"partman/example.html","fileName":"example","h2TextList":[],"h2PathList":[]}}' />
+    <meta name="menuOrderListJson" content='["PartMan","Example"]' />
+    <meta name="saveJson" content='{"prefix":"  <link rel=\"stylesheet\" href=\"../partman/partman.css\">\n  <script src=\"../crossman/crossman.js\"></script>\n  <script src=\"../partman/partman.js\"></script>\n  <script>\n     var partman = new PartMan();\n  </script>\n"}' />
+
+
+
+	<head>
+		<title>partman - index</title>
+
+		<!-- ★highlight.js -->
+		<!--
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+		-->
+        <!--
+		    <script src="../lib/highlightjs/highlight.min.js"></script>
+		-->
+		<link rel="stylesheet" href="../lib/highlightjs/default.min.css">
+
+
+
+
+        <!-- Template CSS -->
+        <!--
+            <link rel="stylesheet" href="../css/style.min.css">
+        -->
+        <link rel="stylesheet" href="../css/github.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/markdown.css">
+	<script type="text/javascript" src="../../sj-js/js/sj-js.bundle.js"></script></head>
+
+
+                              
+	<body class="boxman-1">
+
+
+		<!-- TEST -->
+		<!--
+		<div data-box>test box</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		-->
+
+
+        <!-- /////////////////////////
+             Header
+        ///////////////////////// -->
+        <div id="help-header" class="help-header test">
+            <ul id="help-header-menulist" class="menu-type-a test">
+            </ul>
+        </div>
+
+
+        <!-- /////////////////////////
+            Context
+        ///////////////////////// -->
+		<div id="help-context" class="help-context">
+
+			<!-- Menu -->
+			<div id="help-menu" class="help-menu">
+			    <div id="help-menu-context" style="width:100%; height:100%; background:#ffffff; overflow:auto;">
+                    <ul id="help-menu-menulist" class="menu-type-b test" >
+                    </ul>
+			    </div>
+			</div>
+
+			<!-- View -->
+			<div id="help-view" class="help-view markdown github">
+			    <h1 id="partman">PartMan</h1>
+<h2 id="-">🎞️</h2>
+<p><a href="https://travis-ci.org/sj-js/partman"><img src="https://travis-ci.org/sj-js/partman.svg?branch=master" alt="Build Status"></a>
+<a href="https://github.com/sj-js/partman/releases"><img src="https://img.shields.io/github/downloads/sj-js/partman/total.svg" alt="All Download"></a>
+<a href="https://github.com/sj-js/partman/releases"><img src="https://img.shields.io/github/release/sj-js/partman.svg" alt="Release"></a>
+<a href="https://github.com/sj-js/partman/releases"><img src="https://img.shields.io/github/license/sj-js/partman.svg" alt="License"></a></p>
+<ul>
+<li>구역을 분리하여 강조합니다. </li>
+<li>✨ Source: <a href="https://github.com/sj-js/partman">https://github.com/sj-js/partman</a></li>
+<li>✨ Document: <a href="https://sj-js.github.io/sj-js/partman">https://sj-js.github.io/sj-js/partman</a></li>
+</ul>
+<h2 id="index">Index</h2>
+<p><ul>
+<li><a href="../partman/index.html">PartMan</a></li>
+<li><a href="../partman/example.html">Example</a></li>
+</ul><h2 id="1-getting-started">1. Getting Started</h2>
+<h3 id="1-1-how-to-load-">1-1. How to load?</h3>
+<ul>
+<li>Browser<pre><code class="lang-html">  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@sj-js/partman/dist/css/partman.min.css&quot;&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/crossman/dist/js/crossman.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/partman/dist/js/partman.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+       var partman = new PartMan();
+  &lt;/script&gt;
+</code></pre>
+  
+</li>
+<li>ES6+<pre><code class="lang-bash">  npm install @sj-js/partman
+</code></pre>
+<pre><code class="lang-js">  require(&#39;@sj-js/partman/dist/css/partman.css&#39;);
+  const PartMan = require(&#39;@sj-js/partman&#39;);
+  const partman = new PartMan();
+</code></pre>
+</li>
+</ul>
+<h3 id="1-2-simple-example">1-2. Simple Example</h3>
+<p>For convenience, 1-1 code, which loads and creates a Library in the example, is omitted.</p>
+<h5 id="example-data-part">Example - data-part</h5>
+<ol>
+<li><p>Set <code>data-part</code> attribute to target element and set color   </p>
+<pre><code class="lang-html">&lt;div data-part style=&quot;background:#EEFF88;&quot;&gt;Hello Part Area 1&lt;/div&gt;
+&lt;div data-part style=&quot;background:#DDAAFF;&quot;&gt;Hello Part Area 2&lt;/div&gt;
+</code></pre>
+</li>
+<li><p>Run <code>detect()</code> then, When Page is Loaded, detect and apply elements with a <code>data-part</code> attribute    </p>
+<pre><code class="lang-js">partman.detect();
+</code></pre>
+</li>
+<li><p>👨‍💻
+ <div class="lang-html"> &lt;script&gt;
+     partman.setup({firstPartMarginHeight:100, partMarginHeight:50, lastPartMarginHeight:500}).detect();
+ &lt;/script&gt;
+ &lt;body&gt;
+     &lt;div data-part style=&quot;background:#EEFF88;&quot;&gt;
+         Hello Part Area 1
+     &lt;/div&gt;
+     &lt;div data-part style=&quot;background:#DDAAFF;&quot;&gt;
+         Hello Part Area 2
+     &lt;/div&gt;
+     &lt;div data-part style=&quot;background:gold;&quot;&gt;
+         Hello Part Area 3
+     &lt;/div&gt;
+     &lt;div data-part style=&quot;background:skyblue;&quot;&gt;
+         Hello Part Area 4
+     &lt;/div&gt;
+ &lt;/body&gt;
+</div>
+</li>
+</ol>
+<h5 id="example-data-part-fold">Example - data-part-fold</h5>
+<ol>
+<li>Set <code>data-part-fold-a</code> attribute to button element to open folded content<pre><code class="lang-html">&lt;button data-part-fold-a=&quot;fold-1&quot;&gt;fold-1&lt;/button&gt;
+&lt;button data-part-fold-a=&quot;fold-2&quot;&gt;fold-2&lt;/button&gt;
+</code></pre>
+</li>
+<li>Set <code>data-part-fold-tool</code> attribute to tool element on top of content<pre><code class="lang-html">&lt;div data-part-fold-tool&gt;
+    &lt;button onclick=&quot;partman.closeContentAll();&quot;&gt;X&lt;/button&gt;
+&lt;/div&gt;  
+</code></pre>
+</li>
+<li>Set <code>data-part-fold</code> attribute to folded content   <pre><code class="lang-html">&lt;div data-part-fold=&quot;fold-1&quot;&gt;
+    1
+&lt;/div&gt;
+&lt;div data-part-fold=&quot;fold-2&quot;&gt;
+    2     
+&lt;/div&gt;
+</code></pre>
+</li>
+<li>Run <code>detect()</code> then, When Page is Loaded, detect and apply elements with a <code>data-part</code> attribute    <pre><code class="lang-js">partman.detect();
+</code></pre>
+</li>
+<li>👨‍💻
+ <div class="lang-html"> &lt;style&gt;
+     html { scroll-behavior: smooth; }
+     button[data-part-fold-a] { width:120px; height:100px; cursor:pointer; }
+     .part-fold-active { border:2px solid skyblue; background:skyblue; }                
+ &lt;/style&gt;
+ &lt;script&gt; 
+     partman.detect(); 
+ &lt;/script&gt;
+ &lt;body&gt;
+     &lt;!-- Icons --&gt;
+     &lt;button data-part-fold-a=&quot;fold-1&quot;&gt;fold-1&lt;/button&gt;
+     &lt;button data-part-fold-a=&quot;fold-2&quot;&gt;fold-2&lt;/button&gt;
+     &lt;button data-part-fold-a=&quot;fold-3&quot;&gt;fold-3&lt;/button&gt;
+     &lt;button data-part-fold-a=&quot;fold-4&quot;&gt;fold-4&lt;/button&gt;
+     &lt;button data-part-fold-a=&quot;fold-5&quot;&gt;fold-5&lt;/button&gt;
+     &lt;!-- Tools --&gt;
+     &lt;div data-part-fold-tool&gt;
+         &lt;button onclick=&quot;partman.closeContentAll();&quot;&gt;X&lt;/button&gt;
+     &lt;/div&gt;  
+     &lt;!-- Contents --&gt;
+     &lt;div data-part-fold=&quot;fold-1&quot;&gt;
+         1
+     &lt;/div&gt;
+     &lt;div data-part-fold=&quot;fold-2&quot;&gt;
+         2     
+     &lt;/div&gt;
+     &lt;div data-part-fold=&quot;fold-3&quot;&gt;
+         3
+     &lt;/div&gt;
+     &lt;div data-part-fold=&quot;fold-4&quot;&gt;
+         4
+     &lt;/div&gt;
+     &lt;div data-part-fold=&quot;fold-5&quot;&gt;
+         5
+     &lt;/div&gt; 
+ &lt;/body&gt;
+</div>
+</li>
+</ol>
+
+			</div>
+
+		</div>
+
+
+        <!-- /////////////////////////
+            MINI-MENU
+        ///////////////////////// -->
+        <div id="mini-menu-button" style="position:fixed; top:50px; left:3px;">
+            <button style="width:40px; height:40px; opacity:0.85; font-weight:bold;">...</button>
+        </div>
+
+
+        <!-- /////////////////////////
+            Footer
+        ///////////////////////// -->
+        <div id="help-footer" class="help-footer">
+        </div>
+
+	</body>
+
+
+
+</HTML>

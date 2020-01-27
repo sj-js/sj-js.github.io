@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<HTML> 
+	<meta charset="utf-8" />	
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<meta name=apple-mobile-web-app-capable content=yes />
+	<meta name=mobile-web-app-capable content=yes />
+	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
+	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1" />
+
+    <meta name="libraryName" content="menuman" />
+    <meta name="mdFileName" content="index" />
+    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
+    <meta name="menuJson" content='{"MenuMan":{"path":"menuman/index.html","fileName":"index","h2TextList":["📃","Index","1. Getting Started"],"h2PathList":["menuman/index.html#-","menuman/index.html#index","menuman/index.html#1-getting-started"]},"Theme":{"path":"menuman/theme.html","fileName":"theme","h2TextList":[],"h2PathList":[]},"Example":{"path":"menuman/example.html","fileName":"example","h2TextList":[],"h2PathList":[]}}' />
+    <meta name="menuOrderListJson" content='["MenuMan","Theme","Example"]' />
+    <meta name="saveJson" content='{"prefix":"  <link rel=\"stylesheet\" href=\"../menuman/menuman.css\">\n  <script src=\"../crossman/crossman.js\"></script>\n  <script src=\"../menuman/menuman.js\"></script>\n  <script>\n      var menuman = new MenuMan();\n  </script>\n"}' />
+
+
+
+	<head>
+		<title>menuman - index</title>
+
+		<!-- ★highlight.js -->
+		<!--
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+		-->
+        <!--
+		    <script src="../lib/highlightjs/highlight.min.js"></script>
+		-->
+		<link rel="stylesheet" href="../lib/highlightjs/default.min.css">
+
+
+
+
+        <!-- Template CSS -->
+        <!--
+            <link rel="stylesheet" href="../css/style.min.css">
+        -->
+        <link rel="stylesheet" href="../css/github.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/markdown.css">
+	<script type="text/javascript" src="../../sj-js/js/sj-js.bundle.js"></script></head>
+
+
+                              
+	<body class="boxman-1">
+
+
+		<!-- TEST -->
+		<!--
+		<div data-box>test box</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		-->
+
+
+        <!-- /////////////////////////
+             Header
+        ///////////////////////// -->
+        <div id="help-header" class="help-header test">
+            <ul id="help-header-menulist" class="menu-type-a test">
+            </ul>
+        </div>
+
+
+        <!-- /////////////////////////
+            Context
+        ///////////////////////// -->
+		<div id="help-context" class="help-context">
+
+			<!-- Menu -->
+			<div id="help-menu" class="help-menu">
+			    <div id="help-menu-context" style="width:100%; height:100%; background:#ffffff; overflow:auto;">
+                    <ul id="help-menu-menulist" class="menu-type-b test" >
+                    </ul>
+			    </div>
+			</div>
+
+			<!-- View -->
+			<div id="help-view" class="help-view markdown github">
+			    <h1 id="menuman">MenuMan</h1>
+<h2 id="-">📃</h2>
+<p><a href="https://travis-ci.org/sj-js/menuman"><img src="https://travis-ci.org/sj-js/menuman.svg?branch=master" alt="Build Status"></a>
+<a href="https://github.com/sj-js/menuman/releases"><img src="https://img.shields.io/github/downloads/sj-js/menuman/total.svg" alt="All Download"></a>
+<a href="https://github.com/sj-js/menuman/releases"><img src="https://img.shields.io/github/release/sj-js/menuman.svg" alt="Release"></a>
+<a href="https://github.com/sj-js/menuman/releases"><img src="https://img.shields.io/github/license/sj-js/menuman.svg" alt="License"></a></p>
+<ul>
+<li>쉽게 Context Menu를 구성할 수 있다.</li>
+<li><code>Menu</code>와 이를 조건별로 담을 수 있는 <code>MenuBoard</code>로 나뉩니다.</li>
+<li>✨ Source: <a href="https://github.com/sj-js/menuman">https://github.com/sj-js/menuman</a></li>
+<li>✨ Document: <a href="https://sj-js.github.io/sj-js/menuman">https://sj-js.github.io/sj-js/menuman</a></li>
+</ul>
+<h2 id="index">Index</h2>
+<p><ul>
+<li><a href="../menuman/index.html">MenuMan</a></li>
+<li><a href="../menuman/theme.html">Theme</a></li>
+<li><a href="../menuman/example.html">Example</a></li>
+</ul><h2 id="1-getting-started">1. Getting Started</h2>
+<h3 id="1-1-how-to-load-">1-1. How to load?</h3>
+<ul>
+<li>Browser<pre><code class="lang-html">  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@sj-js/menuman/dist/css/menuman.min.css&quot;&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/crossman/dist/js/crossman.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/menuman/dist/js/menuman.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+       var menuman = new MenuMan();
+  &lt;/script&gt;
+</code></pre>
+  
+</li>
+<li>ES6+<pre><code class="lang-bash">  npm install @sj-js/menuman
+</code></pre>
+<pre><code class="lang-js">  require(&#39;@sj-js/menuman/dist/css/menuman.css&#39;);
+  const MenuMan = require(&#39;@sj-js/menuman&#39;);
+  const menuman = new MenuMan();
+</code></pre>
+</li>
+</ul>
+<h3 id="1-2-simple-example">1-2. Simple Example</h3>
+<p>For convenience, 1-1 code, which loads and creates a Library in the example, is omitted.</p>
+<h3 id="example-a">Example A</h3>
+<ol>
+<li><p>.setTheme(CODE)</p>
+<pre><code class="lang-js"> menuman.setTheme(&#39;default&#39;);
+</code></pre>
+</li>
+<li><p>.addMenu(ID, LABEL, EVENT)   </p>
+<pre><code class="lang-js">menuman.addMenu();
+menuman.addMenu(&#39;MENU_ID_1&#39;, &#39;MENU_LABEL&#39;, function(element){
+    //SOMETHING TO DO
+});
+menuman.addMenu(&#39;MENU_ID_2&#39;, &#39;MENU_LABEL&#39;, function(element){
+   //SOMETHING TO DO 
+});
+</code></pre>
+</li>
+<li><p>.addMenuBoard(ID, CONDITION, MENU_ID_LIST)    </p>
+<pre><code class="lang-js">menuman.addMenuBoard(&#39;BOARD_ID_1&#39;, {&#39;id&#39;:&#39;icon-*&#39;}, [&#39;MENU_ID_1&#39;, &#39;MENU_ID_2&#39;]);
+</code></pre>
+</li>
+<li><p>👨‍💻
+ <div class="lang-html"> &lt;style&gt;
+     .test-style { display:inline-block; min-width:50px; height:30px; border:2px solid black; cursor:pointer; background:pink; }
+ &lt;/style&gt;
+
+ &lt;body&gt;
+     &lt;div class=&quot;test-style icon&quot;&gt;Right Click - 1&lt;/div&gt;
+     &lt;div class=&quot;test-style icon&quot;&gt;Right Click - 2&lt;/div&gt;
+     &lt;div id=&quot;test001&quot; class=&quot;test-style&quot;&gt;Right Click - 3&lt;/div&gt;
+     &lt;div id=&quot;test002&quot; class=&quot;test-style&quot;&gt;Right Click - 4&lt;/div&gt;
+ &lt;/body&gt;
+
+ &lt;script&gt;
+     menuman.setTheme(&#39;test-1&#39;);      
+     menuman.addMenu(&#39;menu-console&#39;, &#39;Console&#39;, function(element){
+         console.log(&#39;Hello  &#39; + element.innerHTML); 
+     });
+     menuman.addMenu(&#39;menu-alert&#39;, &#39;Alert&#39;, function(element){
+         alert(&#39;Hello  &#39; + element.innerHTML);
+     });
+     menuman.addMenu(&#39;menu-nothing&#39;, &#39;Nothing&#39;, function(element){
+         //None
+     });
+     menuman.addMenu(&#39;menu-1&#39;, &#39;Print&#39;, function(element){
+         console.log(&#39;Print&#39;, element);
+     });
+     menuman.addMenuBoard(&#39;board-a&#39;, [{&#39;class&#39;:&#39;*icon*&#39;}], [&#39;menu-console&#39;, &#39;menu-alert&#39;]);
+     menuman.addMenuBoard(&#39;board-b&#39;, [{&#39;id&#39;:&#39;test001&#39;}], [&#39;menu-nothing&#39;]);
+     menuman.addMenuBoard(&#39;board-c&#39;, [{&#39;id&#39;:&#39;*02&#39;}], [&#39;menu-1&#39;]);
+ &lt;/script&gt;
+</div>
+</li>
+</ol>
+
+			</div>
+
+		</div>
+
+
+        <!-- /////////////////////////
+            MINI-MENU
+        ///////////////////////// -->
+        <div id="mini-menu-button" style="position:fixed; top:50px; left:3px;">
+            <button style="width:40px; height:40px; opacity:0.85; font-weight:bold;">...</button>
+        </div>
+
+
+        <!-- /////////////////////////
+            Footer
+        ///////////////////////// -->
+        <div id="help-footer" class="help-footer">
+        </div>
+
+	</body>
+
+
+
+</HTML>

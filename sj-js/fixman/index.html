@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<HTML> 
+	<meta charset="utf-8" />	
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<meta name=apple-mobile-web-app-capable content=yes />
+	<meta name=mobile-web-app-capable content=yes />
+	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
+	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1" />
+
+    <meta name="libraryName" content="fixman" />
+    <meta name="mdFileName" content="index" />
+    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
+    <meta name="menuJson" content='{"FixMan":{"path":"fixman/index.html","fileName":"index","h2TextList":["📌","Index","1. Getting Started"],"h2PathList":["fixman/index.html#-","fixman/index.html#index","fixman/index.html#1-getting-started"]},"Event":{"path":"fixman/event.html","fileName":"event","h2TextList":["Event - Animation"],"h2PathList":["fixman/event.html#event-animation"]},"Example":{"path":"fixman/example.html","fileName":"example","h2TextList":[],"h2PathList":[]}}' />
+    <meta name="menuOrderListJson" content='["FixMan","Event","Example"]' />
+    <meta name="saveJson" content='{"prefix":"  <script src=\"../crossman/crossman.js\"></script>\n  <script src=\"../fixman/fixman.js\"></script>\n  <script>\n      var fixman = new FixMan();\n  </script>\n"}' />
+
+
+
+	<head>
+		<title>fixman - index</title>
+
+		<!-- ★highlight.js -->
+		<!--
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+		-->
+        <!--
+		    <script src="../lib/highlightjs/highlight.min.js"></script>
+		-->
+		<link rel="stylesheet" href="../lib/highlightjs/default.min.css">
+
+
+
+
+        <!-- Template CSS -->
+        <!--
+            <link rel="stylesheet" href="../css/style.min.css">
+        -->
+        <link rel="stylesheet" href="../css/github.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/markdown.css">
+	<script type="text/javascript" src="../../sj-js/js/sj-js.bundle.js"></script></head>
+
+
+                              
+	<body class="boxman-1">
+
+
+		<!-- TEST -->
+		<!--
+		<div data-box>test box</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		-->
+
+
+        <!-- /////////////////////////
+             Header
+        ///////////////////////// -->
+        <div id="help-header" class="help-header test">
+            <ul id="help-header-menulist" class="menu-type-a test">
+            </ul>
+        </div>
+
+
+        <!-- /////////////////////////
+            Context
+        ///////////////////////// -->
+		<div id="help-context" class="help-context">
+
+			<!-- Menu -->
+			<div id="help-menu" class="help-menu">
+			    <div id="help-menu-context" style="width:100%; height:100%; background:#ffffff; overflow:auto;">
+                    <ul id="help-menu-menulist" class="menu-type-b test" >
+                    </ul>
+			    </div>
+			</div>
+
+			<!-- View -->
+			<div id="help-view" class="help-view markdown github">
+			    <h1 id="fixman">FixMan</h1>
+<h2 id="-">📌</h2>
+<p><a href="https://travis-ci.org/sj-js/fixman"><img src="https://travis-ci.org/sj-js/fixman.svg?branch=master" alt="Build Status"></a>
+<a href="https://github.com/sj-js/fixman/releases"><img src="https://img.shields.io/github/downloads/sj-js/fixman/total.svg" alt="All Download"></a>
+<a href="https://github.com/sj-js/fixman/releases"><img src="https://img.shields.io/github/release/sj-js/fixman.svg" alt="Release"></a>
+<a href="https://github.com/sj-js/fixman/releases"><img src="https://img.shields.io/github/license/sj-js/fixman.svg" alt="License"></a></p>
+<ul>
+<li>Causes the Element to be dragged around the screen without being obscured by scrolling</li>
+<li>✨ Source: <a href="https://github.com/sj-js/fixman">https://github.com/sj-js/fixman</a></li>
+<li>✨ Document: <a href="https://sj-js.github.io/sj-js/fixman">https://sj-js.github.io/sj-js/fixman</a></li>
+</ul>
+<h2 id="index">Index</h2>
+<p><ul>
+<li><a href="../fixman/index.html">FixMan</a></li>
+<li><a href="../fixman/event.html">Event</a></li>
+<li><a href="../fixman/example.html">Example</a></li>
+</ul><h2 id="1-getting-started">1. Getting Started</h2>
+<h3 id="1-1-how-to-load-">1-1. How to load?</h3>
+<ul>
+<li>Browser<pre><code class="lang-html">  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/crossman/dist/js/crossman.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/fixman/dist/js/fixman.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+       var fixman = new FixMan();
+  &lt;/script&gt;
+</code></pre>
+  
+</li>
+<li>ES6+<pre><code class="lang-bash">  npm i @sj-js/fixman
+</code></pre>
+<pre><code class="lang-js">  const FixMan = require(&#39;@sj-js/fixman&#39;);
+  const fixman = new FixMan();
+</code></pre>
+</li>
+</ul>
+<h3 id="1-2-simple-example">1-2. Simple Example</h3>
+<p>For convenience, 1-1 code, which loads and creates a Library in the example, is omitted.</p>
+<h3 id="example-fix-top">Example - fix top</h3>
+<ol>
+<li><p>Set <code>data-fixed</code> to target element   </p>
+<pre><code class="lang-html">&lt;div data-fixed&gt;Hello&lt;/div&gt;
+</code></pre>
+</li>
+<li><p>Run <code>detect()</code> then, When Page is Loaded, detect and apply elements with a <code>data-fixed</code> attribute    </p>
+<pre><code class="lang-js">fixman.detect();
+</code></pre>
+</li>
+<li>👨‍💻
+ <div class="lang-html"> &lt;style&gt;
+     .test1 { display:block; height:50px; border:2px solid black; margin-bottom:200px; }
+ &lt;/style&gt;
+ &lt;script&gt;
+     fixman.detect();
+ &lt;/script&gt;
+ &lt;body&gt;
+     &lt;div class=&quot;test1&quot;&gt;Please scroll down.&lt;/div&gt;
+     &lt;div class=&quot;test1&quot; style=&quot;width:500px; background:#FFFFFF;&quot; data-fixed&gt;
+         &lt;span style=&quot;font-size:30px&quot;&gt;안녕?&lt;/span&gt;
+         &lt;input type=&quot;text&quot; value=&quot;Some Text&quot;&gt;
+         &lt;button onclick=&quot;alert(&#39;Testing&#39;);&quot;&gt;🔎&lt;/button&gt;
+         &lt;button onclick=&quot;window.scrollTo({top:0, behavior:&#39;smooth&#39;});&quot;&gt;🔝&lt;/button&gt;
+     &lt;/div&gt;
+     &lt;div class=&quot;test1&quot; style=&quot;width:250px; background:pink;&quot;&gt;Hello?&lt;/div&gt;
+     &lt;div class=&quot;test1&quot; style=&quot;width:200px; background:skyblue;&quot;&gt;Annyeong?&lt;/div&gt;
+     &lt;div class=&quot;test1&quot; style=&quot;width:300px; background:gold;&quot;&gt;Konnichiwa? and Nihao? or Hola?&lt;/div&gt;
+ &lt;/body&gt;
+</div>
+</li>
+</ol>
+<h3 id="example-fix-multiple">Example - fix multiple</h3>
+<ul>
+<li>👨‍💻
+  <div class="lang-html">  &lt;style&gt;
+      .test1 { display:block; vertical-align:top; width:350px; height:50px; border:2px solid black; margin-bottom:200px; }
+      .test2 { display:inline-block; vertical-align:top; width:25px; height:25px; border:2px solid black; }
+  &lt;/style&gt;
+  &lt;script&gt;
+      fixman.detect();
+  &lt;/script&gt;
+  &lt;body&gt;
+      &lt;div class=&quot;test1&quot;&gt;Please scroll down.&lt;/div&gt;
+      &lt;div class=&quot;test1&quot; style=&quot;background:#FFFFFF;&quot;&gt;
+          &lt;div class=&quot;test2&quot;&gt;1&lt;/div&gt;
+          &lt;div class=&quot;test2&quot; style=&quot;background:#EEE;&quot; data-fixed&gt;2&lt;/div&gt;
+          &lt;div class=&quot;test2&quot;&gt;3&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;test1&quot; style=&quot;width:250px; background:pink;&quot;&gt;
+          &lt;div class=&quot;test2&quot; style=&quot;background:#BBB;&quot; data-fixed&gt;1&lt;/div&gt;
+          &lt;div class=&quot;test2&quot;&gt;2&lt;/div&gt;
+          &lt;div class=&quot;test2&quot;&gt;3&lt;/div&gt;     
+      &lt;/div&gt;
+      &lt;div class=&quot;test1&quot;&gt;Please scroll down.&lt;/div&gt;
+      &lt;div class=&quot;test1&quot; style=&quot;display:inline-block; width:100px; background:skyblue;&quot;&gt;
+          &lt;div class=&quot;test2&quot;&gt;1&lt;/div&gt;
+          &lt;div class=&quot;test2&quot;&gt;2&lt;/div&gt;
+          &lt;div class=&quot;test2&quot; style=&quot;background:#999;&quot; data-fixed&gt;3&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;test1&quot; style=&quot;display:inline-block; width:100px; background:skyblue;&quot;&gt;
+          &lt;div class=&quot;test2&quot;&gt;가&lt;/div&gt;
+          &lt;div class=&quot;test2&quot;&gt;나&lt;/div&gt;
+          &lt;div class=&quot;test2&quot; style=&quot;background:#888;&quot; data-fixed&gt;다&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;test1&quot; style=&quot;display:inline-block; width:100px; background:skyblue;&quot; data-fixed&gt;
+          함께 갑시다
+      &lt;/div&gt;
+      &lt;div class=&quot;test1&quot;&gt;Please scroll down.&lt;/div&gt; 
+      &lt;div class=&quot;test1&quot; style=&quot;width:300px; background:gold;&quot;&gt;
+           &lt;div class=&quot;test2&quot;&gt;1&lt;/div&gt;
+           &lt;div class=&quot;test2&quot;&gt;2&lt;/div&gt;
+           &lt;div class=&quot;test2&quot; style=&quot;background:#000;&quot; data-fixed&gt;3&lt;/div&gt;
+           &lt;div class=&quot;test2&quot; style=&quot;background:#333;&quot; data-fixed&gt;4&lt;/div&gt;
+           &lt;div class=&quot;test2&quot; style=&quot;background:#777;&quot; data-fixed&gt;5&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;test1&quot;&gt;Please scroll Up.&lt;/div&gt; 
+  &lt;/body&gt;
+</div>
+</li>
+</ul>
+
+			</div>
+
+		</div>
+
+
+        <!-- /////////////////////////
+            MINI-MENU
+        ///////////////////////// -->
+        <div id="mini-menu-button" style="position:fixed; top:50px; left:3px;">
+            <button style="width:40px; height:40px; opacity:0.85; font-weight:bold;">...</button>
+        </div>
+
+
+        <!-- /////////////////////////
+            Footer
+        ///////////////////////// -->
+        <div id="help-footer" class="help-footer">
+        </div>
+
+	</body>
+
+
+
+</HTML>

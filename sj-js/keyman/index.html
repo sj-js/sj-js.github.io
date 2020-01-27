@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<HTML> 
+	<meta charset="utf-8" />	
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<meta name=apple-mobile-web-app-capable content=yes />
+	<meta name=mobile-web-app-capable content=yes />
+	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
+	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1" />
+
+    <meta name="libraryName" content="keyman" />
+    <meta name="mdFileName" content="index" />
+    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
+    <meta name="menuJson" content='{"KeyMan":{"path":"keyman/index.html","fileName":"index","h2TextList":["⌨","Index","1. Getting Started"],"h2PathList":["keyman/index.html#-","keyman/index.html#index","keyman/index.html#1-getting-started"]},"Key":{"path":"keyman/key.html","fileName":"key","h2TextList":["isOnKey(key)"],"h2PathList":["keyman/key.html#isonkey-key-"]},"Shortcut":{"path":"keyman/shortcut.html","fileName":"shortcut","h2TextList":["addShortcut(options)","isOn(Shortcut_Name)"],"h2PathList":["keyman/shortcut.html#addshortcut-options-","keyman/shortcut.html#ison-shortcut_name-"]},"Command":{"path":"keyman/command.html","fileName":"command","h2TextList":["addCommand(options)"],"h2PathList":["keyman/command.html#addcommand-options-"]},"Input":{"path":"keyman/input.html","fileName":"input","h2TextList":["Shortcut Input","Command Input"],"h2PathList":["keyman/input.html#shortcut-input","keyman/input.html#command-input"]},"Event":{"path":"keyman/event.html","fileName":"event","h2TextList":[],"h2PathList":[]},"Functions":{"path":"keyman/functions.html","fileName":"functions","h2TextList":[],"h2PathList":[]},"Example":{"path":"keyman/example.html","fileName":"example","h2TextList":[],"h2PathList":[]}}' />
+    <meta name="menuOrderListJson" content='["KeyMan","Key","Shortcut","Command","Input","Event","Functions","Example"]' />
+    <meta name="saveJson" content='{"prefix":"  <script src=\"../crossman/crossman.js\"></script>\n  <script src=\"../keyman/keyman.js\"></script>\n  <script>\n      var keyman = new KeyMan();\n  </script> \n"}' />
+
+
+
+	<head>
+		<title>keyman - index</title>
+
+		<!-- ★highlight.js -->
+		<!--
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+		-->
+        <!--
+		    <script src="../lib/highlightjs/highlight.min.js"></script>
+		-->
+		<link rel="stylesheet" href="../lib/highlightjs/default.min.css">
+
+
+
+
+        <!-- Template CSS -->
+        <!--
+            <link rel="stylesheet" href="../css/style.min.css">
+        -->
+        <link rel="stylesheet" href="../css/github.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/markdown.css">
+	<script type="text/javascript" src="../../sj-js/js/sj-js.bundle.js"></script></head>
+
+
+                              
+	<body class="boxman-1">
+
+
+		<!-- TEST -->
+		<!--
+		<div data-box>test box</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		-->
+
+
+        <!-- /////////////////////////
+             Header
+        ///////////////////////// -->
+        <div id="help-header" class="help-header test">
+            <ul id="help-header-menulist" class="menu-type-a test">
+            </ul>
+        </div>
+
+
+        <!-- /////////////////////////
+            Context
+        ///////////////////////// -->
+		<div id="help-context" class="help-context">
+
+			<!-- Menu -->
+			<div id="help-menu" class="help-menu">
+			    <div id="help-menu-context" style="width:100%; height:100%; background:#ffffff; overflow:auto;">
+                    <ul id="help-menu-menulist" class="menu-type-b test" >
+                    </ul>
+			    </div>
+			</div>
+
+			<!-- View -->
+			<div id="help-view" class="help-view markdown github">
+			    <h1 id="keyman">KeyMan</h1>
+<h2 id="-">⌨</h2>
+<p><a href="https://travis-ci.org/sj-js/keyman"><img src="https://travis-ci.org/sj-js/keyman.svg?branch=master" alt="Build Status"></a>
+<a href="https://github.com/sj-js/keyman/releases"><img src="https://img.shields.io/github/downloads/sj-js/keyman/total.svg" alt="All Download"></a>
+<a href="https://github.com/sj-js/keyman/releases"><img src="https://img.shields.io/github/release/sj-js/keyman.svg" alt="Release"></a>
+<a href="https://github.com/sj-js/keyman/releases"><img src="https://img.shields.io/github/license/sj-js/keyman.svg" alt="License"></a></p>
+<ul>
+<li>쉽게 Key Event를 다룰 수 있습니다.</li>
+<li>동시에 1개 이상의 키를 누를 때 발생하는 <code>Shorcut</code>와 순차적으로 키를 누를 때 발생하는 <code>Command</code>로 나뉩니다.</li>
+<li>✨ Source: <a href="https://github.com/sj-js/keyman">https://github.com/sj-js/keyman</a></li>
+<li>✨ Document: <a href="https://sj-js.github.io/sj-js/keyman">https://sj-js.github.io/sj-js/keyman</a></li>
+</ul>
+<h2 id="index">Index</h2>
+<p><ul>
+<li><a href="../keyman/index.html">KeyMan</a></li>
+<li><a href="../keyman/key.html">Key</a></li>
+<li><a href="../keyman/shortcut.html">Shortcut</a></li>
+<li><a href="../keyman/command.html">Command</a></li>
+<li><a href="../keyman/input.html">Input</a></li>
+<li><a href="../keyman/event.html">Event</a></li>
+<li><a href="../keyman/functions.html">Functions</a></li>
+<li><a href="../keyman/example.html">Example</a></li>
+</ul><h2 id="1-getting-started">1. Getting Started</h2>
+<h3 id="1-1-how-to-load-">1-1. How to load?</h3>
+<ul>
+<li>Browser<pre><code class="lang-html">  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/crossman/dist/js/crossman.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/keyman/dist/js/keyman.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+      var keyman = new KeyMan();
+  &lt;/script&gt;
+</code></pre>
+  
+</li>
+<li>ES6+ <pre><code class="lang-bash">  npm i @sj-js/keyman
+</code></pre>
+<pre><code class="lang-js">  const KeyMan = require(&#39;@sj-js/keyman&#39;);
+  const keyman = new KeyMan();
+</code></pre>
+</li>
+</ul>
+<h3 id="1-2-simple-example">1-2. Simple Example</h3>
+<p>For convenience, 1-1 code, which loads and creates a Library in the example, is omitted.</p>
+<h5 id="example-shortcut">Example - Shortcut</h5>
+<ol>
+<li><p>Shortcut 등록</p>
+<pre><code class="lang-js"> keyman.addShortcut({   
+     name:&#39;develop-tool&#39;,
+     keys: [&#39;ctrl&#39;, &#39;shift&#39;],
+     keydown: function(event){
+         //Something to do when shorcut keys are down             
+     },
+     keyup: function(event){
+         //Something to do when shorcut keys are up
+     }
+ });
+</code></pre>
+</li>
+<li><p>👨‍💻
+ <div class="lang-html"> &lt;style&gt;
+     * { margin:0; cursor:pointer; }
+     div:focus { background-color: Aqua; }
+ &lt;/style&gt;
+
+ &lt;script&gt;
+     keyman.addShortcut({
+         name:&#39;develop-tool&#39;,
+         keys: [&#39;ctrl&#39;, &#39;shift&#39;],
+         keydown: function(event){
+             document.getElementById(&#39;tester&#39;).innerHTML = &#39;KEY ON&#39;;            
+         },
+         keyup: function(event){
+             document.getElementById(&#39;tester&#39;).innerHTML = &#39;KEY OFF&#39;;
+         }
+     });
+
+     keyman.addShortcut({
+         name:&#39;copy-then&#39;,
+         keys: [&#39;ctrl&#39;, &#39;c&#39;],
+         keydown: function(event){
+             document.getElementById(&#39;tester&#39;).innerHTML = &#39;COPY ON&#39;;            
+         },
+         keyup: function(event){
+             document.getElementById(&#39;tester&#39;).innerHTML = &#39;COPY AND..&#39;;
+         }
+     });
+ &lt;/script&gt;
+
+ &lt;body&gt;
+     &lt;div tabindex=&quot;0&quot; style=&quot;width:100%; min-height:100%;&quot;&gt;
+         Click here and Test key [Ctrl] + [Shift]
+         &lt;div id=&quot;tester&quot; style=&quot;color:#FF832C; font-weight:bold;&quot;&gt;&lt;/div&gt;        
+     &lt;/div&gt;
+ &lt;/body&gt;    
+</div>
+</li>
+</ol>
+<h5 id="example-command">Example - Command</h5>
+<ol>
+<li>Commander를 등록합니다.<pre><code class="lang-js"> var commander = keyman.addCommander(&#39;1P&#39;);
+</code></pre>
+</li>
+<li><code>addCommandMap({Commands..})</code>으로 Command명과 Command Key를 정의합니다.<pre><code class="lang-js"> commander.addCommandMap({
+     &#39;develop-pop&#39;: [KeyMan.SHIFT, &#39;shift&#39;],
+     &#39;hello&#39;: [&#39;S&#39;, &#39;J&#39;, &#39;J&#39;, &#39;S&#39;]
+ });
+</code></pre>
+</li>
+<li><code>addCommandEventMap({Command Functions..})</code>으로 Command명과 Command Function을 정의합니다.<pre><code class="lang-js"> commander.addCommandEventMap({
+     &#39;develop-pop&#39;: function(){ showSkill(&#39;Upper Cut !&#39;); },
+     &#39;hello&#39;: function(){ showSkill(&#39;SJ JS so Good!!&#39;); }
+ });   
+</code></pre>
+</li>
+<li><p>👨‍💻<br> <div class="lang-html"> &lt;style&gt;
+     * { margin:0; cursor:pointer; }
+     div:focus { background-color: Aqua; }
+     td { border: 1px solid black }
+     .cmd-map {background:black; color:white;}
+ &lt;/style&gt;
+
+ &lt;script&gt;
+     window.countSkill = 0;
+     function showSkill(skillText){
+         document.getElementById(&#39;tester&#39;).innerHTML = skillText + (((++window.countSkill) % 2) ? &#39;~!&#39; : &#39;&#39;);
+     }   
+
+     keyman.addCommander(&#39;1P&#39;)
+            .addCommandMap({
+                 &#39;develop-pop&#39;: [KeyMan.SHIFT, KeyMan.SHIFT],
+                 &#39;hello&#39;: [&#39;S&#39;, &#39;J&#39;, &#39;J&#39;, &#39;S&#39;]
+            })
+            .addCommandEventMap({
+                 &#39;develop-pop&#39;: function(){ showSkill(&#39;Upper Cut !&#39;); },
+                 &#39;hello&#39;: function(){ showSkill(&#39;SJ JS so Good!!&#39;); },
+            });   
+ &lt;/script&gt;
+
+ &lt;body&gt;
+     &lt;div tabindex=&quot;0&quot; style=&quot;width:100%; min-height:100%;&quot;&gt;
+         1. Click here and Test key &lt;br/&gt;
+         &lt;div id=&quot;tester&quot; style=&quot;color:#FF832C; font-weight:bold;&quot;&gt;&lt;/div&gt;
+         2. Command Map
+         &lt;table&gt;
+             &lt;tr&gt;&lt;td&gt;develop-pop&lt;/td&gt;&lt;td class=&quot;cmd-map&quot;&gt;[SHIFT] [SHIFT]&lt;/td&gt;&lt;/tr&gt;
+             &lt;tr&gt;&lt;td&gt;hello&lt;/td&gt;&lt;td class=&quot;cmd-map&quot;&gt;[S] [J] [J] [S]&lt;/td&gt;&lt;/tr&gt;
+         &lt;/table&gt;
+     &lt;/div&gt;
+ &lt;/body&gt;    
+</div>
+</li>
+</ol>
+<h5 id="example-defined-key-command">Example - Defined Key Command</h5>
+<ol>
+<li>Commander등록과 함께 특정 키를 정의합니다.<pre><code class="lang-js"> var commander = keyman.addCommander(&#39;1P&#39;, true)
+                       .setUp([&#39;w&#39;]).setDown([&#39;s&#39;]).setLeft([&#39;a&#39;]).setRight([&#39;d&#39;])
+                       .setButtonA([&#39;t&#39;]).setButtonB([&#39;y&#39;]).setButtonC([&#39;g&#39;]).setButtonD([&#39;h&#39;]);
+</code></pre>
+</li>
+<li><code>addCommandMap({Commands..})</code>으로 Command명과 Command Key를 정의합니다.<pre><code class="lang-js"> commander.addCommandMap({
+     &#39;uppercut&#39;: [KeyMan.RIGHT, KeyMan.DOWN, KeyMan.DOWNRIGHT, KeyMan.RIGHT, KeyMan.A],
+     &#39;uppercut strong&#39;: [KeyMan.RIGHT, KeyMan.DOWN, KeyMan.DOWNRIGHT, KeyMan.RIGHT, KeyMan.B],
+     &#39;rabekku&#39;: [KeyMan.LEFT, KeyMan.RIGHT, KeyMan.A],
+     &#39;dropkick&#39;: [KeyMan.RIGHT, KeyMan.RIGHT, KeyMan.D],
+ });
+</code></pre>
+</li>
+<li><code>addCommandEventMap({Command Functions..})</code>으로 Command명과 Command Function을 정의합니다.<pre><code class="lang-js"> commander.addCommandEventMap({
+     &#39;uppercut&#39;: function(){ /* Do something */ },
+     &#39;uppercut strong&#39;: function(){ /* Do something */ },
+     &#39;dropkick&#39;: function(){ /* Do something */ },
+     &#39;rabekku&#39;: function(){ /* Do something */ }
+ });   
+</code></pre>
+</li>
+<li><p>👨‍💻
+ <div class="lang-html"> &lt;style&gt;
+     * { margin:0; cursor:pointer; }
+     div:focus { background-color: Aqua; }
+     td { border: 1px solid black }
+     .dir {background:green; color:white;}
+     .btn {background:red; color:white;}
+     .cmd-map {background:black; color:white;}
+ &lt;/style&gt;
+
+ &lt;script&gt;    
+     window.countSkill = 0;
+     function showSkill(skillText){
+         document.getElementById(&#39;tester&#39;).innerHTML = skillText + (((++window.countSkill) % 2) ? &#39;~!&#39; : &#39;&#39;);
+     }
+
+     keyman.addCommander(&#39;1p&#39;, true)
+            .setUp([&#39;w&#39;]).setDown([&#39;s&#39;]).setLeft([&#39;a&#39;]).setRight([&#39;d&#39;])
+            .setButtonA([&#39;t&#39;]).setButtonB([&#39;y&#39;]).setButtonC([&#39;g&#39;]).setButtonD([&#39;h&#39;])
+            .addCommandMap({
+                 &#39;uppercut&#39;: [KeyMan.RIGHT, KeyMan.DOWN, KeyMan.DOWNRIGHT, KeyMan.RIGHT, KeyMan.A],
+                 &#39;uppercut strong&#39;: [KeyMan.RIGHT, KeyMan.DOWN, KeyMan.DOWNRIGHT, KeyMan.RIGHT, KeyMan.B],
+                 &#39;rabekku&#39;: [KeyMan.LEFT, KeyMan.RIGHT, KeyMan.A],
+                 &#39;dropkick&#39;: [KeyMan.RIGHT, KeyMan.RIGHT, KeyMan.D],        
+            })
+            .addCommandEventMap({
+                 &#39;uppercut&#39;: function(){ showSkill(&#39;Upper Cut !&#39;); },
+                 &#39;uppercut strong&#39;: function(){ showSkill(&#39;Upper Cut !!!!!!!&#39;); },
+                 &#39;dropkick&#39;: function(){ showSkill(&#39;Drop Kick !!&#39;); },
+                 &#39;rabekku&#39;: function(){ showSkill(&#39;Rabekku !!!&#39;); }
+            });            
+ &lt;/script&gt;
+
+ &lt;body&gt;
+     &lt;div tabindex=&quot;0&quot; style=&quot;width:100%; min-height:100%;&quot;&gt;
+          1. Click here and Test key &lt;br/&gt;
+          &lt;div id=&quot;tester&quot; style=&quot;color:#FF832C; font-weight:bold;&quot;&gt;&lt;/div&gt;        
+          2. Key Map
+          &lt;table&gt;
+              &lt;tr&gt;
+                  &lt;td class=&quot;dir&quot;&gt;⬆ ️&lt;/td&gt;&lt;td&gt;W&lt;/td&gt;
+                  &lt;td class=&quot;dir&quot;&gt;⬅ ️&lt;/td&gt;&lt;td&gt;A&lt;/td&gt;
+                  &lt;td class=&quot;dir&quot;&gt;⬇ ️&lt;/td&gt;&lt;td&gt;S&lt;/td&gt;
+                  &lt;td class=&quot;dir&quot;&gt;➡ ️&lt;/td&gt;&lt;td&gt;D&lt;/td&gt;
+                  &lt;td class=&quot;btn&quot;&gt;ⓐ&lt;/td&gt;&lt;td&gt;T&lt;/td&gt;
+                  &lt;td class=&quot;btn&quot;&gt;ⓑ&lt;/td&gt;&lt;td&gt;Y&lt;/td&gt;  
+                  &lt;td class=&quot;btn&quot;&gt;ⓒ&lt;/td&gt;&lt;td&gt;G&lt;/td&gt;  
+                  &lt;td class=&quot;btn&quot;&gt;ⓓ&lt;/td&gt;&lt;td&gt;H&lt;/td&gt;
+              &lt;/tr&gt;  
+          &lt;/table&gt;
+          3. Command Map
+          &lt;table&gt;
+              &lt;tr&gt;&lt;td&gt;Uppercut&lt;/td&gt;&lt;td class=&quot;cmd-map&quot;&gt;➡ ️⬇ ️↘ ️➡ ️ⓐ&lt;/td&gt;&lt;/tr&gt;
+              &lt;tr&gt;&lt;td&gt;Uppercut Strong&lt;/td&gt;&lt;td class=&quot;cmd-map&quot;&gt;➡ ️⬇ ️↘️➡ ️ⓑ&lt;/td&gt;&lt;/tr&gt;
+              &lt;tr&gt;&lt;td&gt;Dropkick&lt;/td&gt;&lt;td class=&quot;cmd-map&quot;&gt;➡ ️➡ ️ⓓ&lt;/td&gt;&lt;/tr&gt;
+              &lt;tr&gt;&lt;td&gt;Rabekku&lt;/td&gt;&lt;td class=&quot;cmd-map&quot;&gt;⬅ ️➡ ️ⓐ&lt;/td&gt;&lt;/tr&gt;
+          &lt;/table&gt;
+     &lt;/div&gt;      
+ &lt;/body&gt;
+</div>
+</li>
+</ol>
+
+			</div>
+
+		</div>
+
+
+        <!-- /////////////////////////
+            MINI-MENU
+        ///////////////////////// -->
+        <div id="mini-menu-button" style="position:fixed; top:50px; left:3px;">
+            <button style="width:40px; height:40px; opacity:0.85; font-weight:bold;">...</button>
+        </div>
+
+
+        <!-- /////////////////////////
+            Footer
+        ///////////////////////// -->
+        <div id="help-footer" class="help-footer">
+        </div>
+
+	</body>
+
+
+
+</HTML>

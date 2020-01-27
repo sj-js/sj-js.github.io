@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<HTML> 
+	<meta charset="utf-8" />	
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<meta name=apple-mobile-web-app-capable content=yes />
+	<meta name=mobile-web-app-capable content=yes />
+	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
+	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1" />
+
+    <meta name="libraryName" content="sjdoc-maker" />
+    <meta name="mdFileName" content="index" />
+    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
+    <meta name="menuJson" content='{"sjdoc-maker":{"path":"sjdoc-maker/index.html","fileName":"index","h2TextList":["📄","Index","1. Documents for your project","2. Build your documents with SJDoc-maker"],"h2PathList":["sjdoc-maker/index.html#-","sjdoc-maker/index.html#index","sjdoc-maker/index.html#1-documents-for-your-project","sjdoc-maker/index.html#2-build-your-documents-with-sjdoc-maker"]},"Example":{"path":"sjdoc-maker/example.html","fileName":"example","h2TextList":["Example - ./sjdoc-config/sjdoc-sj-js.js","Example - ./sjdoc-config/sjdoc-vis-networkman.js"],"h2PathList":["sjdoc-maker/example.html#example-sjdoc-config-sjdoc-sj-js-js","sjdoc-maker/example.html#example-sjdoc-config-sjdoc-vis-networkman-js"]}}' />
+    <meta name="menuOrderListJson" content='["sjdoc-maker","Example"]' />
+    <meta name="saveJson" content='' />
+
+
+
+	<head>
+		<title>sjdoc-maker - index</title>
+
+		<!-- ★highlight.js -->
+		<!--
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+		-->
+        <!--
+		    <script src="../lib/highlightjs/highlight.min.js"></script>
+		-->
+		<link rel="stylesheet" href="../lib/highlightjs/default.min.css">
+
+
+
+
+        <!-- Template CSS -->
+        <!--
+            <link rel="stylesheet" href="../css/style.min.css">
+        -->
+        <link rel="stylesheet" href="../css/github.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/markdown.css">
+	<script type="text/javascript" src="../../sj-js/js/sj-js.bundle.js"></script></head>
+
+
+                              
+	<body class="boxman-1">
+
+
+		<!-- TEST -->
+		<!--
+		<div data-box>test box</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		-->
+
+
+        <!-- /////////////////////////
+             Header
+        ///////////////////////// -->
+        <div id="help-header" class="help-header test">
+            <ul id="help-header-menulist" class="menu-type-a test">
+            </ul>
+        </div>
+
+
+        <!-- /////////////////////////
+            Context
+        ///////////////////////// -->
+		<div id="help-context" class="help-context">
+
+			<!-- Menu -->
+			<div id="help-menu" class="help-menu">
+			    <div id="help-menu-context" style="width:100%; height:100%; background:#ffffff; overflow:auto;">
+                    <ul id="help-menu-menulist" class="menu-type-b test" >
+                    </ul>
+			    </div>
+			</div>
+
+			<!-- View -->
+			<div id="help-view" class="help-view markdown github">
+			    <h1 id="sjdoc-maker">sjdoc-maker</h1>
+<h2 id="-">📄</h2>
+<p><a href="https://travis-ci.org/sj-js/sjdoc-maker"><img src="https://travis-ci.org/sj-js/sjdoc-maker.svg?branch=master" alt="Build Status"></a>
+<a href="https://github.com/sj-js/sjdoc-maker/releases"><img src="https://img.shields.io/github/downloads/sj-js/sjdoc-maker/total.svg" alt="All Download"></a>
+<a href="https://github.com/sj-js/sjdoc-maker/releases"><img src="https://img.shields.io/github/release/sj-js/sjdoc-maker.svg" alt="Release"></a>
+<a href="https://github.com/sj-js/sjdoc-maker/releases"><img src="https://img.shields.io/github/license/sj-js/sjdoc-maker.svg" alt="License"></a></p>
+<ul>
+<li>Markdown을 활용하여 문서를 작성할 수 있습니다.</li>
+<li>예제코드를 사용자가 바로 체험하거나 편집해 볼 수 있습니다.</li>
+<li>✨ Source: <a href="https://github.com/sj-js/sjdoc-maker">https://github.com/sj-js/sjdoc-maker</a></li>
+<li>✨ Document: <a href="https://sj-js.github.io/sj-js/sjdoc-maker">https://sj-js.github.io/sj-js/sjdoc-maker</a></li>
+</ul>
+<h2 id="index">Index</h2>
+<p><ul>
+<li><a href="../sjdoc-maker/index.html">sjdoc-maker</a></li>
+<li><a href="../sjdoc-maker/example.html">Example</a></li>
+</ul><h2 id="1-documents-for-your-project">1. Documents for your project</h2>
+<h3 id="1-1-with-markdown">1-1. With markdown</h3>
+<ol>
+<li>md파일 생성<ul>
+<li><code>{ROOT_OF_YOUR_PROJECT}/src/sjdoc/index.md</code>: 문서는 Markdown으로 작성하며 추가적으로 메뉴/소스편집/실행기 등 확장된 기능을 사용할 수 있습니다.</li>
+<li><code>{ROOT_OF_YOUR_PROJECT}/src/sjdoc/*.md</code>: 여러 문서를 만드세요.</li>
+</ul>
+</li>
+<li>구조<ul>
+<li>File 1개당 <code>1개의 Page</code>로 구성됩니다.</li>
+<li>Page의 시작은 <code>#</code>으로 제목을 붙여줍니다. 제목은 <code>왼쪽메뉴명</code>과 <code>Index Page의 목록기능을 사용시 노출</code>됩니다.</li>
+</ul>
+</li>
+</ol>
+<h3 id="1-2-check-sample">1-2. Check Sample</h3>
+<ol>
+<li>Example Source <ol>
+<li><code>git clone http://github.com/sj-js/sjdoc-maker.git</code></li>
+<li>Sample Source(<code>/sample/sample-packages-source</code>)를 확인하시고 </li>
+<li>이를 빌드한 Sample Document(<code>/sample/sample-packages-document</code>)를 확인하시기 바랍니다.</li>
+</ol>
+</li>
+<li>Check:<ul>
+<li>Source: <a href="https://github.com/sj-js/sjdoc-maker/tree/master/sample/sample-packages-source/test-package1/src/sjdoc/index.md">https://github.com/sj-js/sjdoc-maker/tree/master/sample/sample-packages-source/test-package1/src/sjdoc/index.md</a></li>
+<li>Build: <a href="https://sj-js.github.io/sjdoc-maker/test-package1/index.html">https://sj-js.github.io/sjdoc-maker/test-package1/index.html</a></li>
+</ul>
+</li>
+</ol>
+<h3 id="1-3-">1-3. 기능</h3>
+<p>소스코드를 표시하는 <code>Markdown 문법</code>인 ```의 위에 다음을 명시하여 특정 효과를 볼 수 있습니다.</p>
+<ul>
+<li><p>인덱스 메뉴 생성</p>
+<pre><code class="lang-markdown">  *@* **order** *@*
+</code></pre>
+<p>  ```와 ``` 안에는 다음과 같이 각 Page의 첫번째 <code>#</code>의 이름을 열거하여 목록을 만듭니다.</p>
+<pre><code>  - BoxMan
+  - Event
+  - Example
+</code></pre></li>
+<li><p>소스 편집/실행기 생성</p>
+<pre><code class="lang-markdown">  *@* *!* *@*
+</code></pre>
+</li>
+<li><p>Before소스 등록</p>
+<pre><code class="lang-markdown">  *@* *+prefix* *@*
+</code></pre>
+</li>
+<li><p>Before소스 등록하고 숨기기</p>
+<pre><code class="lang-markdown">  *@* *+prefix* *x* *@*
+</code></pre>
+</li>
+</ul>
+<h2 id="2-build-your-documents-with-sjdoc-maker">2. Build your documents with SJDoc-maker</h2>
+<p>SJDoc-maker로 당신의 문서를 생성하세요.</p>
+<ol>
+<li><p>clone project</p>
+<pre><code class="lang-bash"> git clone http://github.com/sj-js/sjdoc-maker.git
+</code></pre>
+<pre><code class="lang-bash"> cd ./sjdoc-maker
+</code></pre>
+</li>
+<li><p>make your build script</p>
+<ul>
+<li><p>{ROOT_OF_SJDOCMAKER}/sjdoc-config/sjdoc-sample1.js</p>
+<pre><code class="lang-js">  const SjMarkdownManager = require(&#39;../SjMarkdownManager&#39;);
+  const path = require(&#39;path&#39;);
+  /** path to your project source **/
+  const TEST_PACKAGE1_SRC = path.resolve(__dirname, &#39;../sample/sample-packages-source/test-package1&#39;);          
+
+  /** Exports **/
+  module.exports = new SjMarkdownManager()
+      //통합문서를 구분짓는 이름을 설정
+      .setAlias(&#39;sample1&#39;)                   
+      //통합문서의 시작페이지를 설정      
+      .setHome(&#39;test-package1/index&#39;)      
+      //통합문서 폴더 하위에 생성할 `Library별 폴더명`과 Parsing할 `md파일들`을 매칭시킵니다. (Object구조로 정의합니다.)
+      .setLibraryNameAndMarkdownPathsMap({  
+          &#39;test-package1&#39;: [
+              TEST_PACKAGE1_SRC + &#39;/src/sjdoc/**/*.md&#39;
+          ],
+      })
+      //통합문서 폴더 하위에 생성할 `Library별 폴더명`과 필요한 `js/css 등의 파일들`을 매칭시킵니다. (Object구조로 정의합니다.)
+      .setLibraryNameAndPublicDirRawFilesMap({
+          &#39;test-package1&#39;: [
+              TEST_PACKAGE1_SRC + &#39;/src/js/test1.js&#39;
+          ],
+      });
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>Build your documents</p>
+<pre><code class="lang-bash"> npm run build
+</code></pre>
+<p> OR Test your documents</p>
+<pre><code class="lang-bash"> npm run dev
+</code></pre>
+</li>
+<li><p>Check your documents</p>
+<pre><code class="lang-bash"> {ROOT_OF_SJDOCMAKER}/dist
+</code></pre>
+</li>
+</ol>
+
+			</div>
+
+		</div>
+
+
+        <!-- /////////////////////////
+            MINI-MENU
+        ///////////////////////// -->
+        <div id="mini-menu-button" style="position:fixed; top:50px; left:3px;">
+            <button style="width:40px; height:40px; opacity:0.85; font-weight:bold;">...</button>
+        </div>
+
+
+        <!-- /////////////////////////
+            Footer
+        ///////////////////////// -->
+        <div id="help-footer" class="help-footer">
+        </div>
+
+	</body>
+
+
+
+</HTML>

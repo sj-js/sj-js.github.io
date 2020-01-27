@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<HTML> 
+	<meta charset="utf-8" />	
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<meta name=apple-mobile-web-app-capable content=yes />
+	<meta name=mobile-web-app-capable content=yes />
+	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
+	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1" />
+
+    <meta name="libraryName" content="sjdoc-maker" />
+    <meta name="mdFileName" content="example" />
+    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
+    <meta name="menuJson" content='{"sjdoc-maker":{"path":"sjdoc-maker/index.html","fileName":"index","h2TextList":["📄","Index","1. Documents for your project","2. Build your documents with SJDoc-maker"],"h2PathList":["sjdoc-maker/index.html#-","sjdoc-maker/index.html#index","sjdoc-maker/index.html#1-documents-for-your-project","sjdoc-maker/index.html#2-build-your-documents-with-sjdoc-maker"]},"Example":{"path":"sjdoc-maker/example.html","fileName":"example","h2TextList":["Example - ./sjdoc-config/sjdoc-sj-js.js","Example - ./sjdoc-config/sjdoc-vis-networkman.js"],"h2PathList":["sjdoc-maker/example.html#example-sjdoc-config-sjdoc-sj-js-js","sjdoc-maker/example.html#example-sjdoc-config-sjdoc-vis-networkman-js"]}}' />
+    <meta name="menuOrderListJson" content='["sjdoc-maker","Example"]' />
+    <meta name="saveJson" content='' />
+
+
+
+	<head>
+		<title>sjdoc-maker - example</title>
+
+		<!-- ★highlight.js -->
+		<!--
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+		-->
+        <!--
+		    <script src="../lib/highlightjs/highlight.min.js"></script>
+		-->
+		<link rel="stylesheet" href="../lib/highlightjs/default.min.css">
+
+
+
+
+        <!-- Template CSS -->
+        <!--
+            <link rel="stylesheet" href="../css/style.min.css">
+        -->
+        <link rel="stylesheet" href="../css/github.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/markdown.css">
+	<script type="text/javascript" src="../../sj-js/js/sj-js.bundle.js"></script></head>
+
+
+                              
+	<body class="boxman-1">
+
+
+		<!-- TEST -->
+		<!--
+		<div data-box>test box</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		-->
+
+
+        <!-- /////////////////////////
+             Header
+        ///////////////////////// -->
+        <div id="help-header" class="help-header test">
+            <ul id="help-header-menulist" class="menu-type-a test">
+            </ul>
+        </div>
+
+
+        <!-- /////////////////////////
+            Context
+        ///////////////////////// -->
+		<div id="help-context" class="help-context">
+
+			<!-- Menu -->
+			<div id="help-menu" class="help-menu">
+			    <div id="help-menu-context" style="width:100%; height:100%; background:#ffffff; overflow:auto;">
+                    <ul id="help-menu-menulist" class="menu-type-b test" >
+                    </ul>
+			    </div>
+			</div>
+
+			<!-- View -->
+			<div id="help-view" class="help-view markdown github">
+			    <h1 id="example">Example</h1>
+<h2 id="example-sjdoc-config-sjdoc-sj-js-js">Example - ./sjdoc-config/sjdoc-sj-js.js</h2>
+<ul>
+<li><p>▪▪▪</p>
+<pre><code class="lang-js">  const SjMarkdownManager = require(&#39;../SjMarkdownManager&#39;);
+  const path = require(&#39;path&#39;);
+  const libraryGroupRootPath = path.resolve(__dirname, &#39;../../&#39;);
+
+  const CROSSMAN_DIR = path.resolve(libraryGroupRootPath, &#39;crossman&#39;);
+  const BOXMAN_DIR = path.resolve(libraryGroupRootPath, &#39;boxman&#39;);
+  const POPMAN_DIR = path.resolve(libraryGroupRootPath, &#39;popman&#39;);
+  const KEYMAN_DIR = path.resolve(libraryGroupRootPath, &#39;keyman&#39;);
+  const JELLY_DIR = path.resolve(libraryGroupRootPath, &#39;jelly&#39;);
+  const SJDOCMAKER_DIR = path.resolve(libraryGroupRootPath, &#39;sjdoc-maker&#39;);
+  const MENUMAN_DIR = path.resolve(libraryGroupRootPath, &#39;menuman&#39;);
+  const FIXMAN_DIR = path.resolve(libraryGroupRootPath, &#39;fixman&#39;);
+  const PARTMAN_DIR = path.resolve(libraryGroupRootPath, &#39;partman&#39;);
+  const SLIDEMAN_DIR = path.resolve(libraryGroupRootPath, &#39;slideman&#39;);
+  const VARIABLEMAN_DIR = path.resolve(libraryGroupRootPath, &#39;variableman&#39;);
+  const TREEMAN_DIR = path.resolve(libraryGroupRootPath, &#39;treeman&#39;);
+  const STORAGEMAN_DIR = path.resolve(libraryGroupRootPath, &#39;storageman&#39;);
+
+  const PAINTMAN_DIR = path.resolve(libraryGroupRootPath, &#39;paintman&#39;);
+  const GITHUB_IO_DIR = path.resolve(libraryGroupRootPath, &#39;sj-js.github.io&#39;);
+
+  /** Exports **/
+  module.exports = new SjMarkdownManager()
+      .setAlias(&#39;sj-js&#39;)
+      .setHome(&#39;boxman/index&#39;)
+      .setLibraryNameAndMarkdownPathsMap({
+          boxman : [BOXMAN_DIR + &#39;/src/sjdoc/**/*.md&#39;],
+          popman : [POPMAN_DIR + &#39;/src/sjdoc/**/*.md&#39;],
+          keyman : [KEYMAN_DIR + &#39;/src/sjdoc/**/*.md&#39;],
+          menuman : [MENUMAN_DIR + &#39;/src/sjdoc/**/*.md&#39;],
+          fixman : [FIXMAN_DIR + &#39;/src/sjdoc/**/*.md&#39;],
+          partman : [PARTMAN_DIR + &#39;/src/sjdoc/**/*.md&#39;],
+          slideman : [SLIDEMAN_DIR + &#39;/src/sjdoc/**/*.md&#39;],
+          variableman : [VARIABLEMAN_DIR + &#39;/src/sjdoc/**/*.md&#39;],
+          &#39;sjdoc-maker&#39; : [SJDOCMAKER_DIR + &#39;/src/sjdoc/**/*.md&#39;],
+          jelly : [JELLY_DIR + &#39;/src/sjdoc/**/*.md&#39;],
+      })
+      .setLibraryNameAndPublicDirRawFilesMap({
+          crossman : [CROSSMAN_DIR + &#39;/src/js/*.js&#39;],
+          boxman : [BOXMAN_DIR + &#39;/src/js/*.js&#39;, BOXMAN_DIR + &#39;/src/css/*.css&#39;],
+          popman : [POPMAN_DIR + &#39;/src/js/*.js&#39;],
+          keyman : [KEYMAN_DIR + &#39;/src/js/*.js&#39;],
+          menuman : [MENUMAN_DIR + &#39;/src/js/*.js&#39;, MENUMAN_DIR + &#39;/src/css/*.css&#39;],
+          fixman : [FIXMAN_DIR + &#39;/src/js/*.js&#39;],
+          partman : [PARTMAN_DIR + &#39;/src/js/*.js&#39;, PARTMAN_DIR + &#39;/src/css/*.css&#39;],
+          slideman : [SLIDEMAN_DIR + &#39;/src/js/*.js&#39;, SLIDEMAN_DIR + &#39;/src/css/*.css&#39;],
+          storageman : [STORAGEMAN_DIR + &#39;/src/js/*.js&#39;],
+          variableman : [VARIABLEMAN_DIR + &#39;/src/js/*.js&#39;],
+          &#39;jelly&#39; : [JELLY_DIR + &#39;/src/js/**/*.js&#39;, JELLY_DIR + &#39;/src/css/**/*.css&#39;],
+      })
+      .setDist(GITHUB_IO_DIR + &#39;/sj-js&#39;)
+      ;
+</code></pre>
+</li>
+</ul>
+<h2 id="example-sjdoc-config-sjdoc-vis-networkman-js">Example - ./sjdoc-config/sjdoc-vis-networkman.js</h2>
+<ul>
+<li><p>▪▪▪</p>
+<pre><code class="lang-js">  const SjMarkdownManager = require(&#39;../SjMarkdownManager&#39;);
+  const path = require(&#39;path&#39;);
+  const libraryGroupRootPath = path.resolve(__dirname, &#39;../../&#39;);
+
+  const HELP_LIB_VISNETWORKMAN = path.resolve(libraryGroupRootPath, &#39;./vis-networkman&#39;);
+  const CROSSMAN_DIR = path.resolve(libraryGroupRootPath, &#39;crossman&#39;);
+  const BOXMAN_DIR = path.resolve(libraryGroupRootPath, &#39;boxman&#39;);
+  const POPMAN_DIR = path.resolve(libraryGroupRootPath, &#39;popman&#39;);
+  const GITHUB_IO_DIR = path.resolve(libraryGroupRootPath, &#39;sj-js.github.io&#39;);
+
+  /** Exports **/
+  module.exports = new SjMarkdownManager()
+      .setAlias(&#39;vis-networkman&#39;)
+      .setHome(&#39;vis-networkman/index&#39;)
+      .setLibraryNameAndMarkdownPathsMap({
+          &#39;vis-networkman&#39; : [HELP_LIB_VISNETWORKMAN + &#39;/src/sjdoc/**/*.md&#39;],
+      })
+      .setLibraryNameAndPublicDirRawFilesMap({
+          &#39;vis-networkman&#39;: [
+              HELP_LIB_VISNETWORKMAN + &#39;/src/js/**/*.js&#39;,
+              HELP_LIB_VISNETWORKMAN + &#39;/src/css/**/*.css&#39;,
+              HELP_LIB_VISNETWORKMAN + &#39;/src/lib/vis/vis-network.min.js&#39;,
+              HELP_LIB_VISNETWORKMAN + &#39;/src/lib/vis/vis-network.min.css&#39;
+          ],
+          &#39;crossman&#39;: [
+              CROSSMAN_DIR + &#39;/src/js/crossman.js&#39;,
+          ],
+          &#39;boxman&#39;: [
+              BOXMAN_DIR + &#39;/src/js/boxman.js&#39;,
+              BOXMAN_DIR + &#39;/src/css/boxman.css&#39;
+          ],
+          &#39;popman&#39;: [
+              POPMAN_DIR + &#39;/src/js/popman.js&#39;
+          ],
+      })
+      .setDist(GITHUB_IO_DIR + &#39;/vis-networkman&#39;)
+      ;
+</code></pre>
+</li>
+</ul>
+
+			</div>
+
+		</div>
+
+
+        <!-- /////////////////////////
+            MINI-MENU
+        ///////////////////////// -->
+        <div id="mini-menu-button" style="position:fixed; top:50px; left:3px;">
+            <button style="width:40px; height:40px; opacity:0.85; font-weight:bold;">...</button>
+        </div>
+
+
+        <!-- /////////////////////////
+            Footer
+        ///////////////////////// -->
+        <div id="help-footer" class="help-footer">
+        </div>
+
+	</body>
+
+
+
+</HTML>

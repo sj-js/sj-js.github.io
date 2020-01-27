@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<HTML> 
+	<meta charset="utf-8" />	
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<meta name=apple-mobile-web-app-capable content=yes />
+	<meta name=mobile-web-app-capable content=yes />
+	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
+	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1" />
+
+    <meta name="libraryName" content="fixman" />
+    <meta name="mdFileName" content="event" />
+    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
+    <meta name="menuJson" content='{"FixMan":{"path":"fixman/index.html","fileName":"index","h2TextList":["📌","Index","1. Getting Started"],"h2PathList":["fixman/index.html#-","fixman/index.html#index","fixman/index.html#1-getting-started"]},"Event":{"path":"fixman/event.html","fileName":"event","h2TextList":["Event - Animation"],"h2PathList":["fixman/event.html#event-animation"]},"Example":{"path":"fixman/example.html","fileName":"example","h2TextList":[],"h2PathList":[]}}' />
+    <meta name="menuOrderListJson" content='["FixMan","Event","Example"]' />
+    <meta name="saveJson" content='{"prefix":"<script src=\"../crossman/crossman.js\"></script>\n<script src=\"../fixman/fixman.js\"></script>\n<script>\n     var fixman = new FixMan();\n</script>\n"}' />
+
+
+
+	<head>
+		<title>fixman - event</title>
+
+		<!-- ★highlight.js -->
+		<!--
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+		-->
+        <!--
+		    <script src="../lib/highlightjs/highlight.min.js"></script>
+		-->
+		<link rel="stylesheet" href="../lib/highlightjs/default.min.css">
+
+
+
+
+        <!-- Template CSS -->
+        <!--
+            <link rel="stylesheet" href="../css/style.min.css">
+        -->
+        <link rel="stylesheet" href="../css/github.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/markdown.css">
+	<script type="text/javascript" src="../../sj-js/js/sj-js.bundle.js"></script></head>
+
+
+                              
+	<body class="boxman-1">
+
+
+		<!-- TEST -->
+		<!--
+		<div data-box>test box</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		-->
+
+
+        <!-- /////////////////////////
+             Header
+        ///////////////////////// -->
+        <div id="help-header" class="help-header test">
+            <ul id="help-header-menulist" class="menu-type-a test">
+            </ul>
+        </div>
+
+
+        <!-- /////////////////////////
+            Context
+        ///////////////////////// -->
+		<div id="help-context" class="help-context">
+
+			<!-- Menu -->
+			<div id="help-menu" class="help-menu">
+			    <div id="help-menu-context" style="width:100%; height:100%; background:#ffffff; overflow:auto;">
+                    <ul id="help-menu-menulist" class="menu-type-b test" >
+                    </ul>
+			    </div>
+			</div>
+
+			<!-- View -->
+			<div id="help-view" class="help-view markdown github">
+			    <h1 id="event">Event</h1>
+<p>Scroll에 따라서 대상 Element를 기준으로 Event를 발생시킬 수 있습니다.   </p>
+<h4 id="-">※ 표</h4>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FixMan.EVENT_AFTERDETECT</td>
+<td>detect가 완료된 후</td>
+</tr>
+<tr>
+<td>FixMan.EVENT_DETACH</td>
+<td>Scroll-Down으로 붙었던 Element가 다시 Scroll-Up에 의해 떨어질 때  </td>
+</tr>
+<tr>
+<td>FixMan.EVENT_ANIMATIONBYOBJECTHEIGHT</td>
+<td>Scroll시 발생 - (화면과 대상 Original Element와의 데이터를 제공)  </td>
+</tr>
+<tr>
+<td>FixMan.EVENT_ANIMATIONSTARTBYOBJECTHEIGHT</td>
+<td>Scroll-Down시 Original Element의 영역이 가려지기 시작할 때</td>
+</tr>
+<tr>
+<td>FixMan.EVENT_ANIMATIONDOINGBYOBJECTHEIGHT</td>
+<td>Scroll-Down시 Original Element의 영역 가려지기 시작할 때부터 완전히 가려질 때까지 </td>
+</tr>
+<tr>
+<td>FixMan.EVENT_ANIMATIONENDBYOBJECTHEIGHT</td>
+<td>Scroll-Down시 Original Element의 영역이 완전히 가려질 때</td>
+</tr>
+</tbody>
+</table>
+<p>
+<h2 id="event-animation">Event - Animation</h2>
+<ul>
+<li><p>example)
+  <div class="lang-html">  &lt;style&gt;
+      .title-context {
+          dislpay:block; width:100%;
+          color:#fff; text-align:center; font-size: 70px; font-weight: bold; transition-duration: 0.5s;
+      }
+      .title-text {
+          color:#fff; text-align:center; font-size: 70px;
+      }
+      #logo-clone { 
+          position: initial; transform: initial; display: inline-block; font-size: 25px; transition: 1s;
+          border: 3px solid yellow; border-radius: 25px; background: #b9b63b; opacity: 0; cursor: pointer;
+      }
+      .test1 { 
+          display:block; vertical-align:top; width:350px; height:200px; border:2px solid black; border-radius:20px;
+          margin-bottom: 200px; 
+      }
+  &lt;/style&gt;
+
+  &lt;body&gt;
+      &lt;div id=&quot;title-context&quot; class=&quot;title-context&quot; data-fixed&gt;
+          &lt;span id=&quot;title-text&quot; class=&quot;title-text&quot;&gt;
+              Jelly
+              &lt;span id=&quot;title-logo&quot; style=&quot;vertical-align:bottom; border:0px&quot;&gt;🥝&lt;/span&gt;
+          &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;test1&quot; style=&quot;background:pink;&quot;&gt;Hello?&lt;/div&gt;
+      &lt;div class=&quot;test1&quot; style=&quot;background:skyblue;&quot;&gt;Annyeong?&lt;/div&gt;
+      &lt;div class=&quot;test1&quot; style=&quot;background:gold;&quot;&gt;Konnichiwa? and Nihao? or Hola?&lt;/div&gt;
+      &lt;div class=&quot;test1&quot; style=&quot;background:gold;&quot;&gt;안녕? 좋은하루!? :D&lt;/div&gt;
+  &lt;/body&gt;
+
+  &lt;script&gt;
+      fixman.detect();
+      fixman.addEventListener(&#39;title-context&#39;, FixMan.EVENT_ANIMATIONSTARTBYOBJECTHEIGHT, function(object){
+          var logoElement = document.getElementById(&#39;title-logo&#39;);
+          var clonedLogo = logoElement.cloneNode(true);
+          clonedLogo.setAttribute(&#39;id&#39;, &#39;logo-clone&#39;);
+          clonedLogo.addEventListener(&#39;click&#39;, function(){
+              window.scrollTo({top:0, behavior:&#39;smooth&#39;}); 
+          });
+          document.body.appendChild(clonedLogo);
+          setTimeout(function(){
+              var clonedLogo = document.getElementById(&#39;logo-clone&#39;);
+              if (clonedLogo)
+                  clonedLogo.style.cssText = &#39;position:fixed; left:0px; top:0px; border-radius:50px 50px 50px 50px; opacity:1; fontSize:35px;&#39;;
+          }, 1);
+      });
+      fixman.addEventListener(&#39;title-context&#39;, FixMan.EVENT_ANIMATIONBYOBJECTHEIGHT, function(data){
+          var object = data.object;
+          var rate = data.rateLimit;
+          var rateReverse = data.rateLimitReverse;
+          object.style.transform = &#39;translateX(&#39;+ -(window.innerWidth/2 *rate) +&#39;px) translateY(&#39;+ -(data.fixableObjectHeight *rate) +&#39;px) scaleY(&#39;+ rateReverse +&#39;)&#39;;
+      });
+      fixman.addEventListener(&#39;title-context&#39;, FixMan.EVENT_DETACH, function(object){
+          var clonedLogo = document.getElementById(&#39;logo-clone&#39;);
+          if (clonedLogo){
+              clonedLogo.style.borderRadius = &#39;45px&#39;;
+              clonedLogo.style.opacity = &#39;0&#39;;
+              setTimeout(function(){
+                  var clonedLogo = document.getElementById(&#39;logo-clone&#39;);
+                  if (!object.statusFixed &amp;&amp; clonedLogo &amp;&amp; clonedLogo.parentNode)
+                      clonedLogo.parentNode.removeChild(clonedLogo);
+              }, 1000);
+          }       
+      });
+  &lt;/script&gt;
+</div>
+</li>
+</ul>
+
+			</div>
+
+		</div>
+
+
+        <!-- /////////////////////////
+            MINI-MENU
+        ///////////////////////// -->
+        <div id="mini-menu-button" style="position:fixed; top:50px; left:3px;">
+            <button style="width:40px; height:40px; opacity:0.85; font-weight:bold;">...</button>
+        </div>
+
+
+        <!-- /////////////////////////
+            Footer
+        ///////////////////////// -->
+        <div id="help-footer" class="help-footer">
+        </div>
+
+	</body>
+
+
+
+</HTML>

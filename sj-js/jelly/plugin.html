@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<HTML> 
+	<meta charset="utf-8" />	
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<meta name=apple-mobile-web-app-capable content=yes />
+	<meta name=mobile-web-app-capable content=yes />
+	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
+	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1" />
+
+    <meta name="libraryName" content="jelly" />
+    <meta name="mdFileName" content="plugin" />
+    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
+    <meta name="menuJson" content='{"Jelly":{"path":"jelly/index.html","fileName":"index","h2TextList":["🥝 [👨🏻‍💻⛔] Not yet ...","Index","1. Getting Started"],"h2PathList":["jelly/index.html#-not-yet-","jelly/index.html#index","jelly/index.html#1-getting-started"]},"Plugin":{"path":"jelly/plugin.html","fileName":"plugin","h2TextList":[".addPlugin([ ... ])","Plugins"],"h2PathList":["jelly/plugin.html#-addplugin-","jelly/plugin.html#plugins"]},"Example":{"path":"jelly/example.html","fileName":"example","h2TextList":["Example-1"],"h2PathList":["jelly/example.html#example-1"]}}' />
+    <meta name="menuOrderListJson" content='["Jelly","Plugin","Example"]' />
+    <meta name="saveJson" content='' />
+
+
+
+	<head>
+		<title>jelly - plugin</title>
+
+		<!-- ★highlight.js -->
+		<!--
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+		-->
+        <!--
+		    <script src="../lib/highlightjs/highlight.min.js"></script>
+		-->
+		<link rel="stylesheet" href="../lib/highlightjs/default.min.css">
+
+
+
+
+        <!-- Template CSS -->
+        <!--
+            <link rel="stylesheet" href="../css/style.min.css">
+        -->
+        <link rel="stylesheet" href="../css/github.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/markdown.css">
+	<script type="text/javascript" src="../../sj-js/js/sj-js.bundle.js"></script></head>
+
+
+                              
+	<body class="boxman-1">
+
+
+		<!-- TEST -->
+		<!--
+		<div data-box>test box</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		-->
+
+
+        <!-- /////////////////////////
+             Header
+        ///////////////////////// -->
+        <div id="help-header" class="help-header test">
+            <ul id="help-header-menulist" class="menu-type-a test">
+            </ul>
+        </div>
+
+
+        <!-- /////////////////////////
+            Context
+        ///////////////////////// -->
+		<div id="help-context" class="help-context">
+
+			<!-- Menu -->
+			<div id="help-menu" class="help-menu">
+			    <div id="help-menu-context" style="width:100%; height:100%; background:#ffffff; overflow:auto;">
+                    <ul id="help-menu-menulist" class="menu-type-b test" >
+                    </ul>
+			    </div>
+			</div>
+
+			<!-- View -->
+			<div id="help-view" class="help-view markdown github">
+			    <h1 id="plugin">Plugin</h1>
+<h2 id="-addplugin-">.addPlugin([ ... ])</h2>
+<pre><code class="lang-js">var jelly = new JellySpeaker({modeNeedsToCallName:true, validTimeToCommand:4000, storagePath:&#39;/jelly/icon&#39;});
+    .addPlugin([
+        new JellySpeaker.PluginStats(),
+    ]);
+</code></pre>
+<h2 id="plugins">Plugins</h2>
+<pre><code class="lang-js">new JellySpeaker.PluginStats(),
+new JellySpeaker.PluginCommandSearchTest(&#39;search&#39;, &#39;검색&#39;),
+new JellySpeaker.PluginWordChain(),
+new JellySpeaker.PluginAlarmManager(),
+new JellySpeaker.PluginDBManager(),
+new JellySpeaker.PluginXHRManager(),
+new JellySpeaker.PluginIconManager()
+    .setCustomChecker(&#39;web-checker&#39;, {&#39;url&#39;:&#39;http*&#39;}, function(iconList, resolve){
+        var urlList = getData(iconList).collect(function(it){ return it.url });
+        getXHR(SEARCHER.URL_CHECK_URL_ALL, {urlList:urlList, timeout:1500}).request(function(resultList){
+            var statusMap = getData(iconList).collectMap(function(it, index){ return {key:iconList[index].id, value:resultList[index]}; });
+            resolve(statusMap);
+        });
+    }, 10000)
+    .setCustomChecker(&#39;db-checker&#39;, {&#39;url&#39;:&#39;jdbc*&#39;}, function(iconList, resolve){
+        var urlList = getData(iconList).collect(function(it){ return it.url });
+        var idList = getData(iconList).collect(function(it){ return it.data.username });
+        var pwList = getData(iconList).collect(function(it){ return it.data.password });
+        getXHR(SEARCHER.URL_CHECK_DB_ALL,{urlList:urlList, idList:idList, pwList:pwList}).request( function(resultList){
+            var statusMap = getData(iconList).collectMap(function(it, index){ return {key:iconList[index].id, value:resultList[index]}; });
+            resolve(statusMap);
+        });
+    }, 10000),
+new JellySpeaker.PluginIconManagerInputer().setLoadData(function(){
+    return { hi: {id:&#39;test&#39;, type:&#39;click&#39;},  hello: {id:&#39;test2&#39;, type:&#39;click&#39;}, };
+});
+</code></pre>
+
+			</div>
+
+		</div>
+
+
+        <!-- /////////////////////////
+            MINI-MENU
+        ///////////////////////// -->
+        <div id="mini-menu-button" style="position:fixed; top:50px; left:3px;">
+            <button style="width:40px; height:40px; opacity:0.85; font-weight:bold;">...</button>
+        </div>
+
+
+        <!-- /////////////////////////
+            Footer
+        ///////////////////////// -->
+        <div id="help-footer" class="help-footer">
+        </div>
+
+	</body>
+
+
+
+</HTML>

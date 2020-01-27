@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<HTML> 
+	<meta charset="utf-8" />	
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<meta name=apple-mobile-web-app-capable content=yes />
+	<meta name=mobile-web-app-capable content=yes />
+	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
+	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1" />
+
+    <meta name="libraryName" content="popman" />
+    <meta name="mdFileName" content="index" />
+    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
+    <meta name="menuJson" content='{"PopMan":{"path":"popman/index.html","fileName":"index","h2TextList":["💬","Index","1. Getting Started"],"h2PathList":["popman/index.html#-","popman/index.html#index","popman/index.html#1-getting-started"]},"new() and pop()":{"path":"popman/new_and_pop.html","fileName":"new_and_pop","h2TextList":["id / name","expx / expy","closeby..."],"h2PathList":["popman/new_and_pop.html#id-name","popman/new_and_pop.html#expx-expy","popman/new_and_pop.html#closeby-"]},"Event":{"path":"popman/event.html","fileName":"event","h2TextList":["add","pop","close","afterPop","afterClose","beforefirstpop / afterlastpop","afterdetect"],"h2PathList":["popman/event.html#add","popman/event.html#pop","popman/event.html#close","popman/event.html#afterpop","popman/event.html#afterclose","popman/event.html#beforefirstpop-afterlastpop","popman/event.html#afterdetect"]},"alert()":{"path":"popman/alert.html","fileName":"alert","h2TextList":[],"h2PathList":[]},"confirm()":{"path":"popman/confirm.html","fileName":"confirm","h2TextList":[],"h2PathList":[]},"loading()":{"path":"popman/loading.html","fileName":"loading","h2TextList":[],"h2PathList":[]},"Functions":{"path":"popman/functions.html","fileName":"functions","h2TextList":["isOn(ID or Name)","focusOn()"],"h2PathList":["popman/functions.html#ison-id-or-name-","popman/functions.html#focuson-"]},"Theme":{"path":"popman/theme.html","fileName":"theme","h2TextList":[],"h2PathList":[]},"Example":{"path":"popman/example.html","fileName":"example","h2TextList":[],"h2PathList":[]}}' />
+    <meta name="menuOrderListJson" content='["PopMan","new() and pop()","Event","alert()","confirm()","loading()","Functions","Theme","Example"]' />
+    <meta name="saveJson" content='{"prefix":"  <script src=\"../crossman/crossman.js\"></script>\n  <script src=\"../popman/popman.js\"></script>\n  <script>\n      var popman = new PopMan();\n  </script>\n"}' />
+
+
+
+	<head>
+		<title>popman - index</title>
+
+		<!-- ★highlight.js -->
+		<!--
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+		-->
+        <!--
+		    <script src="../lib/highlightjs/highlight.min.js"></script>
+		-->
+		<link rel="stylesheet" href="../lib/highlightjs/default.min.css">
+
+
+
+
+        <!-- Template CSS -->
+        <!--
+            <link rel="stylesheet" href="../css/style.min.css">
+        -->
+        <link rel="stylesheet" href="../css/github.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/markdown.css">
+	<script type="text/javascript" src="../../sj-js/js/sj-js.bundle.js"></script></head>
+
+
+                              
+	<body class="boxman-1">
+
+
+		<!-- TEST -->
+		<!--
+		<div data-box>test box</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		-->
+
+
+        <!-- /////////////////////////
+             Header
+        ///////////////////////// -->
+        <div id="help-header" class="help-header test">
+            <ul id="help-header-menulist" class="menu-type-a test">
+            </ul>
+        </div>
+
+
+        <!-- /////////////////////////
+            Context
+        ///////////////////////// -->
+		<div id="help-context" class="help-context">
+
+			<!-- Menu -->
+			<div id="help-menu" class="help-menu">
+			    <div id="help-menu-context" style="width:100%; height:100%; background:#ffffff; overflow:auto;">
+                    <ul id="help-menu-menulist" class="menu-type-b test" >
+                    </ul>
+			    </div>
+			</div>
+
+			<!-- View -->
+			<div id="help-view" class="help-view markdown github">
+			    <h1 id="popman">PopMan</h1>
+<h2 id="-">💬</h2>
+<p><a href="https://travis-ci.org/sj-js/popman"><img src="https://travis-ci.org/sj-js/popman.svg?branch=master" alt="Build Status"></a>
+<a href="https://github.com/sj-js/popman/releases"><img src="https://img.shields.io/github/downloads/sj-js/popman/total.svg" alt="All Download"></a>
+<a href="https://github.com/sj-js/popman/releases"><img src="https://img.shields.io/github/release/sj-js/popman.svg" alt="Release"></a>
+<a href="https://github.com/sj-js/popman/releases"><img src="https://img.shields.io/github/license/sj-js/popman.svg" alt="License"></a></p>
+<ul>
+<li>새 창(window)을 띄우지 않고 특정정보를 부각시킬 수 있습니다.</li>
+<li>✨ Source: <a href="https://github.com/sj-js/popman">https://github.com/sj-js/popman</a></li>
+<li>✨ Document: <a href="https://sj-js.github.io/sj-js/popman">https://sj-js.github.io/sj-js/popman</a></li>
+</ul>
+<h2 id="index">Index</h2>
+<p><ul>
+<li><a href="../popman/index.html">PopMan</a></li>
+<li><a href="../popman/new_and_pop.html">new() and pop()</a></li>
+<li><a href="../popman/event.html">Event</a></li>
+<li><a href="../popman/alert.html">alert()</a></li>
+<li><a href="../popman/confirm.html">confirm()</a></li>
+<li><a href="../popman/loading.html">loading()</a></li>
+<li><a href="../popman/functions.html">Functions</a></li>
+<li><a href="../popman/theme.html">Theme</a></li>
+<li><a href="../popman/example.html">Example</a></li>
+</ul><h2 id="1-getting-started">1. Getting Started</h2>
+<h3 id="1-1-how-to-load-">1-1. How to load?</h3>
+<ul>
+<li>Browser<pre><code class="lang-html">  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/crossman/dist/js/crossman.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/popman/dist/js/popman.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+       var popman = new PopMan();
+  &lt;/script&gt;
+</code></pre>
+  
+</li>
+<li>ES6+<pre><code class="lang-bash">  npm i @sj-js/popman
+</code></pre>
+<pre><code class="lang-js">  const PopMan = require(&#39;@sj-js/popman&#39;);
+  const popman = new PopMan();
+</code></pre>
+</li>
+</ul>
+<h3 id="1-2-simple-example">1-2. Simple Example</h3>
+<p>For convenience, 1-1 code, which loads and creates a Library in the example, is omitted.</p>
+<h5 id="exapmle-with-script">Exapmle - with script</h5>
+<ol>
+<li><code>popman.new({OPTIONS})</code>로 POP Element를 등록합니다.<pre><code class="lang-html"> popman.new({
+     id:&#39;pop-test&#39;,
+     exp:&#39;50%/90%&#39;,
+     content: &#39;This is contents.&#39; 
+ });
+</code></pre>
+</li>
+<li><code>popman.pop(&#39;Element ID&#39;)</code>로 POP Element를 호출합니다.<pre><code class="lang-js"> popman.pop(&#39;pop-test&#39;);
+</code></pre>
+</li>
+<li>👨‍💻
+ <div class="lang-html"> &lt;body&gt;        
+     Hello Popman
+     &lt;button onclick=&quot;popman.pop(&#39;pop-test&#39;);&quot;&gt;POP&lt;/button&gt;
+     &lt;div id=&quot;tester&quot;&gt;TEST&lt;/div&gt;
+ &lt;/body&gt; 
+ &lt;script&gt;
+     popman.setup({modeTest:true});
+     popman.new({
+         id:&#39;pop-test&#39;,
+         exp:&#39;50%/90%&#39;,
+         closebyesc:true,
+         content: &#39;This is contents. &lt;br/&gt;&lt;br/&gt;&#39;, 
+         add:function(data){               
+             document.getElementById(&#39;tester&#39;).innerHTML = &#39;When add&#39;;
+         },
+         pop:function(data){
+             document.getElementById(&#39;tester&#39;).innerHTML = &#39;When pop&#39;;
+         },
+         close:function(data){
+             document.getElementById(&#39;tester&#39;).innerHTML = &#39;When close&#39;;
+         }
+     });
+ &lt;/script&gt;
+</div>
+</li>
+</ol>
+<h5 id="exapmle-with-template">Exapmle - with template</h5>
+<ol>
+<li>POP Element에 <code>data-pop</code>속성 을 명시합니다.<pre><code class="lang-html"> &lt;div id=&quot;pop-test&quot; data-pop data-exp=&quot;300/200&quot; &gt;
+     Contents..
+ &lt;/div&gt;
+</code></pre>
+ <strong>data-exp</strong>속성으로 가로/세로 크기를 설정할 수 있습니다.</li>
+<li><code>.detect()</code>를 사용하면 <strong>data-pop</strong> 속성을 가진 element를 등록합니다.<pre><code class="lang-js"> popman.detect();
+</code></pre>
+</li>
+<li><code>.pop(&#39;Element ID&#39;)</code>를 호출하면 화면에 표시됩니다.<pre><code class="lang-js"> popman.pop(&#39;pop-test&#39;);
+</code></pre>
+</li>
+<li><p>👨‍💻
+ <div class="lang-html"> &lt;script&gt;
+     popman.setup({modeTest:true}).detect();
+ &lt;/script&gt;
+
+ &lt;body&gt;
+     &lt;button onclick=&quot;popman.pop(&#39;pop-test&#39;);&quot;&gt;POP&lt;/button&gt;
+     &lt;div id=&quot;pop-test&quot; data-pop data-exp=&quot;300/200&quot; data-closebyclickin &gt;
+         &lt;br/&gt;
+         &lt;div id=&quot;divAlertMsg&quot; style=&quot;font-size:35px; color:white; border:2px solid; background:#F08047;&quot;&gt;
+             TEST
+         &lt;/div&gt;
+         &lt;div id=&quot;divAlert1stMsg&quot;&gt;
+             TEST
+         &lt;/div&gt;
+     &lt;/div&gt;       
+ &lt;/body&gt;
+</div>
+</li>
+</ol>
+<h5 id="exapmle-alert-">Exapmle - alert()</h5>
+<ul>
+<li>👨‍💻<br>  <div class="lang-html">  &lt;body&gt;
+      Hello Popman
+      &lt;button onclick=&quot;popman.alert(&#39;Alert!&#39;);&quot;&gt;ALERT&lt;/button&gt;
+  &lt;/body&gt;
+  &lt;script&gt;
+      popman.setup({modeTest:true, alertExp:&#39;200/100&#39;});   
+      popman.alert(&#39;Alert Something&#39;);        
+  &lt;/script&gt;
+</div>
+</li>
+</ul>
+<h5 id="exapmle-confirm-">Exapmle - confirm()</h5>
+<ul>
+<li>👨‍💻
+  <div class="lang-html">  &lt;body&gt;
+      Hello Popman
+      &lt;button onclick=&quot;popman.confirm(&#39;Confirm!&#39;);&quot;&gt;CONFIRM&lt;/button&gt;
+  &lt;/body&gt;
+  &lt;script&gt;
+      popman.setup({modeTest:true, confirmExp:&#39;300/150&#39;});
+      popman.confirm(&#39;Confirm Something&#39;);        
+  &lt;/script&gt;
+</div>
+</li>
+</ul>
+<h5 id="exapmle-loading-">Exapmle - loading()</h5>
+<ul>
+<li><p>👨‍💻
+  <div class="lang-html">  &lt;body&gt;
+      Hello Popman
+      &lt;button onclick=&quot;loadSomething();&quot;&gt;LOAD&lt;/button&gt;
+  &lt;/body&gt;
+  &lt;script&gt;
+      popman.setup({modeTest:true, loadingExp:&#39;150/150&#39;}); 
+
+      function loadSomething(){
+          popman.loading(&#39;LOADING..  Something..&#39;, function(resolve, reject){ 
+              setTimeout(function(){ 
+                   resolve();
+              }, 2000);             
+          });         
+      }
+      loadSomething();
+  &lt;/script&gt;
+</div>
+</li>
+</ul>
+
+			</div>
+
+		</div>
+
+
+        <!-- /////////////////////////
+            MINI-MENU
+        ///////////////////////// -->
+        <div id="mini-menu-button" style="position:fixed; top:50px; left:3px;">
+            <button style="width:40px; height:40px; opacity:0.85; font-weight:bold;">...</button>
+        </div>
+
+
+        <!-- /////////////////////////
+            Footer
+        ///////////////////////// -->
+        <div id="help-footer" class="help-footer">
+        </div>
+
+	</body>
+
+
+
+</HTML>

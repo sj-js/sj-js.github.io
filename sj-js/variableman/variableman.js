@@ -23,7 +23,7 @@ function VariableMan(options){
     this.modeDebug = false;
     this.modeMustExistCodeRule = true;
     this.modeExistCodeOnly = false;
-    this.modeExistFunctionOnly = true
+    this.modeExistFunctionOnly = true;
 
     this.variableStringMap = {};
     this.variableClosureMap = {};
