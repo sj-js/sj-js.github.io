@@ -380,11 +380,11 @@ SlideMan.prototype.checkEventBySlide = function(viewerElement, menuElement, slid
 SlideMan.prototype.checkEventForLeftRight = function(viewerIndexElement, viewerId){
     var that = this;
     getEl(viewerIndexElement).add([
-        newEl('div').html('<').attr('data-type', 'optionLeft').addEventListener('click', function(e){
-            that.slideToLeft(viewerId);
-        }),
-        newEl('div').html('>').attr('data-type', 'optionRight').addEventListener('click', function(e){
+        newEl('div').html('<').attr('data-type', 'optionRight').addEventListener('click', function(e){
             that.slideToRight(viewerId);
+        }),
+        newEl('div').html('>').attr('data-type', 'optionLeft').addEventListener('click', function(e){
+            that.slideToLeft(viewerId);
         })
     ]);
 };
@@ -419,10 +419,10 @@ SlideMan.prototype.whenResize = function(event){
                     storageWidth += storage.children[l].offsetWidth + 10;
                 }
                 storage.style.width = storageWidth + 'px';
-                console.error(storage, storage.nowShowingChildIdx, storageWidth);
 
                 if (viewerType == 'slideview'){
                     //TODO: 개선필요.. 언제부터인지 부자연스러운거 같기도하고. 어쨌든 임시방편으로 setTimeout으로 한번 더 야림
+                    //TODO: 이거 아무래도 경우가 있는듯!??
                     setTimeout(function(){
                         assistant.scrollLeft = storage.children[storage.nowShowingChildIdx].offsetWidth * storage.nowShowingChildIdx ;
                     }, 1);
@@ -565,7 +565,7 @@ SlideMan.prototype.whenTouchUpOnSlideview = function(event, slider) {
 /*************************************
  * 슬라이드 뷰의 슬라이드 전환
  *************************************/
-SlideMan.prototype.slideToLeft = function(viewer){
+SlideMan.prototype.slideToRight = function(viewer){
     //- Viewer
     if (typeof viewer == 'string'){
         viewer = this.viewerIdAndViewerMap[viewer];
@@ -574,7 +574,7 @@ SlideMan.prototype.slideToLeft = function(viewer){
     var storage = viewer.storage;
     this.slideTo(viewer, storage.nowShowingChildIdx - 1);
 };
-SlideMan.prototype.slideToRight = function(viewer){
+SlideMan.prototype.slideToLeft = function(viewer){
     //- Viewer
     if (typeof viewer == 'string'){
         viewer = this.viewerIdAndViewerMap[viewer];
