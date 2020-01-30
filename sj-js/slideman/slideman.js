@@ -118,12 +118,7 @@ SlideMan.prototype.initScrollView = function(){
                     storage.linkedScroller = viewer.scroller;
                     // storage.executeEventMustDo = this.whenResize; /* 박스IN OUT 할 때, 반드시 일어나야 하는 이벤트 설정 */ //임시방편으로 리사이즈할때와 같이 설정
 
-                    /* Touch Sensor on Mobile*/
-                    if (getData().isMobile){
-                        storage.linkedScroller.addEventListener('touchstart', function(event){ that.whenTouchDownOnScrollview(event, this); });
-                        storage.linkedScroller.addEventListener('touchmove', function(event){ that.whenTouchMoveOnScrollview(event, this); });
-                        storage.linkedScroller.addEventListener('touchend', function(event){ that.whenTouchUpOnScrollview(event, this); });
-                    }
+                    that.checkEventByScrollView(storage.linkedScroller);
                     break;
                 default:
                     break;
@@ -212,20 +207,7 @@ SlideMan.prototype.initSlideView = function(){
             if (viewerType == 'slideview'){
                 storage.nowShowingChildIdx = 0;
                 slider.scrollLeft = storage.children[storage.nowShowingChildIdx].offsetWidth * storage.nowShowingChildIdx ;
-
                 that.checkEventBySlideView(slider, viewerElement);
-                /* Touch Sensor on Mobile*/
-                if (getData().isMobile){
-                    /* 터치로 좌우로 끌어 당기면 슬라이드 전환 가능 */
-                    slider.addEventListener('touchstart', function(event){ that.whenTouchDownOnSlideview(event, slider); });
-                    slider.addEventListener('touchmove', function(event){ that.whenTouchMoveOnSlideview(event, slider); });
-                    slider.addEventListener('touchend', function(event){ that.whenTouchUpOnSlideview(event, slider); });
-                }else{
-                    /* shift + wheel 또는 alt + wheel로 슬라이드 전환 가능 */
-                    window.addEventListener('keydown', function(event){ that.whenKeyDown(event); });
-                    window.addEventListener('keyup', function(event){ that.whenKeyUp(event); });
-                    viewerElement.addEventListener('mousewheel', function(event){ that.whenMouseWheel(event, viewerElement); });
-                }
             }
             /** slide view - auto 슬라이드 저장소 설정 (왔다갔다 스크롤) **/
             if (viewerType=='slideview-auto'){
@@ -312,7 +294,6 @@ SlideMan.prototype.initSlideView = function(){
 };
 
 
-
 SlideMan.prototype.checkEventBySlideView = function(slider, viewer){
     var that = this;
     /* Touch Sensor on Mobile*/
@@ -326,6 +307,16 @@ SlideMan.prototype.checkEventBySlideView = function(slider, viewer){
         window.addEventListener('keydown', function(event){ that.whenKeyDown(event); });
         window.addEventListener('keyup', function(event){ that.whenKeyUp(event); });
         viewer.addEventListener('mousewheel', function(event){ that.whenMouseWheel(event, viewer); });
+    }
+};
+
+SlideMan.prototype.checkEventByScrollView = function(scroller){
+    var that = this;
+    /* Touch Sensor on Mobile*/
+    if (getData().isMobile){
+        scroller.addEventListener('touchstart', function(event){ that.whenTouchDownOnScrollview(event, scroller); });
+        scroller.addEventListener('touchmove', function(event){ that.whenTouchMoveOnScrollview(event, scroller); });
+        scroller.addEventListener('touchend', function(event){ that.whenTouchUpOnScrollview(event, scroller); });
     }
 };
 
@@ -428,6 +419,8 @@ SlideMan.prototype.whenResize = function(event){
                     storageWidth += storage.children[l].offsetWidth + 10;
                 }
                 storage.style.width = storageWidth + 'px';
+                console.error(storage, storage.nowShowingChildIdx, storageWidth);
+
                 if (viewerType == 'slideview'){
                     //TODO: 개선필요.. 언제부터인지 부자연스러운거 같기도하고. 어쨌든 임시방편으로 setTimeout으로 한번 더 야림
                     setTimeout(function(){
@@ -468,7 +461,8 @@ SlideMan.prototype.whenTouchMoveOnScrollview = function(event, slider) {
     slider.movedDistanceX = Math.abs(slider.slideviewEndPointX - slider.slideviewStartPointX);
     slider.movedDistanceY = Math.abs(slider.slideviewEndPointY - slider.slideviewStartPointY);
 
-    if (!isOnDown && slider.movedDistanceX > 5 && slider.movedDistanceX > slider.movedDistanceY){
+    // if (!isOnDown && slider.movedDistanceX > 5 && slider.movedDistanceX > slider.movedDistanceY){
+    if (slider.movedDistanceX > 5 && slider.movedDistanceX > slider.movedDistanceY){
         event.stopPropagation();
         /* 스크롤 작동되면 터치이동 준비 취소 */
         // this.removeTimer();
@@ -526,19 +520,16 @@ SlideMan.prototype.whenTouchMoveOnSlideview = function(event, slider) {
     slider.movedDistanceX = Math.abs(slider.slideviewEndPointX - slider.slideviewStartPointX);
     slider.movedDistanceY = Math.abs(slider.slideviewEndPointY - slider.slideviewStartPointY);
 
-    if (!isOnDown && !isOnPaintDown && slider.movedDistanceX > 5 && slider.movedDistanceX > slider.movedDistanceY){
+    // if (!isOnDown && !isOnPaintDown && slider.movedDistanceX > 5 && slider.movedDistanceX > slider.movedDistanceY){
+    if (slider.movedDistanceX > 5 && slider.movedDistanceX > slider.movedDistanceY){
         /* 동시에 두개 이상의 슬라이드가 작동될 범위일 때,
          * stopPropagation을 이용하여 부모의 작동을 멈추게 하고
          * 가장 위에 있는 것만 작동한다.
          * 하지만, 첫번째 또는 마지막 슬라이드인 상황에서는 동작에 따라 부모의 슬라이드도 고려한다. */
         var distanceX = slider.slideviewEndPointX - slider.slideviewStartPointX;
         var judgeDistanceX = 10;
-        if (-judgeDistanceX > distanceX
-            && slider.firstChild.nowShowingChildIdx == slider.firstChild.children.length -1){
-
-        }else if (judgeDistanceX < distanceX
-            && slider.firstChild.nowShowingChildIdx == 0){
-
+        if (-judgeDistanceX > distanceX && slider.firstChild.nowShowingChildIdx == slider.firstChild.children.length -1){
+        }else if (judgeDistanceX < distanceX && slider.firstChild.nowShowingChildIdx == 0){
         }else{
             event.stopPropagation();
         }
@@ -547,7 +538,9 @@ SlideMan.prototype.whenTouchMoveOnSlideview = function(event, slider) {
         slider.isOnTryToSlide = true;
         /* 슬라이드 작동되면 터치이동 준비 취소 */
         // this.removeTimer();
-        if (!isOnDown){
+
+        // if (!isOnDown){
+        if (true){
             slider.scrollLeft = slider.slideviewStartScrollX + (slider.slideviewStartPointX - slider.slideviewEndPointX);
         }else{
             this.slideToBack(slider.firstChild);
@@ -556,7 +549,7 @@ SlideMan.prototype.whenTouchMoveOnSlideview = function(event, slider) {
     /*p0.innerHTML = slider.movedDistanceX + ' / '+ slider.movedDistanceY;*/
 };
 SlideMan.prototype.whenTouchUpOnSlideview = function(event, slider) {
-    if(slider.isOnTryToSlide) {
+    if (slider.isOnTryToSlide) {
         slider.isOnTryToSlide = false;
         var distanceX = slider.slideviewEndPointX - slider.slideviewStartPointX;
         var judgeDistanceX = slider.offsetWidth / 4;
