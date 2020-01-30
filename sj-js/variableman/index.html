@@ -12,7 +12,7 @@
     <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
     <meta name="menuJson" content='{"VariableMan":{"path":"variableman/index.html","fileName":"index","h2TextList":["🧮 [👨🏻‍💻⛔] Not yet ...","Index","1. Getting Started"],"h2PathList":["variableman/index.html#-not-yet-","variableman/index.html#index","variableman/index.html#1-getting-started"]},"Example":{"path":"variableman/example.html","fileName":"example","h2TextList":[],"h2PathList":[]}}' />
     <meta name="menuOrderListJson" content='["VariableMan","Example"]' />
-    <meta name="saveJson" content='{"prefix":"  <script src=\"../crossman/crossman.js\"></script>\n  <script src=\"../variableman/variableman.js\"></script>\n  <script>\n       var variableman = new VariableMan();\n  </script>\n"}' />
+    <meta name="saveJson" content='{"prefix":"  <script src=\"../crossman/crossman.js\"></script>\n  <script src=\"../variableman/variableman.js\"></script>\n  <script>\n      var variableman = new VariableMan();\n  </script>\n"}' />
 
 
 
@@ -103,15 +103,15 @@
 <li><a href="../variableman/index.html">VariableMan</a></li>
 <li><a href="../variableman/example.html">Example</a></li>
 </ul><h2 id="1-getting-started">1. Getting Started</h2>
-<h3 id="1-1-how-to-use-">1-1. How to use?</h3>
-<ol>
-<li>스크립트 불러오기<ul>
+<h3 id="1-1-how-to-load-">1-1. How to load?</h3>
+<ul>
 <li>Browser<pre><code class="lang-html">  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/crossman/dist/js/crossman.min.js&quot;&gt;&lt;/script&gt;
   &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/variableman/dist/js/variableman.min.js&quot;&gt;&lt;/script&gt;
   &lt;script&gt;
        var variableman = new VariableMan();
   &lt;/script&gt;
 </code></pre>
+  
 </li>
 <li>ES6+<pre><code class="lang-bash">  npm install @sj-js/variableman
 </code></pre>
@@ -120,44 +120,38 @@
 </code></pre>
 </li>
 </ul>
-</li>
-</ol>
 <h3 id="1-2-simple-example">1-2. Simple Example</h3>
 <ul>
-<li><p>For convenience, the following code, which loads and creates a Library in the example, is omitted.</p>
-<pre><code class="lang-html">  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/crossman/dist/js/crossman.min.js&quot;&gt;&lt;/script&gt;
-  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/variableman/dist/js/variableman.min.js&quot;&gt;&lt;/script&gt;
-  &lt;script&gt;
-       var variableman = new VariableMan();
-  &lt;/script&gt;
-</code></pre>
-<p>  
-</li>
-<li><p>Example A<br>  <div class="lang-html">  &lt;body&gt;        
-      &lt;div id=&quot;tester&quot;&gt; HELLO TEST ! &lt;/div&gt;
-  &lt;/body&gt; 
-  &lt;script&gt;
-      popman.setup({modeTest:true});
-      popman.new({
-          name:&#39;dev1&#39;,
-          expx:&#39;50%&#39;,
-          expy:&#39;90%&#39;, 
-          closebyesc:true,
-          content: &#39;This is contents. &lt;br/&gt;&lt;br/&gt;&#39;, 
-          add:function(data){               
-              document.getElementById(&#39;tester&#39;).innerHTML = &#39;When add&#39;;
-          },
-          pop:function(data){
-              document.getElementById(&#39;tester&#39;).innerHTML = &#39;When pop&#39;;
-          },
-          close:function(data){
-              document.getElementById(&#39;tester&#39;).innerHTML = &#39;When close&#39;;
-          }
-      });
-  &lt;/script&gt;
+<li>For convenience, the following code, which loads and creates a Library in the example, is omitted.</li>
+</ul>
+<h5 id="simple-example-a">Simple Example A</h5>
+<ol>
+<li>👨‍💻
+ <div class="lang-html"> &lt;body&gt;        
+     &lt;div id=&quot;tester&quot;&gt; HELLO TEST ! &lt;/div&gt;
+ &lt;/body&gt; 
+ &lt;script&gt;
+     popman.setup({modeTest:true});
+     popman.new({
+         name:&#39;dev1&#39;,
+         expx:&#39;50%&#39;,
+         expy:&#39;90%&#39;, 
+         closebyesc:true,
+         content: &#39;This is contents. &lt;br/&gt;&lt;br/&gt;&#39;, 
+         add:function(data){               
+             document.getElementById(&#39;tester&#39;).innerHTML = &#39;When add&#39;;
+         },
+         pop:function(data){
+             document.getElementById(&#39;tester&#39;).innerHTML = &#39;When pop&#39;;
+         },
+         close:function(data){
+             document.getElementById(&#39;tester&#39;).innerHTML = &#39;When close&#39;;
+         }
+     });
+ &lt;/script&gt;
 </div>
 </li>
-</ul>
+</ol>
 
 			</div>
 

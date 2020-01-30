@@ -6,6 +6,7 @@ try{
     var ready = crossman.ready,
         getEl = crossman.getEl,
         newEl = crossman.newEl,
+        searchEl = crossman.searchEl,
         getData = crossman.getData,
         SjEvent = crossman.SjEvent
     ;
@@ -198,30 +199,32 @@ SlideMan.prototype.initSlideView = function(){
             }
             storage.style.width = storageWidth + 'px';
             /*storage만 스크롤하기 위한 도우미Div생성*/
-            viewerElement.slider = newEl('div').addClass('assistant').attr('data-type', 'assistant').style('width:100%; overflow:hidden;').add(storage).appendTo(viewerElement).returnElement();
-            viewerElement.slider.viewer = viewerElement;
+            var slider = newEl('div').addClass('assistant').attr('data-type', 'assistant').style('width:100%; height:; overflow:hidden;').add(storage).appendTo(viewerElement).returnElement();
+            slider.viewer = viewerElement;
+            viewerElement.slider = slider;
             viewerElement.storage = storage;
             storage.viewer = viewerElement;
-            storage.linkedSlider = viewerElement.slider;
+            storage.linkedSlider = slider;
             storage.slideIdAndIndexMap = {};
             storage.slideIdAndMenuMap = {};
 
             /** slide view 슬라이드 저장소 설정 **/
             if (viewerType == 'slideview'){
                 storage.nowShowingChildIdx = 0;
-                viewerElement.slider.scrollLeft = storage.children[storage.nowShowingChildIdx].offsetWidth * storage.nowShowingChildIdx ;
+                slider.scrollLeft = storage.children[storage.nowShowingChildIdx].offsetWidth * storage.nowShowingChildIdx ;
 
+                that.checkEventBySlideView(slider, viewerElement);
                 /* Touch Sensor on Mobile*/
                 if (getData().isMobile){
                     /* 터치로 좌우로 끌어 당기면 슬라이드 전환 가능 */
-                    storage.linkedSlider.addEventListener('touchstart', function(event){ that.whenTouchDownOnSlideview(event, this); });
-                    storage.linkedSlider.addEventListener('touchmove', function(event){ that.whenTouchMoveOnSlideview(event, this); });
-                    storage.linkedSlider.addEventListener('touchend', function(event){ that.whenTouchUpOnSlideview(event, this); });
+                    slider.addEventListener('touchstart', function(event){ that.whenTouchDownOnSlideview(event, slider); });
+                    slider.addEventListener('touchmove', function(event){ that.whenTouchMoveOnSlideview(event, slider); });
+                    slider.addEventListener('touchend', function(event){ that.whenTouchUpOnSlideview(event, slider); });
                 }else{
                     /* shift + wheel 또는 alt + wheel로 슬라이드 전환 가능 */
                     window.addEventListener('keydown', function(event){ that.whenKeyDown(event); });
                     window.addEventListener('keyup', function(event){ that.whenKeyUp(event); });
-                    viewerElement.addEventListener('mousewheel', function(event){ that.whenMouseWheel(event, this); });
+                    viewerElement.addEventListener('mousewheel', function(event){ that.whenMouseWheel(event, viewerElement); });
                 }
             }
             /** slide view - auto 슬라이드 저장소 설정 (왔다갔다 스크롤) **/
@@ -266,7 +269,9 @@ SlideMan.prototype.initSlideView = function(){
                         var slideElement = storage.children[l];
                         var slideData = getEl(slideElement).attr('data-slide');
                         var slideId = (slideData) ? slideData : (slideElement.id) ? slideElement.id : (viewerId + 'storageData' + l);
-                        getEl(slideElement).attr('data-slide', slideId).setStyle('height', '100%');
+                        getEl(slideElement).attr('data-slide', slideId)
+                            // .setStyle('height', '100%')
+                        ;
                         storage.slideIdAndIndexMap[slideId] = l;
                         var menuTitle = 'o';
                         var menuElement = newEl('div').attr('data-type', 'option').add(menuTitle).appendTo(viewerIndexList).returnElement();
@@ -279,7 +284,9 @@ SlideMan.prototype.initSlideView = function(){
                         var slideElement = storage.children[l];
                         var slideData = getEl(slideElement).attr('data-slide');
                         var slideId = (slideData) ? slideData : (slideElement.id) ? slideElement.id : (viewerId + 'storageData' + l);
-                        getEl(slideElement).attr('data-slide', slideId).setStyle('height', '100%');
+                        getEl(slideElement).attr('data-slide', slideId)
+                           // .setStyle('height', '100%')
+                        ;
                         storage.slideIdAndIndexMap[slideId] = l;
                         var menuTitle;
                         for (var m=0; m<storage.children[l].children.length; m++){
@@ -297,11 +304,30 @@ SlideMan.prototype.initSlideView = function(){
             }
 
             this.expressNowSlide(storage.viewer);
+            // this.whenResize(); /* 박스IN OUT 할 때, 반드시 일어나야 하는 이벤트 설정 */ //임시방편으로 리사이즈할때와 같이 설정
+
             getEl(viewerIndex).add(viewerIndexList);
         }
     }
 };
 
+
+
+SlideMan.prototype.checkEventBySlideView = function(slider, viewer){
+    var that = this;
+    /* Touch Sensor on Mobile*/
+    if (getData().isMobile){
+        /* 터치로 좌우로 끌어 당기면 슬라이드 전환 가능 */
+        slider.addEventListener('touchstart', function(event){ that.whenTouchDownOnSlideview(event, slider); });
+        slider.addEventListener('touchmove', function(event){ that.whenTouchMoveOnSlideview(event, slider); });
+        slider.addEventListener('touchend', function(event){ that.whenTouchUpOnSlideview(event, slider); });
+    }else{
+        /* shift + wheel 또는 alt + wheel로 슬라이드 전환 가능 */
+        window.addEventListener('keydown', function(event){ that.whenKeyDown(event); });
+        window.addEventListener('keyup', function(event){ that.whenKeyUp(event); });
+        viewer.addEventListener('mousewheel', function(event){ that.whenMouseWheel(event, viewer); });
+    }
+};
 
 SlideMan.prototype.checkEventByViewer = function(viewerElement, viewerId){
     var eventIdForViewer = SlideMan.getViewerEventId(viewerId);
@@ -389,36 +415,40 @@ SlideMan.getSlideEventId = function(slideId){
  ************************************/
 SlideMan.prototype.whenResize = function(event){
     /* 뷰어 중에 크기를 설정해야만 하는 것들 설정 */
-    var setedObjs = document.querySelectorAll('[data-type=assistant]');
-    for (var j=0, assistant; j<setedObjs.length; j++){
-        assistant = setedObjs[j];
+    searchEl('[data-type=assistant]').each(function(assistant){
         var storage = assistant.children[0];
         var viewer = assistant.parentNode;
         var viewerType = viewer.getAttribute('data-type');
         /** storage 설정 **/
-        if (storage && (viewerType == 'slideview' || viewerType == 'slideview-auto')){
-            var storageWidth = 0;
-            for (var l=0; l<storage.children.length; l++){
-                storage.children[l].style.width = assistant.offsetWidth + 'px';
-                storageWidth += storage.children[l].offsetWidth + 10;
-            }
-            storage.style.width = storageWidth + 'px';
-            if (viewerType == 'slideview'){
-                assistant.scrollLeft = storage.children[storage.nowShowingChildIdx].offsetWidth * storage.nowShowingChildIdx ;
+        if (storage){
+            if ((viewerType == 'slideview' || viewerType == 'slideview-auto')){
+                var storageWidth = 0;
+                for (var l=0; l<storage.children.length; l++){
+                    storage.children[l].style.width = assistant.offsetWidth + 'px';
+                    storageWidth += storage.children[l].offsetWidth + 10;
+                }
+                storage.style.width = storageWidth + 'px';
+                if (viewerType == 'slideview'){
+                    //TODO: 개선필요.. 언제부터인지 부자연스러운거 같기도하고. 어쨌든 임시방편으로 setTimeout으로 한번 더 야림
+                    setTimeout(function(){
+                        assistant.scrollLeft = storage.children[storage.nowShowingChildIdx].offsetWidth * storage.nowShowingChildIdx ;
+                    }, 1);
+                    assistant.scrollLeft = storage.children[storage.nowShowingChildIdx].offsetWidth * storage.nowShowingChildIdx ;
+                    // console.error(storage.nowShowingChildIdx, assistant.scrollLeft, storage.children[storage.nowShowingChildIdx].offsetWidth);
+                }
+            }else if (viewerType == 'scrollview'){
+                var storageWidth = 0;
+                for (var l=0; l<storage.children.length; l++){
+                    storageWidth += storage.children[l].offsetWidth + 20;
+                }
+                if(storage.parentNode.offsetWidth < storageWidth){
+                    storage.style.width = (storageWidth + 50) + 'px';
+                }else{
+                    storage.style.width = '100%';
+                }
             }
         }
-        if (storage && viewerType == 'scrollview'){
-            var storageWidth = 0;
-            for (var l=0; l<storage.children.length; l++){
-                storageWidth += storage.children[l].offsetWidth + 20;
-            }
-            if(storage.parentNode.offsetWidth < storageWidth){
-                storage.style.width = (storageWidth + 50) + 'px';
-            }else{
-                storage.style.width = '100%';
-            }
-        }
-    }
+    });
 };
 
 
@@ -571,6 +601,7 @@ SlideMan.prototype.slideToBack = function(viewer){
     this.slideTo(viewer, storage.nowShowingChildIdx);
 };
 SlideMan.prototype.slideTo = function(viewer, idx){
+    console.error('Slide To', viewer, idx);
     //- Viewer
     if (typeof viewer == 'string'){
         viewer = this.viewerIdAndViewerMap[viewer];

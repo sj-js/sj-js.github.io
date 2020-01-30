@@ -33,6 +33,7 @@ function PopMan(options){
         nowEscControlPop: null,
         nowEnterControlPop: null,
         nowClickControlPop: null,
+        latestPopStartTime: null,
     };
     /** Mode **/
     this.modeAnimation = true;
@@ -271,7 +272,6 @@ PopMan.prototype.set = function(element, infoObj){
         return false;
     }else{
         element.isAdaptedBox = true;
-        getEl(element).clas.add('sj-obj-box');
     }
 
     //MAN ID 적용
@@ -342,12 +342,12 @@ PopMan.prototype.set = function(element, infoObj){
         this.addEventListener(element, 'afterclose', infoObj.afterclose);
 };
 
-PopMan.prototype.setView = function(infoObj){
+PopMan.prototype.setView = function(pop){
     var that = this;
     var popView = newEl('div')
         .style('display:inline-block; overflow:auto;')
-        .setStyle('width', (infoObj.width) ? infoObj.width : '100%')
-        .setStyle('height', (infoObj.height) ? infoObj.height : '100%')
+        .setStyle('width', (pop.width) ? pop.width : '100%')
+        .setStyle('height', (pop.height) ? pop.height : '100%')
         .hideDiv()
         .appendTo(document.body)
         .addEventListener('mousewheel', function(event){
@@ -381,12 +381,22 @@ PopMan.prototype.setView = function(infoObj){
         .returnElement();
 
     // popView - Event
-    if (infoObj.closebyclickin){
-        getEl(popView).addEventListener('click', function(event){
-            event.preventDefault();
-            event.stopPropagation();
-            that.close(infoObj.element);
-        });
+    if (pop.closebyclickin){
+        getEl(popView)
+            .addEventListener('mousedown', function(event){
+                // if (event.target == popView){
+                    event.preventDefault();
+                    event.stopPropagation();
+                    that.meta.nowClickControlPop = pop;
+                // }
+            })
+            .addEventListener('mouseup', function(event){
+                var elapsedTime = new Date().getTime() - that.meta.latestPopStartTime;
+                if (that.meta.nowClickControlPop === pop && elapsedTime > 200){
+                    that.meta.nowClickControlPop = null;
+                    that.close(pop.element);
+                }
+            });
     }else{
         getEl(popView)
             .addEventListener('click', function(event){
@@ -400,18 +410,18 @@ PopMan.prototype.setView = function(infoObj){
     }
 
     // popView <- Some Dom
-    var element = infoObj.element;
+    var element = pop.element;
     if (typeof element == 'function'){
-        element = element(infoObj);
+        element = element(pop);
     }else if (typeof element == 'object'){
         element = element;
     }
     getEl(popView).add(
-        getEl(element).setStyle('display', 'block').setStyle('width', '100%').setStyle('height', '100%')
+        getEl(element).setStyle('display', 'block').setStyle('width', '100%').setStyle('minHeight', '100%')
     );
 
-    if (infoObj.content){
-        getEl(element).html(infoObj.content);
+    if (pop.content){
+        getEl(element).html(pop.content);
     }
     return popView;
 };
@@ -550,6 +560,8 @@ PopMan.prototype.pop = function(element, callback, force){
             // getEl(pop.popContainerElement).setStyle('borderColor', 'red');
         });
     }
+
+    that.meta.latestPopStartTime = new Date().getTime();
     return pop;
 };
 
@@ -1279,18 +1291,18 @@ PopMan.prototype.getSize = function(parentSize, num, callbackCalculateAsterisk){
                 if ((leftValue.indexOf('%') != -1))
                     leftValue = parentSize * (parseFloat(leftValue)/100);
                 if (arrayLogic[0].indexOf('<') != -1)
-                    minSize = (arrayLogic[0].indexOf('=') != -1) ? leftValue : leftValue +1;
+                    minSize = (arrayLogic[0].indexOf('=') != -1) ? parseInt(leftValue) : parseInt(leftValue) +1;
                 else if (arrayLogic[0].indexOf('>') != -1)
-                    maxSize = (arrayLogic[0].indexOf('=') != -1) ? leftValue : leftValue -1;
+                    maxSize = (arrayLogic[0].indexOf('=') != -1) ? parseInt(leftValue) : parseInt(leftValue) -1;
             }
             size = centerValue;
             if (rightValue != ''){
                 if ((rightValue.indexOf('%') != -1))
                     rightValue = parentSize * (parseFloat(rightValue)/100);
                 if (arrayLogic[1].indexOf('<') != -1)
-                    maxSize = (arrayLogic[1].indexOf('=') != -1) ? rightValue : rightValue -1;
+                    maxSize = (arrayLogic[1].indexOf('=') != -1) ? parseInt(rightValue) : parseInt(rightValue) -1;
                 else if (arrayLogic[1].indexOf('>') != -1)
-                    minSize = (arrayLogic[1].indexOf('=') != -1) ? rightValue : rightValue +1;
+                    minSize = (arrayLogic[1].indexOf('=') != -1) ? parseInt(rightValue) : parseInt(rightValue) +1;
             }
         }
     })(numString);
@@ -1303,10 +1315,11 @@ PopMan.prototype.getSize = function(parentSize, num, callbackCalculateAsterisk){
         size = callbackCalculateAsterisk(minSize, size, maxSize);
     //- Calculate Min/Max
     size = parseFloat(size);
-    if (minSize != null)
+    if (minSize > size && minSize != null)
         size = Math.max(minSize, size);
-    if (maxSize != null)
+    if (maxSize < size && maxSize != null)
         size = Math.min(maxSize, size);
+    // console.log(minSize,maxSize,size,numString);
     return size;
 };
 
