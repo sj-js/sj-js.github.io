@@ -1020,7 +1020,7 @@ function KeyManCommander(commanderName){
         for (var skillNm in this.commandMap){
             var pattern = JSON.stringify(this.commandMap[skillNm]);
             pattern = pattern.substring(1, pattern.length-1);
-            console.error('[Compare]',  orderStr, pattern);
+            // console.log('[Compare]',  orderStr, pattern);
             if (orderStr.indexOf(pattern) != -1)
                 matchedPattern[skillNm] = pattern;
         }

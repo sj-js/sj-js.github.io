@@ -29,6 +29,7 @@ function VisNetworkMan(option){
             modeLoading: true,
             modePointAllSubLink: false,
             modeSelectAllSubLink: false,
+            modePreSavedSubLink: false, //TODO: 구현필요.
             modeNonPointEffect: false,
             nodeWhenStart: null,
             edgeWhenStart: null,
@@ -62,6 +63,7 @@ function VisNetworkMan(option){
             funcEventBlurNode: null,
             funcEventHoverNodeAndMove: null,
             funcEventClickNode: null,
+            funcEventClickNodeBeforeSelect: null,
             funcEventDoubleClickNode: null,
             funcEventDragNodeOverDistance: null,
             funcDataFilter: null,
@@ -1910,7 +1912,7 @@ VisNetworkMan.prototype.setupEvent = function(network, extendsOption){
         var nodes = that.nodeIdAndDataMap;
         var edges = that.edgeIdAndDataMap;
         e.visnetworkman = that;
-        //- Run Node
+        //- Click Node
         for (var i=0, nodeId, node; i<e.nodes.length; i++){
             nodeId = e.nodes[i];
             node = nodes[nodeId];
@@ -1923,7 +1925,7 @@ VisNetworkMan.prototype.setupEvent = function(network, extendsOption){
             var nodes = that.nodeIdAndDataMap;
             var edges = that.edgeIdAndDataMap;
             e.visnetworkman = that;
-            //- Run Node
+            //- DoubleClick Node
             for (var i=0, nodeId, node; i<e.nodes.length; i++){
                 nodeId = e.nodes[i];
                 node = nodes[nodeId];
@@ -2016,22 +2018,35 @@ VisNetworkMan.prototype.setupEvent = function(network, extendsOption){
     });
     network.on('selectNode', function(e){
         // console.log('selectNode', e, e.nodes[0]);
-        var ctrlKeyDown = e.event.srcEvent.altKey;
-        var altKeyDown = e.event.srcEvent.ctrlKey;
+        // var ctrlKeyDown = e.event.srcEvent.altKey;
+        // var altKeyDown = e.event.srcEvent.ctrlKey;
+        var startTime = new Date().getTime();
         var nodes = that.nodeIdAndDataMap;
         var nodeId = e.nodes[0];
         var node = nodes[nodeId];
+        e.visnetworkman = that;
         if (node){
+            //- Click Node
+            (extendsOption.funcEventClickNodeBeforeSelect && extendsOption.funcEventClickNodeBeforeSelect(node, e));
             //All SubLink Highlight
-            if (extendsOption.modeSelectAllSubLink)
-                that.selectNode(nodeId, extendsOption.nodeWhenSelect, extendsOption.edgeWhenSelect);
+            if (extendsOption.modeSelectAllSubLink){
+                if (extendsOption.modePreSavedSubLink){
+                    that.selectNode(nodeId, extendsOption.nodeWhenSelect, extendsOption.edgeWhenSelect);
+                }else{
+                    that.selectNode(nodeId, extendsOption.nodeWhenSelect, extendsOption.edgeWhenSelect);
+                }
+            }
         }
+        var endTime = new Date().getTime();
+        console.error('Select ElaspedTime: ', endTime - startTime);
+
     });
     network.on('selectEdge', function(e){
         // console.log('selectEdge', e, e.edges[0]);
         var edges = that.edgeIdAndDataMap;
         var edgeId = e.edges[0];
         var edge = edges[edgeId];
+        e.visnetworkman = that;
         if (edge){
             //All SubLink Highlight
             if (extendsOption.modeSelectAllSubLink)

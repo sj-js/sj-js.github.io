@@ -36,12 +36,13 @@ function PopMan(options){
         latestPopStartTime: null,
     };
     /** Mode **/
-    this.modeAnimation = true;
     this.modeSleep = false;
     this.globalSetup = {
         modeTest: false,
         modeResize: true,
         modeDark: true,
+        modeAuto: false,
+        modeAnimation: false,   //TODO: Experimental
         testPopClass: null,
         testPopBorderWidth: '1px',
         testPopBorderColor: '#39ff3e',
@@ -229,6 +230,12 @@ PopMan.prototype.add = function(element){
         element.setAttribute('data-pop', '');
 
     //ElEMENT 속성만 있고 값은 명시안할 경우 자동 명시
+    if (element.getAttribute('data-mode-dark') != null && element.getAttribute('data-mode-dark') != undefined && element.getAttribute('data-mode-dark') == '')
+        element.setAttribute('data-mode-dark', 'true');
+    if (element.getAttribute('data-mode-test') != null && element.getAttribute('data-mode-test') != undefined && element.getAttribute('data-mode-test') == '')
+        element.setAttribute('data-mode-test', 'true');
+    if (element.getAttribute('data-mode-auto') != null && element.getAttribute('data-mode-auto') != undefined && element.getAttribute('data-mode-auto') == '')
+        element.setAttribute('data-mode-auto', 'true');
     if (element.getAttribute('data-closebyclickin') != null && element.getAttribute('data-closebyclickin') != undefined && element.getAttribute('data-closebyclickin') == '')
         element.setAttribute('data-closebyclickin', 'true');
     if (element.getAttribute('data-closebyclickout') != null && element.getAttribute('data-closebyclickout') != undefined && element.getAttribute('data-closebyclickout') == '')
@@ -244,6 +251,8 @@ PopMan.prototype.add = function(element){
         expx:               element.getAttribute('data-expx'),
         expy:               element.getAttribute('data-expy'),
         modeDark:           getData(element.getAttribute('data-mode-dark')).parse(),
+        modeTest:           getData(element.getAttribute('data-mode-test')).parse(),
+        modeAuto:           getData(element.getAttribute('data-mode-auto')).parse(),
         okbyenter:          getData(element.getAttribute('data-enterok')).parse(),
         closebyesc:         getData(element.getAttribute('data-closebyesc')).parse(),
         closebyclickout:    getData(element.getAttribute('data-closebyclickout')).parse(),
@@ -290,7 +299,8 @@ PopMan.prototype.set = function(element, infoObj){
     infoObj.id = popmanId;
     infoObj.popmanId = popmanId;
     infoObj.element = element;
-    infoObj.modeDark = (infoObj.modeDark == null) ? that.globalSetup.modeDark : infoObj.modeDark;
+    infoObj.modeDark = (infoObj.modeDark != null) ? infoObj.modeDark : that.globalSetup.modeDark;
+    infoObj.modeTest = (infoObj.modeTest != null) ? infoObj.modeTest : that.globalSetup.modeTest;
     infoObj.darkElement = null;
     infoObj.isPoped = false;
 
@@ -340,6 +350,9 @@ PopMan.prototype.set = function(element, infoObj){
         this.addEventListener(element, 'close', infoObj.close);
     if (infoObj.afterclose)
         this.addEventListener(element, 'afterclose', infoObj.afterclose);
+
+    if (infoObj.modeAuto)
+        this.pop(infoObj.element);
 };
 
 PopMan.prototype.setView = function(pop){
@@ -350,7 +363,7 @@ PopMan.prototype.setView = function(pop){
         .setStyle('height', (pop.height) ? pop.height : '100%')
         .hideDiv()
         .appendTo(document.body)
-        .addEventListener('mousewheel', function(event){
+        .addEventListener('mousewheel', function(event){ //TODO: FireFox는 고려가 안됐네!
             var scrollSizeX = (popView.scrollWidth - popView.clientWidth);
             var scrollSizeY = (popView.scrollHeight - popView.clientHeight);
             var x = (event.deltaX ? event.deltaX : event.wheelDeltaX) /5;
@@ -385,8 +398,8 @@ PopMan.prototype.setView = function(pop){
         getEl(popView)
             .addEventListener('mousedown', function(event){
                 // if (event.target == popView){
-                    event.preventDefault();
-                    event.stopPropagation();
+                //     event.preventDefault();
+                //     event.stopPropagation();
                     that.meta.nowClickControlPop = pop;
                 // }
             })
@@ -427,7 +440,7 @@ PopMan.prototype.setView = function(pop){
 };
 PopMan.prototype.setTestView = function(infoObj, globalSetup){
     var element = infoObj.element;
-    if (globalSetup.modeTest){
+    if (infoObj.modeTest){
         if (globalSetup.testPopClass){
             getEl(element).addClass(globalSetup.testPopClass);
         }
@@ -554,7 +567,7 @@ PopMan.prototype.pop = function(element, callback, force){
     if (callback)
         callback(pop);
     //Animation - FadeIn
-    if (this.modeAnimation && pop.modeAnimation){
+    if (this.globalSetup.modeAnimation && pop.modeAnimation){
         pop.animation = (pop.animation) ? pop.animation : this.generateDefaultAnimation(pop);
         pop.animation.fadeIn(function(){
             // getEl(pop.popContainerElement).setStyle('borderColor', 'red');
@@ -616,6 +629,16 @@ PopMan.prototype.close = function(element, callback){
         if (callback)
             callback(pop.element);
     }
+};
+
+PopMan.prototype.closeAll = function(callback){
+    var that = this;
+    for (var popmanId in that.popMap){
+        var pop = that.getPopByManId(popmanId);
+        if (that.isOn(pop.element))
+            that.close(pop.element);
+    }
+    (callback && callback());
 };
 
 
@@ -693,26 +716,27 @@ PopMan.prototype.alert = function(content, callbackForOk){
                     return false;
                 return true;
             });
-            var divContextAlert = newEl('div').addClass('sj-popman-obj-context-alert')
+            var divContextAlert = newEl('div')
                 .style('display:block; width:100%; height:100%; text-align:center;')
                 .returnElement();
-            var divContentBox = newEl('div').addClass('sj-popman-obj-box-content')
+            var divContentBox = newEl('div').addClass('sj-popman-obj-content')
                 .style('display:block; width:100%; text-align:center;')
                 .appendTo(divContextAlert)
                 .returnElement();
-            var btnForOk = newEl('button').addClass('sj-popman-obj-btn-alert')
+            var btnForOk = newEl('button').addClass(['sj-popman-obj-btn', 'sj-popman-obj-btn-alert'])
                 .style('display:inline-block;')
                 .appendTo(divContextAlert)
                 .html('O')
                 .addEventListener('click', function(){
-                    if (callbackForOk && !callbackForOk())
+                    if (callbackForOk && !callbackForOk()){
                         return;
+                    }
                     that.close(popElement);
                 })
                 .returnElement();
             //User Set Content
             getEl(popElement).html('').add(divContextAlert);
-            getEl(divContentBox).add(content);
+            getEl(divContentBox).add( newEl('div').html(content) );
         },
         afterpop:function(data){
         },
@@ -722,7 +746,8 @@ PopMan.prototype.alert = function(content, callbackForOk){
             that.removePop(data.element);
         }
     });
-    this.add(elementForPopAlert);
+    // this.add(elementForPopConfirm);
+    getEl(elementForPopAlert.parentNode).removeClass('sj-popman-obj-context-pop').addClass('sj-popman-obj-context-alert');
     this.pop(elementForPopAlert, null, true);
     return elementForPopAlert;
 };
@@ -754,24 +779,25 @@ PopMan.prototype.confirm = function(content, callbackForOk, callbackForCancel){
                     return false;
                 return true;
             });
-            var divContextConfirm = newEl('div').addClass('sj-popman-obj-context-confirm')
+            var divContextConfirm = newEl('div')
                 .style('display:block; width:100%; height:100%; text-align:center;')
                 .returnElement();
-            var divContentBox = newEl('div').addClass('sj-popman-obj-box-content')
+            var divContentBox = newEl('div').addClass('sj-popman-obj-content')
                 .style('display:block; width:100%; text-align:center;')
                 .appendTo(divContextConfirm)
                 .returnElement();
-            var btnForOk = newEl('button').addClass('sj-popman-obj-btn-confirm')
+            var btnForOk = newEl('button').addClass(['sj-popman-obj-btn', 'sj-popman-obj-btn-confirm'])
                 .style('display:inline-block;')
                 .html('O')
                 .appendTo(divContextConfirm)
                 .addEventListener('click', function(){
-                    if (callbackForOk && !callbackForOk())
+                    if (callbackForOk && !callbackForOk()){
                         return;
+                    }
                     that.close(popElement);
                 })
                 .returnElement();
-            var btnForCancel = newEl('button').addClass('sj-popman-obj-btn-cancel')
+            var btnForCancel = newEl('button').addClass(['sj-popman-obj-btn', 'sj-popman-obj-btn-cancel'])
                 .style('display:inline-block;')
                 .html('X')
                 .appendTo(divContextConfirm)
@@ -783,7 +809,7 @@ PopMan.prototype.confirm = function(content, callbackForOk, callbackForCancel){
                 .returnElement();
             //User Set Content
             getEl(popElement).html('').add(divContextConfirm);
-            getEl(divContentBox).add(content);
+            getEl(divContentBox).add( newEl('div').html(content) );
         },
         afterpop:function(data){
         },
@@ -793,7 +819,8 @@ PopMan.prototype.confirm = function(content, callbackForOk, callbackForCancel){
             that.removePop(data.element);
         }
     });
-    this.add(elementForPopConfirm);
+    // this.add(elementForPopConfirm);
+    getEl(elementForPopConfirm.parentNode).removeClass('sj-popman-obj-context-pop').addClass('sj-popman-obj-context-confirm');
     this.pop(elementForPopConfirm, null, true);
     return elementForPopConfirm;
 };
@@ -822,13 +849,10 @@ PopMan.prototype.loading = function(content, callbackForPromise){
 
             //User Set Content
             if (content){
-                getEl(popElement.parentNode)
-                    .removeClass('sj-popman-obj-context-pop')
-                    .addClass('sj-popman-obj-context-loading');
                 var divContentBox = newEl('div')
-                    .addClass('sj-popman-obj-box-content')
+                    .addClass('sj-popman-obj-content')
                     .style('display:block; width:100%; height:100%; text-align:center')
-                    .add(content)
+                    .add( newEl('div').html(content) )
                     .returnElement();
                 getEl(popElement).html('').add(divContentBox);
             }
@@ -841,7 +865,8 @@ PopMan.prototype.loading = function(content, callbackForPromise){
             that.removePop(data.element);
         }
     });
-    this.add(elementForPopLoading);
+    // this.add(elementForPopConfirm);
+    getEl(elementForPopLoading.parentNode).removeClass('sj-popman-obj-context-pop').addClass('sj-popman-obj-context-loading');
     this.pop(elementForPopLoading, null, true);
     var promise =
         new Promise(function(resolve, reject){
@@ -889,7 +914,7 @@ PopMan.prototype.setPreview = function(element, infoObj){
     // this.createPreviewer();
 
     getEl(element)
-        .addClass('sj-boxman-obj-previewable')
+        .addClass('sj-popman-obj-previewable')
         .addEventListener('mouseout', function(event){
             that.stopPreviewer();
         })
@@ -908,7 +933,7 @@ PopMan.prototype.setPreview = function(element, infoObj){
                 event.preventDefault();
                 //- Searching ParentNode
                 checkNode = event.target;
-                while ((!checkNode.classList || !checkNode.classList.contains('sj-boxman-obj-previewable')) && (checkNode = checkNode.parentNode)){ }
+                while ((!checkNode.classList || !checkNode.classList.contains('sj-popman-obj-previewable')) && (checkNode = checkNode.parentNode)){ }
                 if (!checkNode)
                     return;
             }
@@ -921,7 +946,7 @@ PopMan.prototype.createPreviewer = function(){
     if (this.previewer == undefined){
         this.previewer = newEl('div')
             .html('test')
-            .addClass('sj-boxman-obj-previewer')
+            .addClass('sj-popman-obj-previewer')
             .setStyle('display', 'none')
             .setStyle('position', 'absolute')
             .appendTo(document.body)
@@ -941,7 +966,7 @@ PopMan.prototype.startPreviewer = function(event, x, y, content, classes){
         getEl(this.previewer).addClass(classes);
     this.movePreviewer(event, x, y, content);
     //Animation - FadeIn
-    if (this.modeAnimation){
+    if (this.globalSetup.modeAnimation){
         this.previewerAnimation = (this.previewerAnimation) ? this.previewerAnimation : this.generateDefaultPreviewAnimation(this.previewer);
         this.previewerAnimation.fadeIn(function(){
             // getEl(this.previewer).setStyle('borderColor', 'red');
@@ -999,7 +1024,7 @@ PopMan.prototype.movePreviewer = function(event, x, y, content){
 
 /***************************************************************************
  *
- *  Focus
+ *  Focus //TODO: Experimental..
  *
  ***************************************************************************/
 PopMan.prototype.focusOn = function(el){
@@ -1068,7 +1093,8 @@ PopMan.prototype.spreadDark = function(pop){
                 }
             })
             .addEventListener('mouseup', function(event){
-                if (that.meta.nowClickControlPop === pop && event.target == darkElement){
+                var elapsedTime = new Date().getTime() - that.meta.latestPopStartTime;
+                if (that.meta.nowClickControlPop === pop && elapsedTime > 200 && event.target == darkElement){
                     that.meta.nowClickControlPop = null;
                     that.close(pop.element);
                 }
@@ -1191,6 +1217,7 @@ PopMan.prototype.getSolvedPopExpMap = function(popexp, parentSize){
     var pos;
     var isPopExp;
     if (popexp){
+        //- Auto Makeup - Expression
         var idxL = popexp.indexOf('(');
         var idxR = popexp.indexOf(')');
         isPopExp = (idxL != -1 && idxR != -1);
@@ -1199,10 +1226,24 @@ PopMan.prototype.getSolvedPopExpMap = function(popexp, parentSize){
             expEnd = popexp.substring(idxR +1, popexp.length);
             expSize = popexp.substring(idxL +1, idxR);
         }else{
-            expStart = '*';
             expSize = popexp;
+        }
+        var expStartHasNoValue = (expStart == null || expStart.trim() == '');
+        var expEndHasNoValue = (expEnd == null || expEnd.trim() == '');
+        if (expStartHasNoValue && !expEndHasNoValue && expEnd.trim() == '*'){
+            expStart = '0';
+        }else if (!expStartHasNoValue && expStart.trim() == '*' && expEndHasNoValue){
+            expEnd = '0';
+        }else if (expStartHasNoValue && expEndHasNoValue){
+            expStart = '*';
+            expEnd = '*';
+        }else if (expStartHasNoValue){
+            expStart = '*';
+        }else if (expEndHasNoValue){
             expEnd = '*';
         }
+        // console.log(popexp + ': ', expStart, expSize, expEnd);
+        //- Minimum and Maximum
         start = this.getSize(parentSize, expStart, function(min, s, max) {
             if (s == '*')
                 s =  0;
@@ -1222,7 +1263,7 @@ PopMan.prototype.getSolvedPopExpMap = function(popexp, parentSize){
         if (expStart == '*' && expEnd != '*'){
             pos = (parentSize - size) - end;
         }else if (expStart != '*' && expEnd == '*'){
-            pos = 0;
+            pos = start;
         }else if (expStart == '*' && expEnd == '*'){
             pos = (parentSize - size) / 2;
         }else{
@@ -1278,15 +1319,36 @@ PopMan.prototype.getSize = function(parentSize, num, callbackCalculateAsterisk){
         var arrayLogic = numString.match(/[><=]{1,2}/gi);
         if (!arrayLogic)
             return;
-        // var arrayValue = numString.match(/[^><=]{1,2}/gi);
+        /** 로직이 1개 ==> %값이 있는 쪽이 Size값 **/
         if (arrayLogic.length == 1 && (numString.indexOf('%') != -1 || numString.indexOf('*'))){
-            //TODO: 구현 고민중..
+            var beforeLogicIndex = numString.indexOf(arrayLogic[0]);
+            var leftValue = numString.substring(0, beforeLogicIndex).trim();
+            var rightValue = numString.substring(beforeLogicIndex +arrayLogic[0].length, numString.length).trim();
+            if (leftValue.indexOf('%') != -1 && rightValue.indexOf('%') == -1){
+                size = leftValue;
+                if ((rightValue.indexOf('%') != -1))
+                    rightValue = parentSize * (parseFloat(rightValue)/100);
+                if (arrayLogic[0].indexOf('<') != -1)
+                    maxSize = (arrayLogic[0].indexOf('=') != -1) ? parseInt(rightValue) : parseInt(rightValue) -1;
+                else if (arrayLogic[0].indexOf('>') != -1)
+                    minSize = (arrayLogic[0].indexOf('=') != -1) ? parseInt(rightValue) : parseInt(rightValue) +1;
+            }else{ //- 그외의 상황은 ==> 오른쪽이 Size값이다. 
+                size = rightValue;
+                if ((leftValue.indexOf('%') != -1))
+                    leftValue = parentSize * (parseFloat(leftValue)/100);
+                if (arrayLogic[0].indexOf('<') != -1)
+                    minSize = (arrayLogic[0].indexOf('=') != -1) ? parseInt(leftValue) : parseInt(leftValue) +1;
+                else if (arrayLogic[0].indexOf('>') != -1)
+                    maxSize = (arrayLogic[0].indexOf('=') != -1) ? parseInt(leftValue) : parseInt(leftValue) -1;
+            }
+
+        /** 로직이 2개 ==> 가운데 값이 Size값 **/
         }else if (arrayLogic.length == 2 && (numString.indexOf('%') != -1 || numString.indexOf('*'))){
             var beforeLogicIndex = numString.indexOf(arrayLogic[0]);
             var afterLogicIndex = numString.indexOf(arrayLogic[1], beforeLogicIndex +1);
             var leftValue = numString.substring(0, beforeLogicIndex).trim();
-            var centerValue = numString.substring(beforeLogicIndex +1, afterLogicIndex).trim();
-            var rightValue = numString.substring(afterLogicIndex +1, numString.length).trim();
+            var centerValue = numString.substring(beforeLogicIndex +arrayLogic[0].length, afterLogicIndex).trim();
+            var rightValue = numString.substring(afterLogicIndex +arrayLogic[1].length, numString.length).trim();
             if (leftValue != ''){
                 if ((leftValue.indexOf('%') != -1))
                     leftValue = parentSize * (parseFloat(leftValue)/100);
@@ -1315,9 +1377,9 @@ PopMan.prototype.getSize = function(parentSize, num, callbackCalculateAsterisk){
         size = callbackCalculateAsterisk(minSize, size, maxSize);
     //- Calculate Min/Max
     size = parseFloat(size);
-    if (minSize > size && minSize != null)
+    if (minSize != null && minSize > size)
         size = Math.max(minSize, size);
-    if (maxSize < size && maxSize != null)
+    if (maxSize != null && maxSize < size)
         size = Math.min(maxSize, size);
     // console.log(minSize,maxSize,size,numString);
     return size;

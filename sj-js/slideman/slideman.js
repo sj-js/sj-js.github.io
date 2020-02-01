@@ -307,6 +307,7 @@ SlideMan.prototype.checkEventBySlideView = function(slider, viewer){
         window.addEventListener('keydown', function(event){ that.whenKeyDown(event); });
         window.addEventListener('keyup', function(event){ that.whenKeyUp(event); });
         viewer.addEventListener('mousewheel', function(event){ that.whenMouseWheel(event, viewer); });
+        viewer.addEventListener('DOMMouseScroll', function(event){ that.whenMouseWheel(event, viewer); });
     }
 };
 
@@ -424,9 +425,9 @@ SlideMan.prototype.whenResize = function(event){
                     //TODO: 개선필요.. 언제부터인지 부자연스러운거 같기도하고. 어쨌든 임시방편으로 setTimeout으로 한번 더 야림
                     //TODO: 이거 아무래도 경우가 있는듯!??
                     setTimeout(function(){
-                        assistant.scrollLeft = storage.children[storage.nowShowingChildIdx].offsetWidth * storage.nowShowingChildIdx ;
+                        assistant.scrollLeft = storage.children[storage.nowShowingChildIdx].offsetWidth * storage.nowShowingChildIdx;
                     }, 1);
-                    assistant.scrollLeft = storage.children[storage.nowShowingChildIdx].offsetWidth * storage.nowShowingChildIdx ;
+                    assistant.scrollLeft = storage.children[storage.nowShowingChildIdx].offsetWidth * storage.nowShowingChildIdx;
                     // console.error(storage.nowShowingChildIdx, assistant.scrollLeft, storage.children[storage.nowShowingChildIdx].offsetWidth);
                 }
             }else if (viewerType == 'scrollview'){
@@ -474,29 +475,80 @@ SlideMan.prototype.whenTouchUpOnScrollview = function(event, slider) {
 /*************************************
  * 슬라이드 뷰의 이벤트
  *************************************/
+SlideMan.WHEEL_LEFT = 1;
+SlideMan.WHEEL_RIGHT = 2;
+SlideMan.WHEEL_UP = 3;
+SlideMan.WHEEL_DOWN = 4;
+SlideMan.NEXT_SLIDE = 1;
+SlideMan.PREV_SLIDE = 2;
+
 SlideMan.prototype.whenMouseWheel = function(event, viewer){
-    if (this.shiftKeyDown) {
-        event.preventDefault();
-
-        /* 동시에 두개 이상의 슬라이드가 작동될 범위일 때,
-         * stopPropagation을 이용하여 부모의 작동을 멈추게 하고
-         * 가장 위에 있는 것만 작동한다.
-         * 하지만, 첫번째 또는 마지막 슬라이드인 상황에서는 동작에 따라 부모의 슬라이드도 고려한다. */
-        var storage = viewer.storage;
-        if (event.wheelDelta < 0 && storage.nowShowingChildIdx == storage.children.length -1){
-
-        }else if (event.wheelDelta > 0 && storage.nowShowingChildIdx == 0){
-
-        }else{
-            event.stopPropagation();
-        }
-
-        if (event.wheelDelta > 0)
-            this.slideToRight(viewer);
-        if (event.wheelDelta < 0)
-            this.slideToLeft(viewer);
+    var e = window.event || event;
+    var wheelCode = SlideMan.getWheelCode(e);
+    var slideDirectionCode = SlideMan.getSlideDirectionCode(e);
+    // console.log('dir:'+wheelCode, 'to:'+slideDirectionCode);
+    if (!wheelCode)
+        return;
+    if (viewer.slider.onSlide)
+        return;
+    if ((wheelCode == SlideMan.WHEEL_UP || wheelCode == SlideMan.WHEEL_DOWN) && !this.shiftKeyDown)
+        return;
+    e.preventDefault();
+    /*****
+     * 동시에 두개 이상의 슬라이드가 작동될 범위일 때,
+     * stopPropagation을 이용하여 부모의 작동을 멈추게 하고
+     * 가장 위에 있는 것만 작동한다.
+     * 하지만, 첫번째 또는 마지막 슬라이드인 상황에서는 동작에 따라 부모의 슬라이드도 고려한다.
+     *****/
+    var storage = viewer.storage;
+    if (slideDirectionCode == SlideMan.NEXT_SLIDE && storage.nowShowingChildIdx == storage.children.length -1){
+        //Pass
+    }else if (slideDirectionCode == SlideMan.PREV_SLIDE && storage.nowShyowingChildIdx == 0){
+        //Pass
+    }else{
+        e.stopPropagation();
+    }
+    //- Slide
+    if (slideDirectionCode == SlideMan.PREV_SLIDE){
+        this.slideToRight(viewer);
+    }else{
+        this.slideToLeft(viewer);
     }
 };
+SlideMan.getWheelCode = function(event){
+    if (event.wheelDeltaX || event.wheelDeltaY){
+        var limit = 5;
+        var code = (event.wheelDeltaX != 0 && Math.abs(event.wheelDeltaX) > Math.abs(event.wheelDeltaY)) ? 'x' : 'y';
+        switch (code){
+            case 'x': return (event.wheelDelta > limit) ? SlideMan.WHEEL_LEFT : (event.wheelDelta < -limit) ? SlideMan.WHEEL_RIGHT : null; break;
+            case 'y': return (event.wheelDelta > limit) ? SlideMan.WHEEL_UP : (event.wheelDelta < -limit) ? SlideMan.WHEEL_DOWN : null; break;
+        }
+    }
+
+    if (event.wheelDelta){
+        switch (event.wheelDelta){
+            case 30: return SlideMan.WHEEL_LEFT; break;
+            case -30: return SlideMan.WHEEL_RIGHT; break;
+            case 120: return SlideMan.WHEEL_UP; break;
+            case -120: return SlideMan.WHEEL_DOWN; break;
+        }
+    }else if (-event.detail){ //FireFox
+        switch (-event.detail){
+            case 1: return SlideMan.WHEEL_LEFT; break;
+            case -1: return SlideMan.WHEEL_RIGHT; break;
+            case 3: return SlideMan.WHEEL_UP; break;
+            case -3: return SlideMan.WHEEL_DOWN; break;
+        }
+    }
+};
+SlideMan.getSlideDirectionCode = function(event){
+    //REF: https://embed.plnkr.co/plunk/skVoXt
+    // Chrome / IE: first one is +/-120 (positive on mouse up), second one is zero
+    // Firefox: first one is undefined, second one is -/+3 (negative on mouse up)
+    var delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail));
+    return (delta > 0) ? SlideMan.PREV_SLIDE : SlideMan.NEXT_SLIDE;
+};
+
 SlideMan.prototype.whenKeyDown = function(event){
     if (event.keyCode == 16)
         this.shiftKeyDown = true;
@@ -594,7 +646,6 @@ SlideMan.prototype.slideToBack = function(viewer){
     this.slideTo(viewer, storage.nowShowingChildIdx);
 };
 SlideMan.prototype.slideTo = function(viewer, idx){
-    console.error('Slide To', viewer, idx);
     //- Viewer
     if (typeof viewer == 'string'){
         viewer = this.viewerIdAndViewerMap[viewer];
