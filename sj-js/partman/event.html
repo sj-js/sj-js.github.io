@@ -8,16 +8,16 @@
 	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1" />
 
     <meta name="libraryName" content="partman" />
-    <meta name="mdFileName" content="example" />
+    <meta name="mdFileName" content="event" />
     <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
     <meta name="menuJson" content='{"PartMan":{"path":"partman/index.html","fileName":"index","h2TextList":["🎞️","Index","1. Getting Started"],"h2PathList":["partman/index.html#-","partman/index.html#index","partman/index.html#1-getting-started"]},"Event":{"path":"partman/event.html","fileName":"event","h2TextList":["Test"],"h2PathList":["partman/event.html#test"]},"Example":{"path":"partman/example.html","fileName":"example","h2TextList":[],"h2PathList":[]}}' />
     <meta name="menuOrderListJson" content='["PartMan","Event","Example"]' />
-    <meta name="saveJson" content='' />
+    <meta name="saveJson" content='{"prefix":"  <link rel=\"stylesheet\" href=\"../partman/partman.css\">\n  <script src=\"../crossman/crossman.js\"></script>\n  <script src=\"../partman/partman.js\"></script>\n  <script> \n      var partman = new PartMan();\n  </script>\n"}' />
 
 
 
 	<head>
-		<title>partman - example</title>
+		<title>partman - event</title>
 
 		<!-- ★highlight.js -->
 		<!--
@@ -79,7 +79,95 @@
 
 			<!-- View -->
 			<div id="help-view" class="help-view markdown github">
-			    <h1 id="example">Example</h1>
+			    <h1 id="event">Event</h1>
+<h4 id="-">※ 표</h4>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>Template속성</th>
+<th>Event Data</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>open</td>
+<td>data-open</td>
+<td>{partFoldId, element}</td>
+<td>PartFold가 열렸을 때</td>
+</tr>
+<tr>
+<td>close</td>
+<td>data-close</td>
+<td>null</td>
+<td>PartFold가 닫혔을 때</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">※ 자동적용</h4>
+<ul>
+<li><p>편의를 위해서 예제에서는 다음 코드가 생략되어 있습니다.</p>
+<pre><code class="lang-html">  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@sj-js/partman/dist/css/partman.min.css&quot;&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/crossman/dist/js/crossman.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/partman/dist/js/partman.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+      var partman = new PartMan();
+  &lt;/script&gt;
+</code></pre>
+<p>  
+</li>
+</ul>
+<h2 id="test">Test</h2>
+<ul>
+<li>PartFold가 열리거나 닫힐 때
+  <div class="lang-html">  &lt;style&gt;
+      html { scroll-behavior: smooth; }
+      button[data-part-fold-a] { width:120px; height:100px; cursor:pointer; }
+      .part-fold-active { border:2px solid skyblue; background:skyblue; }                
+  &lt;/style&gt;
+  &lt;script&gt; 
+      partman.detect(); 
+      partman
+          .addEventListenerByEventName(&#39;open&#39;, function(event){
+              event.element.style.fontSize = &#39;25px&#39;;
+              event.element.appendChild( document.createTextNode(&#39;💛&#39;));
+          })
+          .addEventListenerByEventName(&#39;close&#39;, function(event){
+              //None
+          });
+  &lt;/script&gt;
+  &lt;body&gt;
+      &lt;!-- Icons --&gt;
+      &lt;button data-part-fold-a=&quot;fold-1&quot;&gt;fold-1&lt;/button&gt;
+      &lt;button data-part-fold-a=&quot;fold-2&quot;&gt;fold-2&lt;/button&gt;
+      &lt;button data-part-fold-a=&quot;fold-3&quot;&gt;fold-3&lt;/button&gt;
+      &lt;button data-part-fold-a=&quot;fold-4&quot;&gt;fold-4&lt;/button&gt;
+      &lt;button data-part-fold-a=&quot;fold-5&quot;&gt;fold-5&lt;/button&gt;
+      &lt;!-- Tools --&gt;
+      &lt;div data-part-fold-tool&gt;
+          &lt;button onclick=&quot;partman.closeContentAll();&quot;&gt;X&lt;/button&gt;
+      &lt;/div&gt;  
+      &lt;!-- Contents --&gt;
+      &lt;div data-part-fold=&quot;fold-1&quot;&gt;
+          1
+      &lt;/div&gt;
+      &lt;div data-part-fold=&quot;fold-2&quot;&gt;
+          2     
+      &lt;/div&gt;
+      &lt;div data-part-fold=&quot;fold-3&quot;&gt;
+          3
+      &lt;/div&gt;
+      &lt;div data-part-fold=&quot;fold-4&quot;&gt;
+          4
+      &lt;/div&gt;
+      &lt;div data-part-fold=&quot;fold-5&quot;&gt;
+          5
+      &lt;/div&gt; 
+  &lt;/body&gt;
+</div>
+</li>
+</ul>
 
 			</div>
 

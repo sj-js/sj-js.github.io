@@ -415,6 +415,9 @@ VisNetworkMan.prototype.renderByFilter = function(nodeDataList, option){
             (mergedOption.extendsOption.funcEventHoverEdgeAndMove && mergedOption.extendsOption.funcEventHoverEdgeAndMove(that.currentHoverEdge, e));
         }
     });
+    container.addEventListener('mouseout', function(e){
+        that.unpointNode();
+    });
     /** Extends Panel **/
     if (extendsPpanel){
         var that = this;

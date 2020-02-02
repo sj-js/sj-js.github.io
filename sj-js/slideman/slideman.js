@@ -37,6 +37,11 @@ try {
 
 
 
+SlideMan.EVENT_SLIDE = 'slide';
+SlideMan.EVENT_MENUOVER = 'menuover';
+SlideMan.EVENT_MENUOUT = 'menuout';
+SlideMan.EVENT_MENUCLICK = 'menuclick';
+
 
 /***************************************************************************
  *
@@ -62,6 +67,11 @@ SlideMan.prototype.execEvent                      = function(eventMap, eventNm, 
 SlideMan.prototype.addEventListenerByViewerId     = function(viewerId, eventName, eventFunc){
     var eventIdForViewer = SlideMan.getViewerEventId(viewerId);
     this.addEventListenerById(eventIdForViewer, eventName, eventFunc);
+    return this;
+};
+SlideMan.prototype.addEventListenerBySlideId     = function(slideId, eventName, eventFunc){
+    var eventIdForSlider = SlideMan.getSlideEventId(slideId);
+    this.addEventListenerById(eventIdForSlider, eventName, eventFunc);
     return this;
 };
 
@@ -164,22 +174,22 @@ SlideMan.prototype.initSlideView = function(){
             /* 이벤트 저장 (슬라이드 뷰에서 슬라이드 발생시마다)*/
             eventFn = getEl(viewerElement).attr('data-event-slide');
             if (eventFn){
-                this.addEventListenerById(viewerId, 'slide', new Function('event', eventFn));
+                this.addEventListenerById(viewerId, SlideMan.EVENT_SLIDE, new Function('event', eventFn));
             }
             /* 이벤트 저장 (슬라이드 뷰에서 슬라이드 발생시마다)*/
             eventFn = getEl(viewerElement).attr('data-event-menu-over');
             if (eventFn){
-                this.addEventListenerById(viewerId, 'menuover', new Function('event', eventFn));
+                this.addEventListenerById(viewerId, SlideMan.EVENT_MENUOVER, new Function('event', eventFn));
             }
             /* 이벤트 저장 (슬라이드 뷰에서 슬라이드 발생시마다)*/
             eventFn = getEl(viewerElement).attr('data-event-menu-out');
             if (eventFn){
-                this.addEventListenerById(viewerId, 'menuout', new Function('event', eventFn));
+                this.addEventListenerById(viewerId, SlideMan.EVENT_MENUOUT, new Function('event', eventFn));
             }
             /* 이벤트 저장 (슬라이드 뷰에서 슬라이드 발생시마다)*/
             eventFn = getEl(viewerElement).attr('data-event-menu-click');
             if (eventFn){
-                this.addEventListenerById(viewerId, 'menuclick', new Function('event', eventFn));
+                this.addEventListenerById(viewerId, SlideMan.EVENT_MENUCLICK, new Function('event', eventFn));
             }
         }
 
@@ -325,19 +335,19 @@ SlideMan.prototype.checkEventByViewer = function(viewerElement, viewerId){
     var eventIdForViewer = SlideMan.getViewerEventId(viewerId);
     var eventFn = getEl(viewerElement).attr('data-event-slide');
     if (eventFn != null && eventFn != undefined){
-        this.addEventListenerById(eventIdForViewer, 'slide', new Function('event', eventFn));
+        this.addEventListenerById(eventIdForViewer, SlideMan.EVENT_SLIDE, new Function('event', eventFn));
     }
     eventFn = getEl(viewerElement).attr('data-event-menuover');
     if (eventFn != null && eventFn != undefined){
-        this.addEventListenerById(eventIdForViewer, 'menuover', new Function('event', eventFn));
+        this.addEventListenerById(eventIdForViewer, SlideMan.EVENT_MENUOVER, new Function('event', eventFn));
     }
     eventFn = getEl(viewerElement).attr('data-event-menuout');
     if (eventFn != null && eventFn != undefined){
-        this.addEventListenerById(eventIdForViewer, 'menuout', new Function('event', eventFn));
+        this.addEventListenerById(eventIdForViewer, SlideMan.EVENT_MENUOUT, new Function('event', eventFn));
     }
     eventFn = getEl(viewerElement).attr('data-event-menuclick');
     if (eventFn != null && eventFn != undefined){
-        this.addEventListenerById(eventIdForViewer, 'click', new Function('event', eventFn));
+        this.addEventListenerById(eventIdForViewer, SlideMan.EVENT_MENUCLICK, new Function('event', eventFn));
     }
 };
 
@@ -347,34 +357,34 @@ SlideMan.prototype.checkEventBySlide = function(viewerElement, menuElement, slid
     var eventIdForViewer = SlideMan.getViewerEventId(viewerId);
     var eventFn = getEl(slideElement).attr('data-event-slide');
     if (eventFn != null && eventFn != undefined){
-        this.addEventListenerById(eventIdForSlide, 'slide', new Function('event', eventFn));
+        this.addEventListenerById(eventIdForSlide, SlideMan.EVENT_SLIDE, new Function('event', eventFn));
     }
     eventFn = getEl(slideElement).attr('data-event-menuover');
     if (eventFn != null && eventFn != undefined){
-        this.addEventListenerById(eventIdForSlide, 'menuover', new Function('event', eventFn));
+        this.addEventListenerById(eventIdForSlide, SlideMan.EVENT_MENUOVER, new Function('event', eventFn));
     }
     eventFn = getEl(slideElement).attr('data-event-menuout');
     if (eventFn != null && eventFn != undefined){
-        this.addEventListenerById(eventIdForSlide, 'menuout', new Function('event', eventFn));
+        this.addEventListenerById(eventIdForSlide, SlideMan.EVENT_MENUOUT, new Function('event', eventFn));
     }
     eventFn = getEl(slideElement).attr('data-event-menuclick');
     if (eventFn != null && eventFn != undefined){
-        this.addEventListenerById(eventIdForSlide, 'click', new Function('event', eventFn));
+        this.addEventListenerById(eventIdForSlide, SlideMan.EVENT_MENUCLICK, new Function('event', eventFn));
     }
 
     var eventObject = {viewerElement:viewerElement, menuElement:menuElement, slideElement:slideElement, slideId:slideId};
     getEl(menuElement).addEventListener('mouseover', function(e){
-        that.execEventListenerById(eventIdForViewer, 'menuover', eventObject);
-        that.execEventListenerById(eventIdForSlide, 'menuover', eventObject);
+        that.execEventListenerById(eventIdForViewer, SlideMan.EVENT_MENUOVER, eventObject);
+        that.execEventListenerById(eventIdForSlide, SlideMan.EVENT_MENUOVER, eventObject);
     });
     getEl(menuElement).addEventListener('mouseout', function(e){
-            that.execEventListenerById(eventIdForViewer, 'menuout', eventObject);
-            that.execEventListenerById(eventIdForSlide, 'menuout', eventObject);
+            that.execEventListenerById(eventIdForViewer, SlideMan.EVENT_MENUOUT, eventObject);
+            that.execEventListenerById(eventIdForSlide, SlideMan.EVENT_MENUOUT, eventObject);
     });
     getEl(menuElement).addEventListener('click', function(e){
         that.slideTo(viewerId, slideIndex);
-        that.execEventListenerById(eventIdForViewer, 'menuclick', eventObject);
-        that.execEventListenerById(eventIdForSlide, 'menuclick', eventObject);
+        that.execEventListenerById(eventIdForViewer, SlideMan.EVENT_MENUCLICK, eventObject);
+        that.execEventListenerById(eventIdForSlide, SlideMan.EVENT_MENUCLICK, eventObject);
     });
 };
 
@@ -690,9 +700,9 @@ SlideMan.prototype.slideTo = function(viewer, idx){
                     slider.onSlide = false;
                     /* 정상적으로 slide가 이동이 되면 발생하는 이벤트 */
                     if (!storage.onSlideToBack){
-                        var eventObject = {viewerElement:viewer, menuElement:menuElement, toSlideElement:toSlideElement, slideId:slideId};
-                        that.execEventListenerById(eventIdForViewer, 'slide', eventObject);
-                        that.execEventListenerById(eventIdForSlide, 'slide', eventObject);
+                        var eventObject = {viewerElement:viewer, menuElement:menuElement, slideElement:toSlideElement, slideId:slideId};
+                        that.execEventListenerById(eventIdForViewer, SlideMan.EVENT_SLIDE, eventObject);
+                        that.execEventListenerById(eventIdForSlide, SlideMan.EVENT_SLIDE, eventObject);
                     }
                     storage.onSlideToBack = false;
                 }
@@ -713,9 +723,9 @@ SlideMan.prototype.slideTo = function(viewer, idx){
                     slider.onSlide = false;
                     /* 정상적으로 slide가 이동이 되면 발생하는 이벤트 */
                     if (!storage.onSlideToBack){
-                        var eventObject = {viewerElement:viewer, menuElement:menuElement, toSlideElement:toSlideElement, slideId:slideId};
-                        that.execEventListenerById(eventIdForViewer, 'slide', eventObject);
-                        that.execEventListenerById(eventIdForSlide, 'slide', eventObject);
+                        var eventObject = {viewerElement:viewer, menuElement:menuElement, slideElement:toSlideElement, slideId:slideId};
+                        that.execEventListenerById(eventIdForViewer, SlideMan.EVENT_SLIDE, eventObject);
+                        that.execEventListenerById(eventIdForSlide, SlideMan.EVENT_SLIDE, eventObject);
                     }
                     storage.onSlideToBack = false;
                 }

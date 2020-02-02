@@ -86,32 +86,46 @@
 <thead>
 <tr>
 <th>종류</th>
+<th>Template속성</th>
+<th>Event Data</th>
 <th>설명</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>FixMan.EVENT_AFTERDETECT</td>
+<td>afterdetect</td>
+<td>None</td>
+<td>null</td>
 <td>detect가 완료된 후</td>
 </tr>
 <tr>
-<td>FixMan.EVENT_DETACH</td>
+<td>detach</td>
+<td>None</td>
+<td>Element</td>
 <td>Scroll-Down으로 붙었던 Element가 다시 Scroll-Up에 의해 떨어질 때  </td>
 </tr>
 <tr>
-<td>FixMan.EVENT_ANIMATIONBYOBJECTHEIGHT</td>
+<td>animationbyobjectheight</td>
+<td>None</td>
+<td>{object, rateLimit, rateReal, fixableObjectHeight, rateLimitReverse}</td>
 <td>Scroll시 발생 - (화면과 대상 Original Element와의 데이터를 제공)  </td>
 </tr>
 <tr>
-<td>FixMan.EVENT_ANIMATIONSTARTBYOBJECTHEIGHT</td>
+<td>animationstartbyobjectheight</td>
+<td>None</td>
+<td>Element</td>
 <td>Scroll-Down시 Original Element의 영역이 가려지기 시작할 때</td>
 </tr>
 <tr>
-<td>FixMan.EVENT_ANIMATIONDOINGBYOBJECTHEIGHT</td>
+<td>animationdoingbyobjectheight</td>
+<td>None</td>
+<td>Element</td>
 <td>Scroll-Down시 Original Element의 영역 가려지기 시작할 때부터 완전히 가려질 때까지 </td>
 </tr>
 <tr>
-<td>FixMan.EVENT_ANIMATIONENDBYOBJECTHEIGHT</td>
+<td>animationendbyobjectheight</td>
+<td>None</td>
+<td>Element</td>
 <td>Scroll-Down시 Original Element의 영역이 완전히 가려질 때</td>
 </tr>
 </tbody>
