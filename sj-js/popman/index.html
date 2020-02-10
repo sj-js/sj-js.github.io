@@ -9,7 +9,7 @@
 
     <meta name="libraryName" content="popman" />
     <meta name="mdFileName" content="index" />
-    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
+    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"crossman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
     <meta name="menuJson" content='{"PopMan":{"path":"popman/index.html","fileName":"index","h2TextList":["💬","Index","1. Getting Started"],"h2PathList":["popman/index.html#-","popman/index.html#index","popman/index.html#1-getting-started"]},"New/Pop/Close":{"path":"popman/new_pop_close.html","fileName":"new_pop_close","h2TextList":["popman.new({OPTIONS..})","popman.pop(ID or ELEMENT or CONDITION)","popman.popTemp({OPTIONS..})","exp / expx / expy","closeby...","popman.close(ID or ELEMENT or CONDITION)","popman.closeAll()"],"h2PathList":["popman/new_pop_close.html#popman-new-options-","popman/new_pop_close.html#popman-pop-id-or-element-or-condition-","popman/new_pop_close.html#popman-poptemp-options-","popman/new_pop_close.html#exp-expx-expy","popman/new_pop_close.html#closeby-","popman/new_pop_close.html#popman-close-id-or-element-or-condition-","popman/new_pop_close.html#popman-closeall-"]},"Expression":{"path":"popman/expression.html","fileName":"expression","h2TextList":["Syntax","Attribute","Size","Position","Minimum and Maximum"],"h2PathList":["popman/expression.html#syntax","popman/expression.html#attribute","popman/expression.html#size","popman/expression.html#position","popman/expression.html#minimum-and-maximum"]},"Alert":{"path":"popman/alert.html","fileName":"alert","h2TextList":[],"h2PathList":[]},"Confirm":{"path":"popman/confirm.html","fileName":"confirm","h2TextList":[],"h2PathList":[]},"Loading":{"path":"popman/loading.html","fileName":"loading","h2TextList":[],"h2PathList":[]},"Preview":{"path":"popman/preview.html","fileName":"preview","h2TextList":["With template","Custom Preview"],"h2PathList":["popman/preview.html#with-template","popman/preview.html#custom-preview"]},"Focus":{"path":"popman/focus.html","fileName":"focus","h2TextList":["Not yet implemented and documented.","focusOn(..)","focusOff()"],"h2PathList":["popman/focus.html#not-yet-implemented-and-documented-","popman/focus.html#focuson-","popman/focus.html#focusoff-"]},"Theme":{"path":"popman/theme.html","fileName":"theme","h2TextList":["Theme","Class"],"h2PathList":["popman/theme.html#theme","popman/theme.html#class"]},"Event":{"path":"popman/event.html","fileName":"event","h2TextList":["add","pop","close","afterPop","afterClose","beforefirstpop / afterlastpop","afterdetect"],"h2PathList":["popman/event.html#add","popman/event.html#pop","popman/event.html#close","popman/event.html#afterpop","popman/event.html#afterclose","popman/event.html#beforefirstpop-afterlastpop","popman/event.html#afterdetect"]},"Functions":{"path":"popman/functions.html","fileName":"functions","h2TextList":["isOn(ID or Name)","sleep()","active()"],"h2PathList":["popman/functions.html#ison-id-or-name-","popman/functions.html#sleep-","popman/functions.html#active-"]},"Example":{"path":"popman/example.html","fileName":"example","h2TextList":[],"h2PathList":[]}}' />
     <meta name="menuOrderListJson" content='["PopMan","New/Pop/Close","Expression","Alert","Confirm","Loading","Preview","Focus","Theme","Event","Functions","Example"]' />
     <meta name="saveJson" content='{"prefix":"  <script src=\"../crossman/crossman.js\"></script>\n  <script src=\"../popman/popman.js\"></script>\n  <script>\n      var popman = new PopMan();\n  </script>\n"}' />
@@ -202,15 +202,18 @@
 <h5 id="exapmle-popman-alert-">Exapmle - popman.alert()</h5>
 <ul>
 <li>👨‍💻<br>  <div class="lang-html">  &lt;body&gt;
-      Hello Popman
-      &lt;button onclick=&quot;popman.alert(&#39;Alert!&#39;);&quot;&gt;ALERT&lt;/button&gt;
+      Hello Popman - Alert
+      &lt;button onclick=&quot;alertSomething();&quot;&gt;ALERT&lt;/button&gt;
   &lt;/body&gt;
   &lt;script&gt;
-      popman.setup({modeTest:true, alertExp:&#39;200/100&#39;});   
-      popman.alert(&#39;Alert Something&#39;, function(){
-          alert(&#39;Alert! Ok!&#39;);
-          return true;
-      });        
+      popman.setup({modeTest:true, alertExp:&#39;200/100&#39;});
+      function alertSomething(){
+          popman.alert(&#39;Alert Something&#39;, function(){
+              alert(&#39;Alert! Ok!&#39;);
+              return true;
+          });
+      }   
+      alertSomething();
   &lt;/script&gt;
 </div>
 </li>
@@ -219,35 +222,37 @@
 <ul>
 <li>👨‍💻
   <div class="lang-html">  &lt;body&gt;
-      Hello Popman
-      &lt;button onclick=&quot;popman.confirm(&#39;Confirm!&#39;);&quot;&gt;CONFIRM&lt;/button&gt;
+      Hello PopMan - Confirm
+      &lt;button onclick=&quot;confirmSomething();&quot;&gt;CONFIRM&lt;/button&gt;
   &lt;/body&gt;
   &lt;script&gt;
       popman.setup({modeTest:true, confirmExp:&#39;300/150&#39;});
-      popman.confirm(&#39;Confirm Something&#39;,
-          function(){
-              alert(&#39;OK!&#39;);
-              return true;
-          },
-          function(){
-              alert(&#39;Cancel!&#39;);
-              return true;
-          },
-      );        
+      function confirmSomething(){
+          popman.confirm(&#39;Confirm Something&#39;,
+              function(){
+                  alert(&#39;OK!&#39;);
+                  return true;
+              },
+              function(){
+                  alert(&#39;Cancel!&#39;);
+                  return true;
+              }
+          );    
+      }   
+      confirmSomething();
   &lt;/script&gt;
 </div>
 </li>
 </ul>
 <h5 id="exapmle-popman-loading-">Exapmle - popman.loading()</h5>
 <ul>
-<li><p>👨‍💻
+<li>👨‍💻
   <div class="lang-html">  &lt;body&gt;
-      Hello Popman
+      Hello Popman- Loading
       &lt;button onclick=&quot;loadSomething();&quot;&gt;LOAD&lt;/button&gt;
   &lt;/body&gt;
   &lt;script&gt;
       popman.setup({modeTest:true, loadingExp:&#39;80%/100&#39;}); 
-
       function loadSomething(){
           popman.loading(&#39;LOADING..  Something..&#39;, function(resolve, reject){ 
               setTimeout(function(){ 

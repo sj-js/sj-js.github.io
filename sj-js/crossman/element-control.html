@@ -7,17 +7,17 @@
 	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
 	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1" />
 
-    <meta name="libraryName" content="variableman" />
-    <meta name="mdFileName" content="example" />
+    <meta name="libraryName" content="crossman" />
+    <meta name="mdFileName" content="element-control" />
     <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"crossman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
-    <meta name="menuJson" content='{"VariableMan":{"path":"variableman/index.html","fileName":"index","h2TextList":["🧮 [👨🏻‍💻⛔] Not yet implemented...","Index","1. Getting Started"],"h2PathList":["variableman/index.html#-not-yet-implemented-","variableman/index.html#index","variableman/index.html#1-getting-started"]},"Example":{"path":"variableman/example.html","fileName":"example","h2TextList":[],"h2PathList":[]}}' />
-    <meta name="menuOrderListJson" content='["VariableMan","Example"]' />
+    <meta name="menuJson" content='{"CrossMan":{"path":"crossman/index.html","fileName":"index","h2TextList":["🤹‍♂️","Functions to start","0. Index","1. Getting Started"],"h2PathList":["crossman/index.html#-","crossman/index.html#functions-to-start","crossman/index.html#0-index","crossman/index.html#1-getting-started"]},"Element Control":{"path":"crossman/element-control.html","fileName":"element-control","h2TextList":[],"h2PathList":[]},"Object Control":{"path":"crossman/object-control.html","fileName":"object-control","h2TextList":[],"h2PathList":[]},"XHR Control":{"path":"crossman/xhr-control.html","fileName":"xhr-control","h2TextList":["getXHR","postXHR"],"h2PathList":["crossman/xhr-control.html#getxhr","crossman/xhr-control.html#postxhr"]},"Event Control":{"path":"crossman/event-control.html","fileName":"event-control","h2TextList":[],"h2PathList":[]}}' />
+    <meta name="menuOrderListJson" content='["CrossMan","Element Control","Object Control","XHR Control","Event Control"]' />
     <meta name="saveJson" content='' />
 
 
 
 	<head>
-		<title>variableman - example</title>
+		<title>crossman - element-control</title>
 
 		<!-- ★highlight.js -->
 		<!--
@@ -79,8 +79,109 @@
 
 			<!-- View -->
 			<div id="help-view" class="help-view markdown github">
-			    <h1 id="example">Example</h1>
-<p>...</p>
+			    <h1 id="element-control">Element Control</h1>
+<p>요소(Element)를 조작합니다.</p>
+<h4 id="-">※ 표</h4>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>특징 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getEl</td>
+<td>검색</td>
+</tr>
+<tr>
+<td>searchEl</td>
+<td>검색</td>
+</tr>
+<tr>
+<td>newEl</td>
+<td>생성</td>
+</tr>
+<tr>
+<td>cloneEl</td>
+<td>복제</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>위의 Function으로 특정 Element를 선택하면서 시작합니다.</li>
+</ul>
+<h4 id="-">※ 표</h4>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>특징 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>returnElement</td>
+<td></td>
+</tr>
+<tr>
+<td>returnCloneElement</td>
+<td></td>
+</tr>
+<tr>
+<td>add</td>
+<td>검색</td>
+</tr>
+<tr>
+<td>addln</td>
+<td>검색</td>
+</tr>
+<tr>
+<td>appendTo</td>
+<td>특정 Element 내부에 추가합니다.</td>
+</tr>
+<tr>
+<td>appendToFrontOf</td>
+<td>특정 Element 앞에 추가합니다.</td>
+</tr>
+<tr>
+<td>appendToNextOf</td>
+<td>특정 Element 뒤에 추가합니다.</td>
+</tr>
+<tr>
+<td>remove</td>
+<td>현재 Element를 제거합니다.</td>
+</tr>
+<tr>
+<td>deleteAll</td>
+<td>현재 Element안의 내용을 제거합니다. </td>
+</tr>
+<tr>
+<td>addEventListener</td>
+<td>현재 Element에 Event를 추가합니다.</td>
+</tr>
+<tr>
+<td>attr</td>
+<td>attribute를 추가</td>
+</tr>
+<tr>
+<td>addClass</td>
+<td>class를 추가</td>
+</tr>
+<tr>
+<td>hasClass</td>
+<td>class 존재여부 확인</td>
+</tr>
+<tr>
+<td>hasSomeClass</td>
+<td>class가 하나라도 존재하는지 확인</td>
+</tr>
+<tr>
+<td>removeClass</td>
+<td>class를 제거</td>
+</tr>
+</tbody>
+</table>
 
 			</div>
 

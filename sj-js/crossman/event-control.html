@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<HTML> 
+	<meta charset="utf-8" />	
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<meta name=apple-mobile-web-app-capable content=yes />
+	<meta name=mobile-web-app-capable content=yes />
+	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
+	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1" />
+
+    <meta name="libraryName" content="crossman" />
+    <meta name="mdFileName" content="event-control" />
+    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"crossman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
+    <meta name="menuJson" content='{"CrossMan":{"path":"crossman/index.html","fileName":"index","h2TextList":["🤹‍♂️","Functions to start","0. Index","1. Getting Started"],"h2PathList":["crossman/index.html#-","crossman/index.html#functions-to-start","crossman/index.html#0-index","crossman/index.html#1-getting-started"]},"Element Control":{"path":"crossman/element-control.html","fileName":"element-control","h2TextList":[],"h2PathList":[]},"Object Control":{"path":"crossman/object-control.html","fileName":"object-control","h2TextList":[],"h2PathList":[]},"XHR Control":{"path":"crossman/xhr-control.html","fileName":"xhr-control","h2TextList":["getXHR","postXHR"],"h2PathList":["crossman/xhr-control.html#getxhr","crossman/xhr-control.html#postxhr"]},"Event Control":{"path":"crossman/event-control.html","fileName":"event-control","h2TextList":[],"h2PathList":[]}}' />
+    <meta name="menuOrderListJson" content='["CrossMan","Element Control","Object Control","XHR Control","Event Control"]' />
+    <meta name="saveJson" content='' />
+
+
+
+	<head>
+		<title>crossman - event-control</title>
+
+		<!-- ★highlight.js -->
+		<!--
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+		-->
+        <!--
+		    <script src="../lib/highlightjs/highlight.min.js"></script>
+		-->
+		<link rel="stylesheet" href="../lib/highlightjs/default.min.css">
+
+
+
+
+        <!-- Template CSS -->
+        <!--
+            <link rel="stylesheet" href="../css/style.min.css">
+        -->
+        <link rel="stylesheet" href="../css/github.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/markdown.css">
+	<script type="text/javascript" src="../../sj-js/js/sj-js.bundle.js"></script></head>
+
+
+                              
+	<body class="boxman-1">
+
+
+		<!-- TEST -->
+		<!--
+		<div data-box>test box</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		-->
+
+
+        <!-- /////////////////////////
+             Header
+        ///////////////////////// -->
+        <div id="help-header" class="help-header test">
+            <ul id="help-header-menulist" class="menu-type-a test">
+            </ul>
+        </div>
+
+
+        <!-- /////////////////////////
+            Context
+        ///////////////////////// -->
+		<div id="help-context" class="help-context">
+
+			<!-- Menu -->
+			<div id="help-menu" class="help-menu">
+			    <div id="help-menu-context" style="width:100%; height:100%; background:#ffffff; overflow:auto;">
+                    <ul id="help-menu-menulist" class="menu-type-b test" >
+                    </ul>
+			    </div>
+			</div>
+
+			<!-- View -->
+			<div id="help-view" class="help-view markdown github">
+			    <h1 id="event-control">Event Control</h1>
+<p>이벤트(Event)를 다룹니다.</p>
+<h4 id="-event-">※ Event 기본</h4>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>특징 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addEventListener</td>
+<td>Event 추가</td>
+</tr>
+<tr>
+<td>hasEventListener</td>
+<td>Event 존재 확인</td>
+</tr>
+<tr>
+<td>removeEventListener</td>
+<td>Event 제거</td>
+</tr>
+<tr>
+<td>execEventListener</td>
+<td>Event 실행</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-event-">※ Event 추가 상세</h4>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>특징 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addEventListener</td>
+<td>Event 추가</td>
+</tr>
+<tr>
+<td>addEventListenerById</td>
+<td>ID 또는 Element의 ID와 함께 Event 추가 </td>
+</tr>
+<tr>
+<td>addEventListenerByEventName</td>
+<td>Event명만으로 Event 추가</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-event-">※ Event 존재 확인 상세</h4>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>특징 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hasEventListener</td>
+<td>Event 존재 확인</td>
+</tr>
+<tr>
+<td>hasEventListenerById</td>
+<td>ID 또는 Element의 ID와 함께 Event 존재 확인 </td>
+</tr>
+<tr>
+<td>hasEventListenerByEventName</td>
+<td>Event명만으로 Event 존재 확인</td>
+</tr>
+<tr>
+<td>hasEventListenerByEventFunc</td>
+<td>Event Function으로 Event 존재 확인</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-event-">※ Event 제거 상세</h4>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>특징 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addEventListener</td>
+<td>Event 제거</td>
+</tr>
+<tr>
+<td>addEventListenerById</td>
+<td>ID 또는 Element의 ID와 함께 Event 제거 </td>
+</tr>
+<tr>
+<td>addEventListenerByEventName</td>
+<td>Event명만으로 Event 제거</td>
+</tr>
+<tr>
+<td>hasEventListenerByEventFunc</td>
+<td>Event Function으로 Event 제거</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-event-">※ Event 실행 상세</h4>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>특징 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>execEventListener</td>
+<td>Event 실행</td>
+</tr>
+<tr>
+<td>execEventListenerById</td>
+<td>ID 또는 Element의 ID와 함께 Event 실행 </td>
+</tr>
+<tr>
+<td>execEventListenerByEventName</td>
+<td>Event명만으로 Event 실행</td>
+</tr>
+</tbody>
+</table>
+
+			</div>
+
+		</div>
+
+
+        <!-- /////////////////////////
+            MINI-MENU
+        ///////////////////////// -->
+        <div id="mini-menu-button" style="position:fixed; top:50px; left:3px;">
+            <button style="width:40px; height:40px; opacity:0.85; font-weight:bold;">...</button>
+        </div>
+
+
+        <!-- /////////////////////////
+            Footer
+        ///////////////////////// -->
+        <div id="help-footer" class="help-footer">
+        </div>
+
+	</body>
+
+
+
+</HTML>

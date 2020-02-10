@@ -492,7 +492,7 @@ SlideMan.WHEEL_DOWN = 4;
 SlideMan.NEXT_SLIDE = 1;
 SlideMan.PREV_SLIDE = 2;
 
-SlideMan.prototype.whenMouseWheel = function(event, viewer){
+SlideMan.prototype.whenMouseWheel = function(event, viewer){    //TODO: Touch slide와 다르게 다른 방식이 필요!
     var e = window.event || event;
     var wheelCode = SlideMan.getWheelCode(e);
     var slideDirectionCode = SlideMan.getSlideDirectionCode(e);
@@ -503,7 +503,6 @@ SlideMan.prototype.whenMouseWheel = function(event, viewer){
         return;
     if ((wheelCode == SlideMan.WHEEL_UP || wheelCode == SlideMan.WHEEL_DOWN) && !this.shiftKeyDown)
         return;
-    e.preventDefault();
     /*****
      * 동시에 두개 이상의 슬라이드가 작동될 범위일 때,
      * stopPropagation을 이용하여 부모의 작동을 멈추게 하고
@@ -512,12 +511,11 @@ SlideMan.prototype.whenMouseWheel = function(event, viewer){
      *****/
     var storage = viewer.storage;
     if (slideDirectionCode == SlideMan.NEXT_SLIDE && storage.nowShowingChildIdx == storage.children.length -1){
-        //Pass
-    }else if (slideDirectionCode == SlideMan.PREV_SLIDE && storage.nowShyowingChildIdx == 0){
-        //Pass
+    }else if (slideDirectionCode == SlideMan.PREV_SLIDE && storage.nowShowingChildIdx == 0){
     }else{
         e.stopPropagation();
     }
+    e.preventDefault();
     //- Slide
     if (slideDirectionCode == SlideMan.PREV_SLIDE){
         this.slideToRight(viewer);

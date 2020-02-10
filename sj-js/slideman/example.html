@@ -9,10 +9,10 @@
 
     <meta name="libraryName" content="slideman" />
     <meta name="mdFileName" content="example" />
-    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
-    <meta name="menuJson" content='{"SlideMan":{"path":"slideman/index.html","fileName":"index","h2TextList":["👆","Index","1. Getting Started"],"h2PathList":["slideman/index.html#-","slideman/index.html#index","slideman/index.html#1-getting-started"]},"Event":{"path":"slideman/event.html","fileName":"event","h2TextList":["Test","With template"],"h2PathList":["slideman/event.html#test","slideman/event.html#with-template"]},"Example":{"path":"slideman/example.html","fileName":"example","h2TextList":[],"h2PathList":[]}}' />
+    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"crossman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
+    <meta name="menuJson" content='{"SlideMan":{"path":"slideman/index.html","fileName":"index","h2TextList":["👆","Index","1. Getting Started"],"h2PathList":["slideman/index.html#-","slideman/index.html#index","slideman/index.html#1-getting-started"]},"Event":{"path":"slideman/event.html","fileName":"event","h2TextList":["Test","With template"],"h2PathList":["slideman/event.html#test","slideman/event.html#with-template"]},"Example":{"path":"slideman/example.html","fileName":"example","h2TextList":["Slider in Slider"],"h2PathList":["slideman/example.html#slider-in-slider"]}}' />
     <meta name="menuOrderListJson" content='["SlideMan","Event","Example"]' />
-    <meta name="saveJson" content='' />
+    <meta name="saveJson" content='{"prefix":"<link rel=\"stylesheet\" href=\"../slideman/slideman.css\">\n<script src=\"../crossman/crossman.js\"></script>\n<script src=\"../slideman/slideman.js\"></script>\n<script>\n    var slideman = new SlideMan();\n</script>\n"}' />
 
 
 
@@ -80,6 +80,83 @@
 			<!-- View -->
 			<div id="help-view" class="help-view markdown github">
 			    <h1 id="example">Example</h1>
+<h2 id="slider-in-slider">Slider in Slider</h2>
+<p>
+<ul>
+<li>👨‍💻
+  <div class="lang-html">  &lt;script&gt;
+     slideman.detect();
+  &lt;/script&gt;
+  &lt;body&gt;
+      &lt;div data-type=&quot;slideview&quot; data-viewer=&quot;test-slider&quot; style=&quot;border:3px solid black; padding:5px;&quot;&gt;
+          &lt;div data-type=&quot;tap&quot;&gt;&lt;/div&gt;
+          &lt;div data-type=&quot;storage&quot;&gt;
+              &lt;!-- SLIDE 1 --&gt;
+              &lt;div data-slide&gt;
+                  &lt;div data-type=&quot;title&quot;&gt;1번째 슬라이드&lt;/div&gt;
+                  &lt;div&gt;
+                      모바일 경우 오른쪽으로(&lt;&lt;) 쓸어보세요.
+                  &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;!-- SLIDE 2 --&gt;
+              &lt;div data-slide&gt;
+                  &lt;div data-type=&quot;title&quot;&gt;2번째 슬라이드&lt;/div&gt;
+                  &lt;div&gt;
+                      안녕하세요!
+                  &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;!-- SLIDE 3 --&gt;  
+              &lt;div data-slide&gt;
+                  &lt;div data-type=&quot;title&quot;&gt;3번째 슬라이드&lt;/div&gt;
+                  &lt;div&gt;
+                      또 하나의 슬라이더가 있고 가장 하위의 슬라이더가 먼지 슬라이드 됩니다.
+                      &lt;div data-type=&quot;slideview&quot; data-viewer=&quot;test-slider-in-slider&quot; style=&quot;width:300px; height:100px; border:1px solid #555555;&quot;&gt;
+                          &lt;div data-type=&quot;index&quot;&gt;&lt;/div&gt;
+                          &lt;div data-type=&quot;storage&quot;&gt;
+                              &lt;div data-slide&gt;
+                                  &lt;div data-type=&quot;title&quot;&gt;가&lt;/div&gt;
+                                  &lt;div&gt;SINS 1번째&lt;/div&gt;
+                              &lt;/div&gt;
+                              &lt;div data-slide&gt;
+                                  &lt;div data-type=&quot;title&quot;&gt;나&lt;/div&gt;
+                                  &lt;div&gt;SINS 2번째&lt;/div&gt;
+                              &lt;/div&gt;
+                              &lt;div data-slide&gt;
+                                  &lt;div data-type=&quot;title&quot;&gt;다&lt;/div&gt;
+                                  &lt;div&gt;SINS 3번째&lt;/div&gt;
+                              &lt;/div&gt;
+                              &lt;div data-slide&gt;
+                                  &lt;div data-type=&quot;title&quot;&gt;라&lt;/div&gt;
+                                  &lt;div&gt;SINS 4번째&lt;/div&gt;
+                              &lt;/div&gt;
+                              &lt;div data-slide&gt;
+                                  &lt;div data-type=&quot;title&quot;&gt;마&lt;/div&gt;
+                                  &lt;div&gt;SINS 5번째&lt;/div&gt;
+                              &lt;/div&gt;
+                          &lt;/div&gt;
+                      &lt;/div&gt;
+                  &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;!-- SLIDE 4 --&gt;
+              &lt;div data-slide&gt;
+                  &lt;div data-type=&quot;title&quot;&gt;4번째 슬라이드&lt;/div&gt;
+                  &lt;div&gt;
+                      미끌미끌
+                  &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;!-- SLIDE 5 --&gt;  
+              &lt;div data-slide&gt;
+                  &lt;div data-type=&quot;title&quot;&gt;5번째 슬라이드&lt;/div&gt;
+                  &lt;div&gt;
+                      모바일 경우 오른쪽으로(&gt;&gt;) 쓸어보세요.                        
+                  &lt;/div&gt;
+              &lt;/div&gt; 
+          &lt;/div&gt;
+      &lt;/div&gt;
+  &lt;/body&gt;
+</div>
+</li>
+</ul>
 
 			</div>
 

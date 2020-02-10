@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<HTML> 
+	<meta charset="utf-8" />	
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<meta name=apple-mobile-web-app-capable content=yes />
+	<meta name=mobile-web-app-capable content=yes />
+	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
+	<meta http-equiv=X-UA-Compatible content="IE=edge, chrome=1" />
+
+    <meta name="libraryName" content="crossman" />
+    <meta name="mdFileName" content="index" />
+    <meta name="headerMenuJson" content='{"boxman":{},"popman":{},"keyman":{},"menuman":{},"fixman":{},"partman":{},"slideman":{},"crossman":{},"sjdoc-maker":{},"variableman":{},"jelly":{}}' />
+    <meta name="menuJson" content='{"CrossMan":{"path":"crossman/index.html","fileName":"index","h2TextList":["🤹‍♂️","Functions to start","0. Index","1. Getting Started"],"h2PathList":["crossman/index.html#-","crossman/index.html#functions-to-start","crossman/index.html#0-index","crossman/index.html#1-getting-started"]},"Element Control":{"path":"crossman/element-control.html","fileName":"element-control","h2TextList":[],"h2PathList":[]},"Object Control":{"path":"crossman/object-control.html","fileName":"object-control","h2TextList":[],"h2PathList":[]},"XHR Control":{"path":"crossman/xhr-control.html","fileName":"xhr-control","h2TextList":["getXHR","postXHR"],"h2PathList":["crossman/xhr-control.html#getxhr","crossman/xhr-control.html#postxhr"]},"Event Control":{"path":"crossman/event-control.html","fileName":"event-control","h2TextList":[],"h2PathList":[]}}' />
+    <meta name="menuOrderListJson" content='["CrossMan","Element Control","Object Control","XHR Control","Event Control"]' />
+    <meta name="saveJson" content='{"prefix":"  <script src=\"../crossman/crossman.js\"></script>\n"}' />
+
+
+
+	<head>
+		<title>crossman - index</title>
+
+		<!-- ★highlight.js -->
+		<!--
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+		-->
+        <!--
+		    <script src="../lib/highlightjs/highlight.min.js"></script>
+		-->
+		<link rel="stylesheet" href="../lib/highlightjs/default.min.css">
+
+
+
+
+        <!-- Template CSS -->
+        <!--
+            <link rel="stylesheet" href="../css/style.min.css">
+        -->
+        <link rel="stylesheet" href="../css/github.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/markdown.css">
+	<script type="text/javascript" src="../../sj-js/js/sj-js.bundle.js"></script></head>
+
+
+                              
+	<body class="boxman-1">
+
+
+		<!-- TEST -->
+		<!--
+		<div data-box>test box</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		<div data-obj>test obj</div>
+		-->
+
+
+        <!-- /////////////////////////
+             Header
+        ///////////////////////// -->
+        <div id="help-header" class="help-header test">
+            <ul id="help-header-menulist" class="menu-type-a test">
+            </ul>
+        </div>
+
+
+        <!-- /////////////////////////
+            Context
+        ///////////////////////// -->
+		<div id="help-context" class="help-context">
+
+			<!-- Menu -->
+			<div id="help-menu" class="help-menu">
+			    <div id="help-menu-context" style="width:100%; height:100%; background:#ffffff; overflow:auto;">
+                    <ul id="help-menu-menulist" class="menu-type-b test" >
+                    </ul>
+			    </div>
+			</div>
+
+			<!-- View -->
+			<div id="help-view" class="help-view markdown github">
+			    <h1 id="crossman">CrossMan</h1>
+<h2 id="-">🤹‍♂️</h2>
+<p><a href="https://travis-ci.org/sj-js/crossman"><img src="https://travis-ci.org/sj-js/crossman.svg?branch=master" alt="Build Status"></a>
+<a href="https://github.com/sj-js/crossman/releases"><img src="https://img.shields.io/github/downloads/sj-js/crossman/total.svg" alt="All Download"></a>
+<a href="https://github.com/sj-js/crossman/releases"><img src="https://img.shields.io/github/release/sj-js/crossman.svg" alt="Release"></a>
+<a href="https://github.com/sj-js/crossman/releases"><img src="https://img.shields.io/github/license/sj-js/crossman.svg" alt="License"></a></p>
+<ul>
+<li><strong>sj-js</strong>의 기반이 되는 <code>Util &amp; Framework</code>로서 제작되고 있습니다. </li>
+<li><code>CrossBrowsing</code>과 <code>쉬운 인터페이스</code> 구현을 목표로 합니다.</li>
+<li>✨ Source: <a href="https://github.com/sj-js/crossman">https://github.com/sj-js/crossman</a></li>
+<li>✨ Document: <a href="https://sj-js.github.io/sj-js/crossman">https://sj-js.github.io/sj-js/crossman</a></li>
+</ul>
+<h2 id="functions-to-start">Functions to start</h2>
+<ol>
+<li><code>getEl(ID &amp; ELEMENT)</code>: ID와 Element를 매개로 해당 Element를 편집합니다. </li>
+<li><code>searchEl(SELECTOR)</code>: querySelector를 사용하여 해당 Element를 편집합니다.</li>
+<li><code>newEl(TAGNAME)</code>: 새로운 Element 생성을 시작으로 해당 Element를 편집합니다.</li>
+<li><code>cloneEl(ID &amp; ELEMENT)</code>: 기존 Element를 &#39;clone&#39;을 시작으로 해당 Element를 편집합니다.</li>
+<li><code>getData(OBJECT)</code>: 다양한 자료형(Number, Object, Array..) 데이터로 편집합니다.</li>
+<li><code>getXHR(OBJECT)</code>: HTTP프로토콜로 Request를 보냅니다.<ul>
+<li>postXHR, putXHR, deleteXHR  </li>
+</ul>
+</li>
+<li><code>ready(FUNCTION)</code>: Document 문서를 불러온 후 작동합니다. 기존 JQuery의 ready와 유사합니다.  </li>
+<li><code>SjEvent</code>: 자체 Event를 관리할 수 있는 솔루션을 제공합니다. 각종 <ul>
+<li>addEventListener, removeEventListener, hasEventListener, execEventListener ...</li>
+</ul>
+</li>
+</ol>
+<h2 id="0-index">0. Index</h2>
+<p><ul>
+<li><a href="../crossman/index.html">CrossMan</a></li>
+<li><a href="../crossman/element-control.html">Element Control</a></li>
+<li><a href="../crossman/object-control.html">Object Control</a></li>
+<li><a href="../crossman/xhr-control.html">XHR Control</a></li>
+<li><a href="../crossman/event-control.html">Event Control</a></li>
+</ul><h2 id="1-getting-started">1. Getting Started</h2>
+<h3 id="1-1-how-to-load-">1-1. How to load?</h3>
+<ul>
+<li>Browser<pre><code class="lang-html">  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@sj-js/crossman/dist/js/crossman.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+  
+</li>
+<li>ES6+<pre><code class="lang-bash">  npm i @sj-js/crossman
+</code></pre>
+<pre><code class="lang-js">  const { ready, getEl, newEl, cloneEl, searchEl, getData, SjEvent, getXHR, postXHR, putXHR, deleteXHR } = require(&#39;@sj-js/crossman&#39;);
+</code></pre>
+</li>
+</ul>
+<h3 id="1-2-simple-example">1-2. Simple Example</h3>
+<ul>
+<li>For convenience, the following code, which loads and creates a Library in the example, is omitted.</li>
+</ul>
+<h5 id="getel-">getEl()</h5>
+<ul>
+<li>👨‍💻
+  <div class="lang-html">  &lt;body&gt;
+      Hello CrossMan!&lt;br/&gt;
+      &lt;span id=&quot;test-span-1&quot; class=&quot;test-cls&quot;&gt;Hey?&lt;/span&gt;
+      &lt;span id=&quot;test-span-2&quot; class=&quot;test-cls&quot;&gt;Anybody&lt;/span&gt;
+      &lt;span id=&quot;test-span-3&quot; class=&quot;test-cls&quot;&gt;There??&lt;/span&gt;
+  &lt;/body&gt;
+  &lt;script&gt;
+      var testSpan = getEl(&#39;test-span-1&#39;).add(&#39;Hello??&#39;).style(&#39;color:white; background:black;&#39;).returnElement();
+      testSpan.style.fontSize = &#39;35px&#39;;
+  &lt;/script&gt;   
+</div>
+</li>
+</ul>
+<h5 id="searchel-">searchEl()</h5>
+<ul>
+<li>👨‍💻
+  <div class="lang-html">  &lt;body&gt;
+      Hello CrossMan!&lt;br/&gt;
+      &lt;span id=&quot;test-span-1&quot; class=&quot;test-cls&quot;&gt;Hey&lt;/span&gt;
+      &lt;span id=&quot;test-span-2&quot; class=&quot;test-cls&quot;&gt;Hey&lt;/span&gt;
+      &lt;span id=&quot;test-span-3&quot; class=&quot;dev-cls&quot;&gt;Hey&lt;/span&gt;
+      &lt;span id=&quot;test-span-4&quot; class=&quot;test-cls&quot;&gt;Hey&lt;/span&gt;
+  &lt;/body&gt;
+  &lt;script&gt;
+      searchEl(&#39;.test-cls&#39;).add(&#39;Hello??&#39;).style(&#39;color:white; background:black; font-size:35px;&#39;);
+  &lt;/script&gt;   
+</div>
+</li>
+</ul>
+<h5 id="newel-">newEl()</h5>
+<ul>
+<li>👨‍💻
+  <div class="lang-html">  &lt;style&gt;
+      div { border:1px solid black; margin:2px; }
+      button { border-radius:30px; height:20px; cursor:pointer; }
+  &lt;/style&gt;
+  &lt;body&gt;
+      Hello CrossMan!&lt;br/&gt;
+  &lt;/body&gt;
+  &lt;script&gt;
+      newEl(&#39;div&#39;).addClass([&#39;test-container&#39;, &#39;outer&#39;]).style(&#39;width:100%;&#39;).add([
+          newEl(&#39;div&#39;).attr(&#39;id&#39;, &#39;top&#39;).html(&#39;[TOP SOMETHING]&#39;),
+          newEl(&#39;div&#39;).addClass(&#39;test-title&#39;).html(&#39;Hello? How about CrossMan?&lt;br/&gt;&#39;),
+          newEl(&#39;div&#39;).addClass(&#39;test-content&#39;).style(&#39;border:3px dashed gray; color:white; background:black;&#39;).addln([
+              &#39;Love all and all and all.. OK?&#39;,
+              newEl(&#39;span&#39;).html(&#39;Why are you seeing it? for what?&#39;).add([
+                  newEl(&#39;button&#39;).html(&#39;SQUARE&#39;).addEventListener(&#39;click&#39;, function(){ 
+                      getEl(&#39;top&#39;).add( 
+                          newEl(&#39;span&#39;).style(&#39;display:inline-block; width:30px; height:30px;&#39;).setStyle(&#39;background&#39;, &#39;#&#39; +getData().randomColor()) 
+                      ) 
+                  }),
+                  newEl(&#39;button&#39;).html(&#39;CIRCLE&#39;).addEventListener(&#39;click&#39;, function(){
+                      getEl(&#39;top&#39;).add( 
+                          newEl(&#39;span&#39;).style(&#39;display:inline-block; width:30px; height:30px; border-radius:30px;&#39;).setStyle(&#39;background&#39;, &#39;#&#39; +getData().randomColor()) 
+                      )        
+                  }),
+              ])
+          ])   
+      ]).appendTo(document.body);
+  &lt;/script&gt;   
+</div>
+</li>
+</ul>
+<h5 id="cloneel-">cloneEl()</h5>
+<ul>
+<li>👨‍💻
+  <div class="lang-html">  &lt;body&gt;
+      Hello CrossMan!&lt;br/&gt;
+      &lt;button id=&quot;test-button&quot;&gt;CLONE&lt;/button&gt;
+      &lt;span id=&quot;test-span&quot; style=&quot;color:white; background:#BBBBBB; margin:1px; cursor:pointer;&quot;&gt;Hi Hi Hi&lt;/span&gt;
+  &lt;/body&gt;
+  &lt;script&gt;
+      var latestId = 0;
+      getEl(&#39;test-button&#39;).addEventListener(&#39;click&#39;, function(e){
+          var elementId = &#39;test-&#39; + (++latestId);
+          var testSpan = cloneEl(&#39;test-span&#39;, true)
+                            .attr(&#39;id&#39;, elementId)
+                            .add(elementId)
+                            .addEventListener(&#39;mouseover&#39;, function(){ getEl(testSpan).setStyle(&#39;background&#39;, &#39;#555555&#39;); })
+                            .addEventListener(&#39;mouseout&#39;, function(){ getEl(testSpan).setStyle(&#39;background&#39;, &#39;#BBBBBB&#39;); })
+                            .addEventListener(&#39;click&#39;, function(){ alert(elementId); })
+                            .appendToNextOf(&#39;test-span&#39;)
+                            .returnElement();
+      });
+  &lt;/script&gt;   
+</div>
+</li>
+</ul>
+<h5 id="getdata-">getData()</h5>
+<ul>
+<li>👨‍💻
+  <div class="lang-html">  &lt;style&gt;
+      div { border:1px solid black; margin:2px; }
+  &lt;/style&gt;
+  &lt;body&gt;
+      Hello CrossMan!&lt;br/&gt;
+      &lt;span id=&quot;test-span&quot;&gt;&lt;/span&gt;
+  &lt;/body&gt;
+  &lt;script&gt;
+      var dataList = [8, 2, 9, 2, 1, 5, 5, 4];
+      var testSpan = getData(dataList).each(function(it){
+          getEl(&#39;test-span&#39;).add(it);
+      });
+  &lt;/script&gt;   
+</div>
+</li>
+</ul>
+<h5 id="getxhr-">getXHR()</h5>
+<ul>
+<li>👨‍💻
+  <div class="lang-html">  &lt;body&gt;
+      Hello CrossMan!&lt;br/&gt;
+      &lt;span id=&quot;test-span&quot;&gt;&lt;/span&gt;
+  &lt;/body&gt;
+  &lt;script&gt;
+      getXHR(&#39;./&#39;).request(
+          function(e){ //success 
+              getEl(&#39;test-span&#39;).add(&#39;[success]&#39;).add(e);    
+          },
+          function(e){ //error
+              getEl(&#39;test-span&#39;).add(&#39;[error]&#39;);    
+          },
+          function(e){ //finally
+              getEl(&#39;test-span&#39;).add(&#39;[finally]&#39;);                  
+          },
+      );
+  &lt;/script&gt;
+</div>
+</li>
+</ul>
+<h5 id="ready-">ready()</h5>
+<ul>
+<li>👨‍💻
+  <div class="lang-html">  &lt;script&gt;
+      ready(function(){
+          var testSpan = getEl(&#39;test-span&#39;).add(&#39;Hello??&#39;).style(&#39;color:white; background:black;&#39;).returnElement();
+          testSpan.style.fontSize = &#39;35px&#39;;
+      });
+  &lt;/script&gt;
+  &lt;body&gt;
+      Hello CrossMan!&lt;br/&gt;
+      &lt;span id=&quot;test-span&quot;&gt;&lt;/span&gt;
+  &lt;/body&gt;
+</div>
+</li>
+</ul>
+<h5 id="sjevent">SjEvent</h5>
+<ul>
+<li>👨‍💻
+  <div class="lang-html">  &lt;body&gt;
+      &lt;span id=&quot;test-span&quot;&gt;&lt;/span&gt;
+  &lt;/body&gt;
+  &lt;script&gt;
+      function Something(){
+          this.sjEvent = new SjEvent();
+      }
+      var something = new Something();
+      something.sjEvent.addEventListenerByEventName(&#39;action&#39;, function(e){ 
+          getEl(&#39;test-span&#39;).html(e.data); 
+      });
+      something.sjEvent.execEventListenerByEventName(&#39;action&#39;, {
+          type:1, data:&#39;I know this is not enough explain.&#39;
+      });       
+  &lt;/script&gt;   
+</div>
+</li>
+</ul>
+
+			</div>
+
+		</div>
+
+
+        <!-- /////////////////////////
+            MINI-MENU
+        ///////////////////////// -->
+        <div id="mini-menu-button" style="position:fixed; top:50px; left:3px;">
+            <button style="width:40px; height:40px; opacity:0.85; font-weight:bold;">...</button>
+        </div>
+
+
+        <!-- /////////////////////////
+            Footer
+        ///////////////////////// -->
+        <div id="help-footer" class="help-footer">
+        </div>
+
+	</body>
+
+
+
+</HTML>
