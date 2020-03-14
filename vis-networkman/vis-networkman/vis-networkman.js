@@ -80,6 +80,7 @@ function VisNetworkMan(option){
                 ctx.strokeStyle = '#d4d6d6';
                 ctx.fillStyle = color || '#d6d8d6';
                 ctx.beginPath();
+                var radius = visnetworkman.globalOption.extendsOption.backgroundRadiusBeforeDrawing;
                 ctx.arc(nodePosition.x, nodePosition.y, radius, 0, 2 * Math.PI, false);
                 ctx.closePath();
                 ctx.fill();
